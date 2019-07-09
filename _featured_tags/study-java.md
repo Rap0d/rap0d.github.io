@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: React
-slug: react
-category: video
+title: Java
+slug: java
+category: study
 menu: false
 order: 1
 ---
