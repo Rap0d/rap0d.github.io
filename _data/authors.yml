@@ -22,7 +22,7 @@ rap0d:
   # Comment/uncommet to show/hide
   # Icons appear in order, can be rearranged:
   social:
-    facebook:        
+    # facebook:        
     # twitter:         <username>
     # google:          <number>
     # vk:              <username>
@@ -58,7 +58,7 @@ rap0d:
     # stumbleupon:     <username>
     # paypal:          <username>
     email:           mailto:changsh9155@naver.com
-    rss:
+    # rss:
 
 # Another author
 mdo:
