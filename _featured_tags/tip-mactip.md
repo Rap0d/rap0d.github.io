@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Tip
-slug: tip
+title: Mac Tip
+slug: mactip
 category: tip
 menu: false
 order: 1
