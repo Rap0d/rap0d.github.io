@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: Tip
+title: Other Tips
 slug: etctip
 category: tip
 menu: false
