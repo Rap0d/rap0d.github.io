@@ -6,6 +6,8 @@ categories: tip
 tags: tip etctip
 ---
 
+![vscode](/assets/img/tip/etctip/vscode_logo.png "VsCode")
+
 ## Overview
 
 Visual Studio Code에서 내부 터미널을 사용할 수 없는 경우 해결방안
