@@ -25,4 +25,4 @@ tags: study java
 ***
 
 ### 참고 문서
-- (https://mommoo.tistory.com/41)
+- [DownCasting](https://mommoo.tistory.com/51)

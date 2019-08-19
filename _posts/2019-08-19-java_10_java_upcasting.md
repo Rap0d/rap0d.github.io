@@ -89,8 +89,14 @@ Parent parent = (Parent) new Child();
 왜냐하면 Parent 데이터형에 Child형 데이터를 넣어 생기는 아래와 같은 구식도 때문이다.
 
 # &nbsp;&nbsp;&nbsp;&nbsp;Parent
-# &nbsp;&nbsp;&nbsp;&nbsp;$$\Uparrow$$
+# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$$\Uparrow$$
 # &nbsp;&nbsp;&nbsp;&nbsp;Child
+
+Parent에 Child 데이터를 넣으므로 화살표 방향이 위로 향하게 된다.
+
+이런식으로 구조를 이해한다면 업캐스팅인 경우를 외우지 않아도 가능할 것이다.
+
+다음 포스팅에서는 [다운캐스팅](https://rap0d.github.io/study/2019/08/19/java_11_java_downcasting/)에 대해 다룬다.
 
 ***
 
