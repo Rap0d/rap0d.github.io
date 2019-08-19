@@ -27,7 +27,7 @@ author:
 
 # Fallback image and color
 image:               /assets/img/rap0d/up.JPG
-color:               '#C09BD5'
+color:               '#7B5C8E'
 
 # The font used for headings. Expects a string that is a valid CSS font-family value.
 font_heading:        "'Lato', 'Sans-serif'"

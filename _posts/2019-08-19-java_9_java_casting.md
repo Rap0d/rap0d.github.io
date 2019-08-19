@@ -10,6 +10,7 @@ tags: study java
 
 **Casting**(형변환)은 **OOP**(객체지향프로그래밍)에서 중요한 개념이다. 이 포스트에서는 Java를 통해 설명한다.
 
+***
 
 ### Casting
 
@@ -67,9 +68,9 @@ double b = 1;
 
 따라서, 위 개념과 같이 기본적으로 다운캐스팅은 성립되지 않는 개념이다.
 
-다음 포스팅에서 업캐스팅과 다운캐스팅에 대해 알아본다.
+다음 포스팅에서 [업캐스팅](https://rap0d.github.io/study/2019/08/19/java_10_java_upcasting/)과 다운캐스팅에 대해 알아본다.
 
 ***
 
 ### 참고 문서
-- (https://mommoo.tistory.com/40)
+- [Casting](https://mommoo.tistory.com/40)
