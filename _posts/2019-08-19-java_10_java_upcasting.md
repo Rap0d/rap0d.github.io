@@ -47,7 +47,7 @@ Child는 Parent 클래스를 상속 받으므로 Child 클래스가 Parent 클�
 그 이유는 Child 클래스는 적어도 Parent 클래스의 데이터를 가지고 있기 때문이다.
 
 # Parent
-# &nbsp
+# &nbsp;
 # Child
 
 때문에 많은 사람들이 두 클래스를 표현할때 위와 같이 한다.
@@ -58,4 +58,4 @@ Child는 Parent 클래스를 상속 받으므로 Child 클래스가 Parent 클�
 ***
 
 ### 참고 문서
-- (https://mommoo.tistory.com/41)
+- [UpCasting](https://mommoo.tistory.com/41)
