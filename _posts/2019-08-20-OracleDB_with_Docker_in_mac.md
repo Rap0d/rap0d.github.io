@@ -84,16 +84,16 @@ SQL Developer를 받기 전에 PC에 [자바](https://www.oracle.com/technetwork
 
 연결 Name을 지정하고 다음 Default 정보를 입력한다.
 
->>Username : system
->>Password : oracle
+> Username : system  
+> Password : oracle
 
 포트는 1521포트와 포워딩된 포트를 확인하여 넣어주고 테스트 후 접속한다.
 
-### MacOS에서 나타나는 Locale not recognized 에러 해결
+### MacOS Sierra부터 나타나는 Locale not recognized 에러 해결
 
 ![sql_error_1](/assets/img/tip/mactip/oracle/sql_error_1.png "sql_error_1") 
 
-해당 에러를 해결하기 위해 Finder에서 SQLDeveloper.app을 우클릭 -> 패키지 내용 보기를 클릭한다..
+해당 에러를 해결하기 위해 Finder에서 SQLDeveloper.app을 우클릭 -> 패키지 내용 보기를 클릭한다.
 
 아래와 같은 경로를 따라 sqldeveloper.conf 내용을 변경해주어야 한다.
 
