@@ -72,7 +72,7 @@ Oracle xe 11g를 검색하여 보면 다음과 같이 나온다.
 
 ### 오라클DB 서버 연결
 
-Docker에 올린 오라클DB 서버와 연결하여 테스팅 하기 위해 SQL Developer를 설치한다.
+Docker에 올린 오라클DB 서버와 연결하여 테스팅 하기 위해 **SQL Developer**를 설치한다.
 
 SQL Developer를 받기 전에 PC에 [자바](https://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html)가 설치되어 있어야 한다.
 
@@ -93,9 +93,9 @@ SQL Developer를 받기 전에 PC에 [자바](https://www.oracle.com/technetwork
 
 ![sql_error_1](/assets/img/tip/mactip/oracle/sql_error_1.png "sql_error_1") 
 
-해당 에러를 해결하기 위해 Finder에서 SQLDeveloper.app을 우클릭 -> 패키지 내용 보기를 클릭한다.
+해당 에러를 해결하기 위해 Finder에서 `SQLDeveloper.app`을 우클릭 -> 패키지 내용 보기를 클릭한다.
 
-아래와 같은 경로를 따라 sqldeveloper.conf 내용을 변경해주어야 한다.
+아래와 같은 경로를 따라 `sqldeveloper.conf` 내용을 변경해주어야 한다.
 
 `Contents/Resources/sqldeveloper/sqldeveloper/bin/sqldeveloper.conf`
 
