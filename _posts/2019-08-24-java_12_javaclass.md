@@ -30,7 +30,7 @@ Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절�
 
 프로그래밍 언어에서 객체가 다음과 같은 특성을 가질 때 객체 지향적이라고 한다.
 
-#### 캡슐화(Encapsulation)
+#### 1. 캡슐화(Encapsulation)
 
 캡슐화란 객체를 캡슐로 싸서 그 내부를 보호하고 볼 수 없게하는 것을 말한다.
 
@@ -46,7 +46,7 @@ Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절�
 
 ![객체](/assets/img/study/java/190824_fig_1.png)
 
-#### 상속(Ingeritance)
+#### 2. 상속(Ingeritance)
 
 **상속**은 상위 개체의 속성이 하위 개체에 물려져, 하위 개체가 상위 개체의 속성을 모두 가지고 있음을 의미하는 관계이다.
 
@@ -58,7 +58,7 @@ Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절�
 
 즉 상속은 **코드의 재사용**을 가능하게 한다.
 
-#### 다형성(Polymorphism)
+#### 3. 다형성(Polymorphism)
 
 **다형성**은 같은 이름의 함수 호출에 대해 객체에 따라 다른 동작을 할 수 있도록 구현되는 것을 의미한다.
 
