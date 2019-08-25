@@ -72,7 +72,7 @@ Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절�
 
 ***
 
-## 클래스
+## 클래스와 객체
 
 **객체 지향 프로그래밍**에서 실제 세상의 물체들을 객체로 모델링을 한다.
 
@@ -155,12 +155,91 @@ public static void main(String args[]) {
     - `aPerson = new Person("김길동");`
     - 이 문장은 생성된 `Person` 객체에 대한 레퍼런스 값을 `aPerson` 변수에 대입한다.
     - `new` 연산자에 의해 객체가 생성되는 과정은 다음과 같다.
-        > `Person` 타입의 객체 메모리 공간확보  
-        > `Person(String s) {...}` 생성자가 생성되어 `name` 필드 값을 `"김길동"`으로 설정
+        > 1. `Person` 타입의 객체 메모리 공간확보  
+        > 2. `Person(String s) {...}` 생성자가 생성되어 `name` 필드 값을 `"김길동"`으로 설정
 
-***
+### 객체 멤버 접근
 
-## 객체
+객체의 멤버에 접근할 때는 다음과 같이 점(.) 연산자를 붙인다.
+
+> 객체 레퍼런스.멤버
+
+예를 들어, 다음 코드는 aPerson 객체의 age 필드에 30을 대입한다.
+
+```java
+aPerson.age = 30;
+```
+
+반대로 aPerson 객체의 age 필드의 값을 읽어내고자 하면 다음과 같이 할 수 있다.
+
+```java
+int i = aPerson.age;
+```
+
+다음 코드는 aPerson 객체의 getName() 메소드를 호출한다.
+
+```java
+String s = aPerson.getName();
+```
+
+> Ex. 지수 클래스 MyExp
+
+```java
+/**
+* code_03
+*/
+public class MyExp {
+    int base;
+    int exp;
+    int getValue() {
+        int res=1;
+        for (int i = 0; i < exp; i++) {
+            res = res * base;
+        }
+        return res;
+    }
+
+    public static void main(String[] args) {
+        MyExp num1 = new MyExp();
+        num1.base = 2;
+        num1.exp = 3;
+        MyExp num2 = new MyExp();
+        num2.base = 3;
+        num2.exp = 4;
+
+        System.out.println("2의 3승 =" + num1.getValue());
+        System.out.println("3의 4승 =" + num2.getValue());
+    }
+}
+```
+
+> MyExp는 지수 값을 표현하는 클래스로서 두 개의 정수형 멤버 필드 base와 exp를 가진다.  
+> $$2^3$$의 경우, base는 2이며, exp는 3이다. 또한 MyExp는 정수 값을 리턴하는 getValue()라는 메소드를 제공한다.  
+> getValue()는 base와 exp값으로부터 지수를 계산하여 정수 값으로 리턴한다.  
+> 예를 들어, base가 2, exp가 3이라면 getValue()는 8을 리턴한다.  
+
+### 객체 배열
+
+자바 기본타입의 배열과 같이 객체가 원소인 객체 배열도 만들 수 있다.
+
+객체 배열이란 객체에 대한 레퍼런스를 원소로 갖는 배열이다.
+
+다음 코드를 이용하여 객체 배열을 설명한다.
+
+```java
+/**
+* code_04
+*/
+Person[] pa;                // 배열에 대한 레퍼런스 선언
+pa = new Person[10];        // 레퍼런스 배열 생성
+for (int i = 0; i < pa.length; i++) {
+    pa[i] = new Person();   // 배열의 원소 객체 생성
+    pa[i].age = 30 + i;     // 객체 배열 사용
+}
+for (int i = 0; i < pa.length; i++) {   // 배열 원소 출력
+    System.out.println(pa[i].age);
+}
+```
 
 ***
 
