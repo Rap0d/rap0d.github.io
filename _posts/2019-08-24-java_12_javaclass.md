@@ -155,8 +155,8 @@ public static void main(String args[]) {
     - `aPerson = new Person("김길동");`
     - 이 문장은 생성된 `Person` 객체에 대한 레퍼런스 값을 `aPerson` 변수에 대입한다.
     - `new` 연산자에 의해 객체가 생성되는 과정은 다음과 같다.
-        - > `Person` 타입의 객체 메모리 공간확보  
-        - > `Person(String s) {...}` 생성자가 생성되어 `name` 필드 값을 "김길동"으로 설정
+        > `Person` 타입의 객체 메모리 공간확보  
+        > `Person(String s) {...}` 생성자가 생성되어 `name` 필드 값을 `"김길동"`으로 설정
 
 ***
 
