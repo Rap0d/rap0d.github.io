@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://rap0d.github.io/sitemap.xml
