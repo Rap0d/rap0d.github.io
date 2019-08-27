@@ -460,7 +460,7 @@ public class Ex {
 
 *static* 멤버는 클래스당 하나만 있기 때문에 다음과 같이 클래스 이름으로 바로 접근할 수 있다.
 
-```java
+```
 클래스명.static멤버
 ```
 
@@ -485,6 +485,42 @@ StaticSample.f();   // 클래스명을 이용하여 static 멤버 f() 호출
 
 이는 **캡슐화의 원칙** 때문이다.
 
+그러나 응용프로그램 작성 시 모든 클래스에서 공유하는 전역 변수(global variable)나 모든 클래스에서 언제든지 호출할 수 있는 전역 함수(global function)를 만들어 사용할 필요가 생긴다.
+
+static은 이런 문제에 대한 해결책이다.
+
+대표적인 클래스가 JDK와 함께 배포되는 java.lang.Math 클래스이다.
+
+이 클래스는 다음과 같이 객체를 생성하지 않고 바로 호출할 수 있는 수학 계산용 상수와 메소드를 제공한다.
+
+```java
+public class Math {
+    public static int abs(int a);
+    public static double cos(double a);
+    public static int max(int a, int b);
+    public static double random();
+    ...
+}
+```
+
+Math의 멤버를 사용하기 위해 다음과 같이 **하지 않는다.**
+```java
+Math m = new Math();
+int n = m.abs(-5);
+```
+
+객체를 만들지 않고 다음과 같이 바로 static 멤버를 사용한다.
+```java
+int n = Math.abs(-5);
+```
+
+#### 공유 멤버를 만들고자 할 때 활용
+
+static으로 선언된 필드나 메소드는 모두 이 클래스의 각 객체들의 공통 멤버가 되며 객체들 사이에서 공유된다.
+
+### static 메소드의 제약 조건
+
+#### static 메소드는 오직 static 멤버만 접근할 수 있다.
 
 ***
 
