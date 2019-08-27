@@ -522,6 +522,45 @@ static으로 선언된 필드나 메소드는 모두 이 클래스의 각 객체
 
 #### static 메소드는 오직 static 멤버만 접근할 수 있다.
 
+static 메소드는 객체가 생성되지 않은 상황에서도 사용이 가능하므로 객체에 속한 인스턴스 메소드, 인스턴스 변수 등을 사용할 수 없다.
+
+다만 static 멤버들만 사용가능하다.
+
+그러나 인스턴스 메소드는 static 멤버들을 모두 사용할 수 있다.
+
+static 메소드를 사용하는 예를 들어보자.
+
+```java
+class StaticMethod {
+    int n;
+    void f1(int x) {n = x;} // 정상
+    void f2(int x) {m = x;} // 정상
+    
+    static int m;
+    static void s1(int x) {n = x;}  // 컴파일 오류. static 메소드는 non-static 필드 사용 불가
+    static void s2(int x) {f1(3);}  // 컴파일 오류. static 메소드는 non-static 필드 사용 불가
+    
+    static void s3(int x) {m = x;}  // 정상. static 메소드는 static 필드 사용 가능
+    static void s4(int x) {s3(3);}  // 정상. static 메소드는 static 필드 사용 가능
+}
+```
+
+#### static 메소드에서는 this 키워드를 사용할 수 없다.
+
+static 메소드는 객체가 생성되지 않은 상황에서도 클래스 이름을 이용하여 호출이 가능하기 때문에 호출 당시 실행 중인 객체를 가리키는 this 레퍼런스를 사용할 수 없다.
+
+static 메소드에서 this를 사용할 수 없는 경우의 예를 들어보자.
+
+```java
+class StaticAndThis {
+    int n;
+    static int m;
+    void f1(int x) {this.n = x;} // 정상
+    void f2(int x) {this.m = x;} // non-static 메소드에서는 static 멤버 접근 가능
+    static void s1(int x) {this.n = x;}  // 컴파일 오류. static 메소드는 this 사용 불가
+}
+```
+
 ***
 
 ## 생성자(Constructor)
@@ -954,14 +993,9 @@ public static void main(String[] args) {
 
 ***
 
-## 추상 메소드(Abstract Method)
-
-### 추상 메소드를 사용하는 이유
-
-***
-
 ## 추상 클래스(Abstract Class)
-
+### 추상 메소드(Abstract Method)
+### 추상 메소드를 사용하는 이유
 ### 추상 클래스를 만드는 방법
 
 ***
