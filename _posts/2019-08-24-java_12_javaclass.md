@@ -490,7 +490,8 @@ DefaultConstructor p = new DefaultConstructor();
 
 ```java
 /**
-* code_08   // 생성자가 정의되지 않은 클래스
+* code_08
+* 생성자가 정의되지 않은 클래스
 */
 public class DefaultConstructor {
     int x;
@@ -505,7 +506,8 @@ public class DefaultConstructor {
 ```
 ```java
 /**
-* code_09   // 컴파일러에 의해 보이지 않게 자동으로 기본 생성자 삽입
+* code_09
+* 컴파일러에 의해 보이지 않게 자동으로 기본 생성자 삽입
 */
 public class DefaultConstructor {
     int x;
@@ -528,7 +530,8 @@ public class DefaultConstructor {
 
 ```java
 /**
-* code_10   // 컴파일러가 기본 생성자를 자동으로 삽입하지 않은 경우의 예
+* code_10
+* 컴파일러가 기본 생성자를 자동으로 삽입하지 않은 경우의 예
 */
 public class DefaultConstructor {
     int x;
@@ -619,6 +622,56 @@ public Book() {
 ***
 
 ## 접근 지정자(제어자)
+
+객체 지향 언어에는 기본적으로 **접근 지정자**의 개념이 있다.
+
+객체를 캡슐화하기 때문에 다른 객체가 접근하는 것을 허용할 것인지 말지를 지정할 필요가 있다.
+
+자바에서는 다음 4가지 접근 지정 방식을 정의하고 있다.
+
+> private, protected, public, 접근 지정자 생략(default)
+
+### 클래스 접근 지정자
+
+**클래스 접근 지정**이란 다른 클래스에서 이 클래스 이름을 사용할 수 있는지 허용 여부를 지정하는 것을 말한다.
+
+클래스 접근 지정자는 클래스 선언 부분에 표시되며 **public**과 **디폴트**의 2가지가 있다.
+
+#### public 
+public 접근 지정자로 선언된 클래스는 어떤 다른 클래스에서도 사용할 수 있다.
+
+아래 소스에는 두 개의 클래스가 구현되어 있으며, 이들을 컴파일하면 AccessSample.class파일과 UseSample.class 파일이 생성된다.
+
+이 두 클래스 파일이 동일한 디렉터리(패키지)에 있을 수 있고 없을 수도 있다. 그러나 이들이 존재하는 디렉터리 위치에 관계없이 UseSample클래스는 AccessSample 클래스를 사용할 수 있다.
+
+이것은 AccessSample 클래스가 public 으로 선언되어 있기 때문이다.
+
+```java
+public class AccessSample { // AccessSample 클래스는 public으로 선언되어
+    ...                     // 있으므로 타 클래스의 접근이 허용된다.
+}
+
+class UseSample {
+    AccessSample a;         // AccessSample이 public 타입이므로 사용 가능
+    ...
+    public void f() {
+        a = new AccessSample(); // AccessSample이 public 타입이므로 사용 가능
+        ...
+    }
+    ...
+}
+```
+
+#### 접근 지정자 생략(default)
+접근 지정자를 생략하고 클래스를 선언한 경우 default 접근 지정자로 선언되었다고 한다.
+
+이 경우는 같은 패키지 내에 있는 클래스들만이 default 접근 지정자로 선언된 클래스로의 접근이 허용된다.
+
+### 멤버 접근 지정자
+
+클래스의 멤버인 필드와 메소드의 접근 지정자는 클래스 접근 지정자와 달리 4가지가 있다.
+
+![ad](../assets/img/study/java/190827_fig_1.png)
 
 ***
 
