@@ -349,6 +349,86 @@ void set(int id) {this.id = id;}
 
 ## static 키워드
 
+**static으로** 선언된 멤버는 모든 클래스에서 공유할 수 있게 된다.
+
+*static* 멤버를 선언하는 방법은 멤버 선언 시 앞에 *static*이라고 붙이면 된다.
+
+```java
+class StaticSample {
+    int n;                  // non-static 필드
+    void g() {...}          // non-static 필드
+
+    static int m;           // static 필드
+    static void f() {...}   // static 필드
+}
+```
+
+### non-static 멤버와 static 멤버의 차이
+
+*static* 멤버는 객체를 생성하지 않고 사용할 수 있는 멤버이다. 다음 표를 통해 차이점을 요약하였다.
+
+![table](/assets/img/study/java/190827_fig_2.png)
+
+*static* 멤버는 클래스당 하나만 생성되는 멤버로서 동일한 클래스의 모든 객체들이 공유한다.
+
+그리고 어떤 객체도 생성되기 전 프로그램을 시작할 때 이미 생성된다.
+
+그러므로 객체를 생성하기 전에도 *static* 멤버는 사용할 수 있다.
+
+반면 *non-static* 멤버는 객체가 생길 때 객체 내부에 하나씩 생성되며 객체마다 자신의 고유한 멤버공간을 가지며 객체들이 공유하지 않는다.
+
+객체가 사라지면 *non-static* 멤버도 함께 사라지고 더 이상 접근할 수 없다.
+
+*static* 멤버는 클래스당 하나씩 생긴다고 해서 **클래스 멤버**라고도 부르며, *non-static* 멤버는 각 객체마다 하나씩 생긴다고 해서 **인스턴스 멤버**라고도 부른다.
+
+### static 멤버 사용 1 : 객체.static 멤버
+
+static 멤버도 역시 멤버이기 때문에 다음과 같이 일반적인 멤버 사용법과 다를바 없다.
+
+```
+객체.static필드
+객체.static메소드
+```
+
+static 필드는 클래스의 모든 객체에 공통으로 사용되는 변수가 된다.
+
+즉 C/C++의 전역 변수(global variable)와 유사하다고 볼 수 있다.
+
+또한 클래스의 어떤 멤버도 static 멤버를 접근할 수 있다.
+
+우선 지금까지 설명한 static 에 대한 여러 지식을 다음 소스를 통해 명확히 확인할 수 있다.
+
+```java
+class StaticSample {
+    public int n;
+    public void g() {
+        m = 20;
+    }
+    public void h() {
+        m = 30;
+    }
+    public static int m;
+    public static void f() {
+        m = 5;
+    }
+}
+
+public class Ex {
+    public static void main(String[] args) {
+        StaticSample s1, s2;
+        s1 = new StaticSample();
+        s1.n = 5;
+        s1.g();
+        s1.m = 50;  // static
+        s2 = new StaticSample();
+        s2.n = 8;
+        s2.h();
+        s2.f();     // static
+        System.out.println(s1.m);
+    }
+}
+```
+
 ***
 
 ## 생성자(Constructor)
@@ -638,13 +718,13 @@ public Book() {
 클래스 접근 지정자는 클래스 선언 부분에 표시되며 **public**과 **디폴트**의 2가지가 있다.
 
 #### public 
-public 접근 지정자로 선언된 클래스는 어떤 다른 클래스에서도 사용할 수 있다.
+**public** 접근 지정자로 선언된 클래스는 어떤 다른 클래스에서도 사용할 수 있다.
 
-아래 소스에는 두 개의 클래스가 구현되어 있으며, 이들을 컴파일하면 AccessSample.class파일과 UseSample.class 파일이 생성된다.
+아래 소스에는 두 개의 클래스가 구현되어 있으며, 이들을 컴파일하면 `AccessSample.class`파일과 `UseSample.class` 파일이 생성된다.
 
-이 두 클래스 파일이 동일한 디렉터리(패키지)에 있을 수 있고 없을 수도 있다. 그러나 이들이 존재하는 디렉터리 위치에 관계없이 UseSample클래스는 AccessSample 클래스를 사용할 수 있다.
+이 두 클래스 파일이 동일한 디렉터리(패키지)에 있을 수 있고 없을 수도 있다. 그러나 이들이 존재하는 디렉터리 위치에 관계없이 `UseSample`클래스는 `AccessSample` 클래스를 사용할 수 있다.
 
-이것은 AccessSample 클래스가 public 으로 선언되어 있기 때문이다.
+이것은 `AccessSample` 클래스가 *public* 으로 선언되어 있기 때문이다.
 
 ```java
 public class AccessSample { // AccessSample 클래스는 public으로 선언되어
@@ -663,15 +743,41 @@ class UseSample {
 ```
 
 #### 접근 지정자 생략(default)
-접근 지정자를 생략하고 클래스를 선언한 경우 default 접근 지정자로 선언되었다고 한다.
+접근 지정자를 생략하고 클래스를 선언한 경우 **default** 접근 지정자로 선언되었다고 한다.
 
-이 경우는 같은 패키지 내에 있는 클래스들만이 default 접근 지정자로 선언된 클래스로의 접근이 허용된다.
+이 경우는 같은 패키지 내에 있는 클래스들만이 *default* 접근 지정자로 선언된 클래스로의 접근이 허용된다.
 
 ### 멤버 접근 지정자
 
 클래스의 멤버인 필드와 메소드의 접근 지정자는 클래스 접근 지정자와 달리 4가지가 있다.
 
-![am](/assets/img/study/java/190827_fig_1.png)("접근 지정자")
+![am](/assets/img/study/java/190827_fig_1.png)
+
+#### public
+
+**public** 멤버는 패키지의 내부, 외부 등 모든 클래스에서 접근이 가능하다.
+
+즉, 다른 패키지에 있는 클래스 A나 동일 패키지에 있는 클래스 C가 클래스 B의 *public*으로 선언된 변수나 메소드에 접근이 가능하다.
+
+#### private
+
+**private** 접근 지정자는 비공개를 의미하는 것으로 *private* 멤버는 같은 클래스 내부 멤버에 의해서만 접근이 가능하다.
+
+어떤 다른 클래스에서도 접근할 수 없다.
+
+#### protected
+
+**protected** 접근 지정자는 보호된 공개를 의미하는 것으로, 두 가지 경우의 클래스에만 공개한다.
+
+첫째, *protected* 멤버는 **같은 패키지 내의 모든 클래스**에서 접근이 가능하다.
+
+둘째, 다른 패키지의 클래스라도 이 클래스를 **상속받은 자식**의 경우에는 접근이 가능하다.
+
+#### default(package-private)
+
+접근 지정자의 선언이 생략된 경우, 멤버가 **default** 접근 지정자로 선언되었다고 한다.
+
+동일한 패키지 내에 있는 모든 클래스는 *default* 멤버를 자유롭게 접근할 수 있지만 다른 패키지의 클래스는 접근할 수 없다.
 
 ***
 
