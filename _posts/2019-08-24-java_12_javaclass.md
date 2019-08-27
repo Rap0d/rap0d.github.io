@@ -1108,11 +1108,11 @@ abstract class Line extends DObject {   // draw()를 상속받아 추상 클래�
 
 서브 클래스가 추상 클래스가 되지 않기 위해서는 **추상 메소드를 모두 오버라이딩** 하여 구현하여야 한다.
 
-다음 코드는 DObject를 추상 클래스로 정의한 예이다.
+다음 코드는 `DObject`를 추상 클래스로 정의한 예이다.
 
-DObject의 draw() 메소드는 호출하기 위해 만든것이 아니며 상속 받는 서브 클래스에서 강제로 오버라이딩하도록 지시하기 위해 만든 것이다.
+`DObject`의 `draw()` 메소드는 호출하기 위해 만든것이 아니며 상속 받는 서브 클래스에서 강제로 오버라이딩하도록 지시하기 위해 만든 것이다.
 
-Line은 draw() 메소드를 오버라이딩 하였다.
+`Line`은 `draw()` 메소드를 오버라이딩 하였다.
 
 ```java
 /**
@@ -1129,8 +1129,7 @@ class DObject {
 }
 ```
 # &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$$\Downarrow$$
-
-추상 클래스로 수정
+*추상 클래스로 수정*
 
 ```java
 abstract class DObject {
@@ -1141,6 +1140,7 @@ abstract class DObject {
 }
 ```
 
+*추상 클래스 상속*
 # &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$$\Uparrow$$
 
 ```java
@@ -1155,8 +1155,68 @@ class Line extends DObject {
 }
 ```
 
-### 추상 메소드를 사용하는 이유
-### 추상 클래스를 만드는 방법
+만일 main() 함수에 다음 코드가 있어도 오류가 아니다
+
+```java
+DObject start = new Line();
+```
+
+DObject가 추상 클래스라고 하더라도 여전히 Line 클래스의 슈퍼 클래스이기 때문에 슈퍼클래스의 레퍼런스로 서브 클래스의 객체를 가리키는 것은 항상 합법적이다.
+
+### 추상 클래스의 용도
+
+추상 클래스를 상속받은 서브 클래스는 개발자에 따라 다양하게 구현된다.
+
+그러나 한 가지 분명한 것은 모든 개발자들이 서브 클래스에서 추상 클래스에 선언된 추상 메소드를 모두 구현해야 한다는 사실이다.
+
+추상 클래스를 책의 목차에 비유하면, 서브 클래스는 목차에 따라 작성된 실제 책과 같다.
+
+책을 쓸 때도 목차를 잡아놓고 책을 쓰면 훨씬 쉽고 빠르며 방향이 흐트러지지 않는 것처럼 추상클래스를 이용하면 응용프로그램의 설계와 구현을 분리할 수 있다.
+
+추상 클래스로 기본 방향을 잡아놓고 서브 클래스에서 구현하면 구현 작업이 쉬워진다.
+
+또한 추상 클래스는 계층적 상속 관계를 가지는 클래스들의 구조를 만들 때 적합하다.
+
+#### 추상 클래스의 구현 예제
+
+다음은 추상 클래스 Calculator를 상속받은 GoodCalc 클래스이다.
+
+```java
+abstract class Calculator { 
+    public abstract int add(int a, int b);
+    public abstract int subtract(int a, int b);
+    public abstract int average(int[] a);
+}
+
+public class GoodCalc extends Calculator {
+    public int add(int a, int b) {
+        return a + b;
+    }
+    public int subtract(int a, int b) {
+        return a - b;
+    }
+    public double average(int[] a) {
+        double sum = 0;
+        for (int i = 0; i < a.length; i++) {
+            sum += a[i];
+        }
+        return sum/a.length;
+    }
+    public static void main(String[] args) {
+        Calculator c = new GoodCalc();
+        System.out.println(c.add(2,3));
+        System.out.println(c.subtract(2,3));
+        System.out.println(c.average(new int[] {2, 3, 4}));
+    }
+}
+```
+
+- 실행 결과
+  ```
+  5
+  -1
+  3.0
+  ```
 
 ***
 
