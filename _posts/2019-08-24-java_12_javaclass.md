@@ -993,14 +993,176 @@ public static void main(String[] args) {
 
 ***
 
-## 추상 클래스(Abstract Class)
+## 추상 클래스와 추상 메소드(Abstract Class/Method)
+
 ### 추상 메소드(Abstract Method)
+
+**추상 메소드**(abstract method)란 선언은 되어 있으나 코드가 구현되어 있지 않은, 즉 껍데기만 있는 메소드이다.
+
+추상 메소드를 작성하고자 하면 *abstract* 키워드와 함께 메소드의 타입, 이름, 매개 변수 리스트만 선언해야 한다.
+
+다음은 추상 메소드 선언의 예이다.
+
+```java
+public abstract String getName();
+public abstract void setName(String s);
+```
+
+다음은 메소드의 코드가 있기 때문에 추상 메소드가 될 수 없다.
+
+```java
+public abstract String fail() {return "Good Bye";}  // 컴파일 오류
+```
+
+### 추상 클래스의 종류
+
+**추상 클래스**(abstract class)는 추상 메소드와 마찬가지로 *abstract* 키워드로 선언한 클래스로서 추상 클래스가 되는 경우는 다음 두 가지이다.
+
+> 추상 메소드를 포함하는 클래스로서 반드시 *abstract*로 선언되어야 함  
+> 추상 메소드가 하나도 없지만 *abstract*로 선언한 클래스
+
+두 번째 경우처럼 추상 클래스로 선언되었다고 해도 추상 메소드가 하나도 없을 수 있다.
+
+다음은 추상 클래스를 선언한 예이다.
+
+`DObject`는 추상 메소드를 가지고 있는 추상 클래스이며, `Person` 클래스는 추상 메소드가 없는 추상 클래스이다.
+
+```java
+// 추상 메소드를 가진 추상 클래스
+abstract class DObject {    // 추상 클래스 선언
+    public DObject next;
+
+    public DObject() { next = null;}
+    abstract public void draw();    // 추상 메소드 선언
+}
+
+// 추상 메소드 없는 추상 클래스
+abstract class Person {     // 추상 클래스 선언
+    public String name;
+    public Person(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+}
+```
+
+### 추상 클래스는 인스턴스를 생성할 수 없다
+
+응용프로그램에서는 추상 클래스의 **인스턴스를 생성할 수 없다.**
+
+추상 클래스에는 실행 코드가 없는 추상 메소드가 있을 수 있기 때문에 추상 클래스의 객체를 생성할 수 없도록 제한하였다.
+
+그러므로 추상 클래스는 인스턴스를 생성할 목적으로 만들지 않는다.
+
+다음은 추상 클래스의 인스턴스를 생성하려고 하였을때 컴파일 오류가 발생한 경우이다.
+
+```java
+abstract class DObject {    // 추상 클래스 선언
+    public DObject next;
+
+    public DObject() { next = null;}
+    abstract public void draw();    // 추상 메소드 선언
+}
+
+public class AbstractError {
+    public static void main(String[] args) {
+        DObject obj;
+        obj = new DObject();    // 컴파일 오류, 추상 클래스 DObject의 인스턴스를 생성할 수 없다.
+        obj.draw(); // 컴파일 오류
+    }
+}
+```
+
+위의 코드를 실행하면 오류가 발생하지만 `DObject obj;` 코드에서는 오류가 발생하지 않는다.
+
+즉 추상 클래스의 레퍼런스 변수를 선언하는 것은 오류가 아니다.
+
+### 추상 클래스의 상속
+
+추상 클래스를 상속 받으면 상속받은 서브 클래스는 추상 클래스가 된다.
+
+이는 슈퍼클래스의 추상메소드를 그대로 상속 받기 때문이다.
+
+이 경우 서브 클래스에도 *abstract*를 붙여 추상 클래스임을 명시해야 컴파일 오류가 발생하지 않는다.
+
+다음 소스와 같이 `DObject`가 추상 클래스이므로 이를 상속받는 `Line` 클래스는 추상 메소드인 `draw()`를 오버라이딩 하지 않으면 자동으로 추상 클래스가 된다.
+
+그러므로 `Line` 클래스 앞에 *abstract* 키워드를 반드시 사용하여 추상 클래스임을 명시해야 한다.
+
+```java
+abstract class DObject {    // 추상 클래스 선언
+    public DObject next;
+
+    public DObject() { next = null;}
+    abstract public void draw();    // 추상 메소드 선언
+}
+
+abstract class Line extends DObject {   // draw()를 상속받아 추상 클래스가 됨
+    public String toString() {return "Line";}
+}
+```
+
+### 추상 클래스의 구현 및 활용
+
+서브 클래스가 추상 클래스가 되지 않기 위해서는 **추상 메소드를 모두 오버라이딩** 하여 구현하여야 한다.
+
+다음 코드는 DObject를 추상 클래스로 정의한 예이다.
+
+DObject의 draw() 메소드는 호출하기 위해 만든것이 아니며 상속 받는 서브 클래스에서 강제로 오버라이딩하도록 지시하기 위해 만든 것이다.
+
+Line은 draw() 메소드를 오버라이딩 하였다.
+
+```java
+/**
+* code_14
+* 추상 클래스가 아닌 클래스
+*/
+class DObject {
+    public DObject next;
+
+    public DObject() {next = null;}
+    public void draw() {
+        System.out.println("DObject draw");
+    }
+}
+```
+# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$$\Downarrow$$
+
+추상 클래스로 수정
+
+```java
+abstract class DObject {
+    public DObject next;
+
+    public DObject() { next = null;}
+    abstract public void draw();
+}
+```
+
+# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$$\Uparrow$$
+
+```java
+/**
+* code_15
+* DObject 추상 클래스를 상속받아 구현한 클래스
+*/
+class Line extends DObject {
+    public void draw() {
+        System.out.println("Line");
+    }
+}
+```
+
 ### 추상 메소드를 사용하는 이유
 ### 추상 클래스를 만드는 방법
 
 ***
 
 ## Interface
+
+자바에서의 인터페이스 개념은 추상 클래스와 유사하며 interface 키워드를 사용하여 선언한다.
 
 ### Interface의 사용
 
