@@ -973,7 +973,7 @@ public static void main(String[] args) {
 
 ***
 
-## 상속
+## [상속](https://rap0d.github.io/study/2019/07/08/java_4_상속/)
 
 ***
 
@@ -1155,13 +1155,13 @@ class Line extends DObject {
 }
 ```
 
-만일 main() 함수에 다음 코드가 있어도 오류가 아니다
+만일 `main()` 함수에 다음 코드가 있어도 오류가 아니다
 
 ```java
 DObject start = new Line();
 ```
 
-DObject가 추상 클래스라고 하더라도 여전히 Line 클래스의 슈퍼 클래스이기 때문에 슈퍼클래스의 레퍼런스로 서브 클래스의 객체를 가리키는 것은 항상 합법적이다.
+`DObject`가 추상 클래스라고 하더라도 여전히 `Line` 클래스의 슈퍼 클래스이기 때문에 슈퍼클래스의 레퍼런스로 서브 클래스의 객체를 가리키는 것은 항상 합법적이다.
 
 ### 추상 클래스의 용도
 
@@ -1179,7 +1179,7 @@ DObject가 추상 클래스라고 하더라도 여전히 Line 클래스의 슈�
 
 #### 추상 클래스의 구현 예제
 
-다음은 추상 클래스 Calculator를 상속받은 GoodCalc 클래스이다.
+다음은 추상 클래스 `Calculator`를 상속받은 `GoodCalc` 클래스이다.
 
 ```java
 abstract class Calculator { 
