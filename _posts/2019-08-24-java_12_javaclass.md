@@ -147,12 +147,16 @@ public static void main(String args[]) {
 
 - `Peson` 클래스의 레퍼런스 변수 `aPerson` 선언
     - 객체를 생성하기 전 객체를 가리킬 레퍼런스 변수의 선언이 필요하다.
-    - `Person aPerson;  // 레퍼런스 변수 aPerson 선언`
+        ```java
+        Person aPerson;  // 레퍼런스 변수 aPerson 선언
+        ```
     - 이 선언문으로는 `Person` 객체가 생성되지 않는다. 변수 `aPerson은` `Person` 타입의 객체에 대한 레퍼런스를 가지는 변수의 선언일 뿐 객체 자체는 아니다.
     - 따라서 아직 객체가 생성된 것이 아니며 어떤 객체도 가리키고 있지 않은 상태이다.
 - 객체 생성, `new` 연산자 이용
     - 자바에서는 반드시 `new` 연산자를 사용하여 다음과 같이 객체를 생성해야 한다.
-    - `aPerson = new Person("김길동");`
+        ```java
+        aPerson = new Person("김길동");
+        ```
     - 이 문장은 생성된 `Person` 객체에 대한 레퍼런스 값을 `aPerson` 변수에 대입한다.
     - `new` 연산자에 의해 객체가 생성되는 과정은 다음과 같다.
         > 1. `Person` 타입의 객체 메모리 공간확보  
@@ -243,12 +247,18 @@ for (int i = 0; i < pa.length; i++) {   // 배열 원소 출력
 
 - 배열에 대한 레퍼런스 선언
     - 다음은 Person 타입의 객체 배열 선언문이다. 객체 배열에 대한 레퍼런스 변수 `pa`를 선언한다.
-    `Person[] pa;`
+    ```java
+    Person[] pa;
+    ```
     - 이 선언문에 의해 레퍼런스 변수만 생성될 뿐 배열이 생성되지 않는다. 다음과 같이 원소 개수를 지정해서는 안된다.
-    `Person[10] pa;` <- 오류
+    ```java
+    Person[10] pa;  // <- 오류
+    ```
 - 레퍼런스 배열 생성
     - 두 번째로 다음 소스는 10개의 레퍼런스 배열을 생성한다. 배열의 원소는 객체에 대한 레퍼런스이다.
-    `pa = new Person[10];`
+    ```java
+    pa = new Person[10];
+    ```
 - 객체 생성
     - 다음 소스를 이용하여 `Person` 객체를 하나씩 생성하여 레퍼런스 배열의 각 원소에 대입한다.
     ```java
@@ -261,7 +271,9 @@ for (int i = 0; i < pa.length; i++) {   // 배열 원소 출력
     - 이렇게 하여 `Person` 타입 객체 배열이 생성된다.
 - 객체 접근
     - pa의 배열의 각 원소는 `Person` 객체이므로 배열의 i번째 객체를 접근하기 위해서는 `pa[i]` 레퍼런스를 사용한다.
-    `pa[i].age = 30 + i;`
+    ```java
+    pa[i].age = 30 + i;
+    ```
     - 위 소스는 i번째 `Person` 객체의 필드 `age`에 30+i 의 값을 대입하는 소스이다.
     - 배열의 각 `Person` 객체의 `age`필드 값을 화면에 출력하는 소스는 다음과 같다.
     ```java
@@ -274,17 +286,17 @@ for (int i = 0; i < pa.length; i++) {   // 배열 원소 출력
 
 ***
 
-## this 키워드
+## *this* 키워드
 
-**this** 키워드는 자바의 중요한 키워드로서 단어가 의미하는 데로 객체 자신을 가리킨다.
+***this*** 키워드는 자바의 중요한 키워드로서 단어가 의미하는 데로 객체 자신을 가리킨다.
 
-### this의 개념
+### *this*의 개념
 
 자바에서 *this*는 현재 실행되는 메소드가 속한 객체에 대한 레퍼런스이다.
 
-this는 컴파일러에 의해 자동으로 생성되며 개발자는 별도로 this를 선언할 필요 없이 사용하기만 하면 된다.
+*this*는 컴파일러에 의해 자동으로 생성되며 개발자는 별도로 *this*를 선언할 필요 없이 사용하기만 하면 된다.
 
-다음 소스는 this를 사용하는 전형적인 예이다.
+다음 소스는 *this*를 사용하는 전형적인 예이다.
 
 ```java
 class Samp {
@@ -295,13 +307,13 @@ class Samp {
 }
 ```
 
-이 소스에서 this는 현재 객체에 대한 레퍼런스이므로, this로 `Samp` 클래스의 멤버를 접근할 수 있다.
+이 소스에서 *this*는 현재 객체에 대한 레퍼런스이므로, *this*로 `Samp` 클래스의 멤버를 접근할 수 있다.
 
 `this.id`는 `Samp`의 멤버id를 의미한다.
 
-### this의 필요성
+### *this*의 필요성
 
-앞의 Samp 클래스의 예에서 메소드 `get()`은 다음과 같이 this를 사용하지 않았다.
+앞의 Samp 클래스의 예에서 메소드 `get()`은 다음과 같이 *this*를 사용하지 않았다.
 
 ```java
 return id;
@@ -313,7 +325,7 @@ return id;
 return this.id;    // return id;와 동일
 ```
 
-그렇다면 this가 꼭 필요할까? 만일 다음과 같이 `set()` 메소드를 변경하면 어떻게 될까.
+그렇다면 *this*가 꼭 필요할까? 만일 다음과 같이 `set()` 메소드를 변경하면 어떻게 될까.
 
 ```java
 void set(int id) {id = id;}
@@ -325,13 +337,13 @@ void set(int id) {id = id;}
 
 여기서 `set(int id)`의 인자 이름을 굳이 id로 사용하는 것은 인자의 목적을 그대로 표현하고자 하기 때문이다.
 
-인자의 이름(id)과 멤버의 이름(id)이 같은 경우 다음과 같이 this를 사용하면 된다.
+인자의 이름(id)과 멤버의 이름(id)이 같은 경우 다음과 같이 *this*를 사용하면 된다.
 
 ```java
 void set(int id) {this.id = id;}
 ```
 
-또 메소드가 객체 자신의 레퍼런스를 리턴해야 하는 경우가 있다. 이 경우에 this를 리턴한다.
+또 메소드가 객체 자신의 레퍼런스를 리턴해야 하는 경우가 있다. 이 경우에 *this*를 리턴한다.
 
 ***
 
@@ -422,7 +434,7 @@ public class Samp
 
 ### 생성자 정의와 호출
 
-다음 코드는 클래스 Book에 3개의 필드를 갖도록 정의한 것이다.
+다음 코드는 클래스 `Book`에 3개의 필드를 갖도록 정의한 것이다.
 
 ```java
 public class Book {
@@ -442,9 +454,167 @@ public class Book {
 }
 ```
 
-> Book은 하나의 생성자를 가지며 이 생성자는 3개의 필드를 초기화하기 위해 3개의 인자를 가진다.  
-> main() 메소드는 Book 클래스의 객체를 생성한다.  
-> 생성자를 통해 title 필드에 "Java JDK", author 필드에 "황기태", ISBN 필드에 3333이 초기화 된다.
+- `Book`은 하나의 생성자를 가지며 이 생성자는 3개의 필드를 초기화하기 위해 3개의 인자를 가진다.
+- `main()` 메소드는 `Book` 클래스의 객체를 생성한다.
+- 생성자를 통해 `title` 필드에 "Java JDK", `author` 필드에 "황기태", `ISBN` 필드에 3333이 초기화 된다.
+
+### 기본 생성자
+
+**기본 생성자**(default constructor)란 인자도 없고 실행 내용도 없이 단순 리턴하는 생성자이며 디폴트 생성자라고도 부른다.
+
+다음과 같이 간단히 예를 들 수 있다.
+
+```java
+class Book {
+    public Book();
+}
+```
+
+> 기본 생성자는 자동으로 생성된다.  
+
+생성자가 없는 클래스는 있을 수 없다.
+
+클래스에 생성자가 하나도 선언되어 있지 않으면 컴파일러가 기본 생성자를 자동으로 생성한다.
+
+그 이유는 객체가 생성될 때 반드시 생성자가 호출되어야 하기 때문이다.
+
+예를 들어 생성자가 정의되지 않은 다음 코드를 보자. `main()` 메소드에서 다음 `new`문은 인자 없는 생성자를 필요로 하고 있다.
+
+```java
+DefaultConstructor p = new DefaultConstructor();
+```
+
+이를 위해 컴파일러는 `code_09`과 같이 컴파일 시 기본 생성자를 삽입하여 `new DefaultConstructor();`의 호출이 가능하게 한다.
+
+컴파일러가 기본 생성자를 자동으로 생성한다고 해서 `DefaultConstructor.java` 소스 파일이 `code_09`로 변하는 것은 아니다.
+
+```java
+/**
+* code_08   // 생성자가 정의되지 않은 클래스
+*/
+public class DefaultConstructor {
+    int x;
+    public void setX(int x) {this.x = x;}
+    public int getX() {return x;}
+
+    public static void main(String[] args) {
+        DefaultConstructor p = new DefaultConstructor();    // 정상 컴파일 가능
+        p.setX(3);
+    }
+}
+```
+```java
+/**
+* code_09   // 컴파일러에 의해 보이지 않게 자동으로 기본 생성자 삽입
+*/
+public class DefaultConstructor {
+    int x;
+    public void setX(int x) {this.x = x;}
+    public int getX() {return x;}
+
+    public DefaultConstructor() {}  // 컴파일러에 의해 자동 삽입된 기본 생성자
+                                    // 사용자의 눈에는 보이지 않게 삽입된다.
+    public static void main(String[] args) {
+        DefaultConstructor p = new DefaultConstructor();
+        p.setX(3);
+    }
+}
+```
+
+- 기본 생성자가 자동으로 생성되지 않은 경우
+  - 생성자가 하나라도 존재하는 클래스에는 자동으로 기본 생성자가 삽입되지 않는다.
+  - 기본 생성자가 자동으로 생성되는 경우는 클래스 내에 생성자가 하나도 없는 경우에만 해당한다.
+  - 그러므로 다음 소스는 컴파일 오류가 발생한다. 다음 코드의 `main()` 메소드의 다음 `new` 문장을 보자.
+
+```java
+/**
+* code_10   // 컴파일러가 기본 생성자를 자동으로 삽입하지 않은 경우의 예
+*/
+public class DefaultConstructor {
+    int x;
+    public void setX(int x) {this.x = x;}
+    public int getX() {return x;}
+
+    public DefaultConstructor(int x) {
+        this.x = x;
+    }   // 매개변수가 없는 기본 생성자를 자동생성하지 않음
+    
+    public static void main(String[] args) {
+        DefaultConstructor p1 = new DefaultConstructor(3);
+        int n = p1.getX();
+        DefaultConstructor p2 = new DefaultConstructor();   // 컴파일 오류. 해당하는 생성자 없음
+        p2.setX(3);
+    }
+}
+```
+
+### this(), 다른 생성자 호출
+
+`this()`는 한 클래스 내에서 한 생성자에서 다른 생성자를 호출할 때 사용하는 자바 코드이다.
+
+한 클래스 내의 어떤 메소드가 다른 메소드를 호출할 수 있는 것처럼 생성자도 중복된 다른 생성자를 호출할 수 있다.
+
+`this()`는 동일한 클래스 내의 다른 생성자의 호출이다.
+
+3개의 생성자를 가진 다음 소스를 보자.
+
+```java
+/**
+* code_11
+* Book 클래스에 this()를 사용한 예
+*/
+public class Book {
+    String title;
+    String author;
+    int ISBN;
+
+    public Book(String title, String author, int ISBN) {
+        this.title = title;
+        this.author = author;
+        this.ISBN = ISBN;
+    }
+    public Book(String title, int ISBN) {
+        this.(title, "Anonymous", ISBN);
+    }
+    public Book() {
+        this(null, null, 0);
+        System.out.println("생성자 호출 완료");
+    }
+
+    public static void main(String[] args) {
+        Book javaBook = new Book("Java JDK", "황기태", 3333);
+        Book holyBible = new Book("HolyBible", 1);
+        Book emptyBook = new Book();
+    }
+}
+```
+
+- `main()`에서 다음 문장은 `Book` 클래스의 두 번째 생성자를 호출한다.
+    ```java
+    Book holyBible = new Book("HolyBible", 1);
+    ```
+- 두 번째 생성자가 호출될 때 `title`과 `ISBN`에는 각각 "HolyBible" 문자열과 정수 1이 전달된다.
+  - 이 생성자는 바로 다음 문장을 실행한다.
+    ```java
+    this.(title, "Anonymous", ISBN);
+    ```
+- 이 문장은 다음과 같이 3개의 인자를 가진 첫 번째 생성자를 다시 호출하게 된다.
+    ```java
+    public Book(String title, String author, int ISBN) {
+        ...
+    }
+    ```
+  - 이 생성자에 의해 멤버 필드 `title`, `author`, `ISBN`은 각각 "HolyBible", "Anonymous", 1의 값으로 초기화된다.
+- `this()`는 다음과 같은 몇 가지 주요한 특징을 가진다.
+> `this()`는 생성자 코드에서만 사용할 수 있다.  
+> `this()`는 동일한 클래스 내의 다른 생성자를 호출할 때 사용한다.  
+> `this()`는 반드시 생성자의 첫 문장에서 사용되어야 한다.
+```java
+public Book() {
+    System.out.println("생성자 호출 완료");
+    this(null, null, 0);    // 컴파일 오류. 이 문장이 생성자의 첫 번째 문장이 아님
+}
+```
 
 ***
 
@@ -454,7 +624,7 @@ public class Book {
 
 ## 오버로딩(Over loading)
 
-동일한 이름의 메소드를 여러 개 정의하는 것을 메소드 오버로딩(method overloading)이라고 한다.
+동일한 이름의 메소드를 여러 개 정의하는 것을 **메소드 오버로딩**(method overloading)이라고 한다.
 
 자바에서는 한 클래스내에 이름이 같지만 인자의 타입이나 개수가 서로 다른 여러 개의 메소드를 중복 작성할 수 있다.
 
@@ -509,7 +679,6 @@ public static void main(String[] args) {
     int j = a.getSum(3, 4, 5);
 }
 ```
-
 
 ***
 
