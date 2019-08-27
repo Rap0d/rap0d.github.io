@@ -671,7 +671,7 @@ class UseSample {
 
 클래스의 멤버인 필드와 메소드의 접근 지정자는 클래스 접근 지정자와 달리 4가지가 있다.
 
-![ad](../assets/img/study/java/190827_fig_1.png)
+![am](/assets/img/study/java/190827_fig_1.png)("접근 지정자")
 
 ***
 
