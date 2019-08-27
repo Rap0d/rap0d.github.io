@@ -293,6 +293,7 @@ class Samp {
     public void set(int x) {this.id = x;}
     public int get() {return id;}
 }
+```
 
 이 소스에서 this는 현재 객체에 대한 레퍼런스이므로, this로 `Samp` 클래스의 멤버를 접근할 수 있다.
 
@@ -300,6 +301,37 @@ class Samp {
 
 ### this의 필요성
 
+앞의 Samp 클래스의 예에서 메소드 `get()`은 다음과 같이 this를 사용하지 않았다.
+
+```java
+return id;
+```
+
+클래스 내에서 멤버id에 접근할 때 굳이 다음과 같이 `this.id`를 사용할 필요가 없기 빼문디ㅏ.
+
+```java
+return this.id;    // return id;와 동일
+```
+
+그렇다면 this가 꼭 필요할까? 만일 다음과 같이 `set()` 메소드를 변경하면 어떻게 될까.
+
+```java
+void set(int id) {id = id;}
+```
+
+앞에 나오는 2개의 id는 모두 `set(int id)`의 인자로 선언된 id이며 문장의 실행 결과는 인자 자신에게 자신의 값을 지정하는 것으로 끝난다.
+
+즉, 클래스의 멤버id 값을 변경하지 못한다.
+
+여기서 `set(int id)`의 인자 이름을 굳이 id로 사용하는 것은 인자의 목적을 그대로 표현하고자 하기 때문이다.
+
+인자의 이름(id)과 멤버의 이름(id)이 같은 경우 다음과 같이 this를 사용하면 된다.
+
+```java
+void set(int id) {this.id = id;}
+```
+
+또 메소드가 객체 자신의 레퍼런스를 리턴해야 하는 경우가 있다. 이 경우에 this를 리턴한다.
 
 ***
 
@@ -308,6 +340,8 @@ class Samp {
 ***
 
 ## 생성자(Constructor)
+
+클래스는 
 
 ***
 
@@ -335,7 +369,7 @@ class Samp {
 
 ### 메소드 오버로딩 사례
 
-아래는 2개의 getSum() 메소드가 성공적으로 오버로딩된 예로서, 앞의 세 조건을 모두 만족한다.
+아래는 2개의 `getSum()` 메소드가 성공적으로 오버로딩된 예로서, 앞의 세 조건을 모두 만족한다.
 
 메소드 이름이 동일하며 인자의 개수나 타입이 서로 다르기 때문에, 이 두 메소드를 서로 다른 것으로 다룬다.
 
@@ -356,11 +390,11 @@ public class MethodSample {
 
 ### 오버로딩된 메소드 호출
 
-위 code_05 코드에서 MethodSample 클래스에는 2개의 getSum() 메소드가 정의되어 있다.
+위 code_05 코드에서 MethodSample 클래스에는 2개의 `getSum()` 메소드가 정의되어 있다.
 
-main() 메소드는 Method 클래스의 오버로딩된 메소드 getSum()을 호출하는 여러 문장을 가지고 있다.
+`main()` 메소드는 MethodSample 클래스의 오버로딩된 메소드 `getSum()`을 호출하는 여러 문장을 가지고 있다.
 
-컴파일러는 main() 내의 각 호출문에 대해 적절한 인자의 타입과 인자의 개수를 고려하여 MethodSample 클래스의 getSum() 메소드를 찾아낸다.
+컴파일러는 `main()` 내의 각 호출문에 대해 적절한 인자의 타입과 인자의 개수를 고려하여 `MethodSample` 클래스의 `getSum()` 메소드를 찾아낸다.
 
 ```java
 /**
