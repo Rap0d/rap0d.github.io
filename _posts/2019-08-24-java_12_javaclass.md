@@ -341,7 +341,110 @@ void set(int id) {this.id = id;}
 
 ## 생성자(Constructor)
 
-클래스는 
+클래스는 객체를 생성하기 위한 설계도, 틀이며 객체는 설계도 또는 틀로 찍어낸 실체이다.
+
+생성자는 객체가 생성될 때 초기화를 위해 실행되는 메소드이다.
+
+### 생성자 정의와 호출
+
+생성자는 객체가 생성되는 순간에 자동으로 호출되는 메소드로서 객체에 필요한 초기화를 수행하는 코드를 포함하고 있다.
+
+다음 코드는 생성자를 정의하고 활용하는 예이며, 생성자의 특징을 같이 설명하고 있다.
+
+```java
+/**
+* code_07
+*/
+public class Samp 
+{
+    int id;
+    public Samp(int x) {    // 생성자 오버로딩 가능, 생성자 이름은 클래스 이름과 동일
+        this.id = x;        // 생성자는 리턴타입 없음
+    }
+    public Samp() {         // 생성자 오버로딩 가능
+        this.id = 0;        // 생성자는 리턴타입 없음
+    }
+    
+    public void set(int x) {this.id = x;}
+    public int get() {return this.id;}
+
+    public static void main(String[] args) {
+        Samp ob1 = new Samp(3); // 자동 호출
+        Samp ob2 = new Samp();  // 자동 호출
+        Samp s;
+    }
+}
+```
+
+- 생성자의 이름은 클래스 이름과 동일하다
+  - 클래스의 이름과 동일한 메소드가 생성자이다. 아래와 같이 `Samp()` 메소드가 생성자이다.
+    ```java
+    public class Samp {
+        public Samp(int x) {...}    // 생성자
+    }
+    ```
+- 생성자는 `new`를 통해 객체를 생성할 때만 호출된다.
+  - 생성자는 오직 `new`를 통해 객체를 생성할 때만 한 번 자동으로 호출된다.
+  - 호출하고 싶을 때 아무때나 호출 할 수 없다.
+    ```java
+    Samp ob1 = new Samp(3);     // 생성자 메소드 Samp(int x) 자동 호출
+    ```
+- 생성자도 오버로딩이 가능하다.
+  - 생성자도 메소드이므로 당연히 오버로딩이 가능하며 개발자는 여러 개의 생성자를 만들 수 있다.
+  - `Samp` 클래스에는 다음 두 생성자가 오버로딩 되어 있다.
+    ```java
+    public Samp(int x) {...}
+    public Samp() {...}
+    ```
+  - 이 때 다음 `new` 문장은 각각 첫 번째, 두 번째 생성자를 호출한다.
+    ```java
+    Samp ob1 = new Samp(3); // 첫 번째 생성자 호출
+    Samp ob2 = new Samp();  // 두 번째 생성자 호출
+    ```
+- 생성자는 리턴 타입을 지정할 수 없다.
+  - 생성자는 어떤 값도 리턴하지 않기 때문에 다음과 같이 어떤 리턴 타입도 선언해서는 안 된다.
+    ```java
+    public Samp(int x) {this.id = x;}
+    ```
+  - 이것은 일반 메소드가 아무 값을 리턴하지 않을 때 `void`를 리턴 타입으로 지정하는 것과 다르다.
+
+### 생성자의 용도
+
+생성자의 주된 용도는 필드를 초기화하거나 객체가 처음 생성되는 순간에 처리할 작업을 수행하는 데 있다.
+
+객체를 생성하면 필드들의 메모리 공간이 할당되지만 아직 값을 가지지 못한 상태이다.
+
+생성자를 이용하면 필드들을 생성할 당시 초깃값을 지정할 수 있다.
+
+특별히 인자를 갖는 생성자를 이용하여 특정한 값으로 필드를 초기화할 수도 있다.
+
+`code_07`에서는 `new Samp(3)`과 같이 인자를 가진 생성자를 호출하고 3을 인자로 넘겨주어 `ob1`객체의 `id`값을 3으로 초기화 한다.
+
+### 생성자 정의와 호출
+
+다음 코드는 클래스 Book에 3개의 필드를 갖도록 정의한 것이다.
+
+```java
+public class Book {
+    String title;
+    String author;
+    int ISBN;
+
+    public Book(String title, String author, int ISBN) {
+        this.title = title;
+        this.author = author;
+        this.ISBN = ISBN;
+    }
+
+    public static void main(String[] args) {
+        Book javaBook = new Book("Java JDK", "황기태", 3333);
+    }
+}
+```
+
+> Book은 하나의 생성자를 가지며 이 생성자는 3개의 필드를 초기화하기 위해 3개의 인자를 가진다.  
+> main() 메소드는 Book 클래스의 객체를 생성한다.  
+> 생성자를 통해 title 필드에 "Java JDK", author 필드에 "황기태", ISBN 필드에 3333이 초기화 된다.
 
 ***
 
