@@ -1,5 +1,5 @@
 ---
-layout: list
+layout: post
 title: Sitemap
 slug: Sitemap
 menu: true
