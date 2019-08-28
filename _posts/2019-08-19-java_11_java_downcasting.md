@@ -3,7 +3,7 @@ layout: post
 title: 11. Java DownCasting(다운캐스팅)
 subtitle: Java DownCasting(다운캐스팅)
 categories: study
-tags: study java
+tags: java
 ---
 
 ## Overview

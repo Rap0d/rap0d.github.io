@@ -3,7 +3,7 @@ layout: post
 title: 12. Java 클래스 정리
 subtitle: Java 클래스 정리
 categories: study
-tags: study java
+tags: java
 ---
 
 ## Overview

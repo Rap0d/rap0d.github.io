@@ -3,7 +3,7 @@ layout: post
 title: 9. Java Casting(형변환)
 subtitle: Java Casting(형변환)
 categories: study
-tags: study java
+tags: java
 ---
 
 ## Overview

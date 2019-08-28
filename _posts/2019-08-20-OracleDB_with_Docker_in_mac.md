@@ -3,7 +3,7 @@ layout: post
 title: Mac OS에서 Docker를 사용해서 OracleDB 설치하기
 subtitle: Mac OS에서 Docker를 사용해서 OracleDB 설치하기
 categories: tip
-tags: tip mactip
+tags: mactip
 ---
 
 ![oracledb](/assets/img/tip/mactip/oracle/oracledb_logo.png "OracleDB")

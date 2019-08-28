@@ -3,7 +3,7 @@ layout: post
 title: 10. Java UpCasting(업캐스팅)
 subtitle: Java UpCasting(업캐스팅)
 categories: study
-tags: study java
+tags: java
 ---
 
 ## Overview

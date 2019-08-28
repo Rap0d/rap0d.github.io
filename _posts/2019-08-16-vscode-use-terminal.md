@@ -3,7 +3,7 @@ layout: post
 title: Visual Studio Code에서 내부 터미널 사용하기
 subtitle: Visual Studio Code에서 내부 터미널 사용하기
 categories: tip
-tags: tip etctip
+tags: etctip
 ---
 
 ![vscode](/assets/img/tip/etctip/vscode_logo.png "VsCode")
