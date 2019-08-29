@@ -169,11 +169,13 @@ Circle
 메소드 오버라이딩을 작성하는 데는 다음과 같은 몇 가지 제약 조건이 있다.
 
 > **메소드 오버라이딩은 슈퍼 클래스의 메소드와 완전히 동일한 메소드를 재정의한다.**  
-> - 슈퍼클래스에 선언된 메소드와 같은 이름, 같은 리턴타입, 같은 매개 변수 리스트를 갖는 메소드를 작성해야 한다.  
+> - 슈퍼클래스에 선언된 메소드와 같은 이름, 같은 리턴타입, 같은 매개 변수 리스트를 갖는 메소드를 작성해야 한다.
+> 
 > **메소드 오버라이딩 시에 슈퍼클래스 메소드의 접근 지정자보다 접근의 범위가 좁아질 수 없다.**  
 > - 접근 지정자는 public, protected, default, private순으로 범위가 좁아진다.  
 > - 따라서 슈퍼 클래스의 메소드가 public으로 선언되었다면 서브 클래스에서 메소드 오버라이딩 시 protected나 private을 사용할 수 없으며 반드시 public으로 해야한다.  
-> - 또한 슈퍼 클래스의 메소드가 protected라면 메소드 오버라이딩 시에 protected나 public만 사용할 수 있다.  
+> - 또한 슈퍼 클래스의 메소드가 protected라면 메소드 오버라이딩 시에 protected나 public만 사용할 수 있다.
+>  
 > **메소드 오버라이딩에서 메소드 이름, 매개 변수 리스트는 같으나 리턴 타입만 다를 수 없다.**  
 > - 만일 Line 클래스를 아래와 같이 작성한다면 오버라이딩이 실패하고 컴파일 오류가 발생한다.  
 > ```java
@@ -183,8 +185,71 @@ Circle
 >   }
 > }
 > ```
+> 
 > **static, private, final로 선언된 메소드는 오버라이딩될 수 없다.**
 
 ***
 
 ## 메소드 오버라이딩의 활용
+
+메소드 오버라이딩은 서브 클래스를 작성하는 개발자가 상속받은 슈퍼 클래스의 어떤 메소드를 자신의 특성에 맞게 새로 만들어 사용하고 싶은 경우에 활용된다.
+
+메소드 오버라이딩의 활용 예를 들어보자. 위의 code_21에 정의된 클래스를 활용하는 main()메소드를 다음 코드에 작성하였다.
+
+```java
+/**
+* code_23
+*/
+public static void main(String[] args) {
+    DObject start, n, obj;
+
+    // 링크드 리스트로 도형 생성하여 연결하기
+    start = new Line(); // Line 객체 연결
+    n = start;
+    obj = new Rect();
+    n.next = obj;       // Rect 객체 연결
+    n = obj;
+    obj = new Line();
+    n.next = obj;       // Line 객체 연결
+    n = obj;
+    obj = new Circle();
+    n.next = obj;       // Circle 객체 연결
+
+    // 모든 도형 출력하기
+    while (start != null) {
+        start.draw();
+        start = start.next;
+    }
+}
+```
+
+### 실행결과
+
+```
+Line
+Rect
+Line
+Circle
+```
+
+main() 메소드는 Line, Rect, Line, Circle 객체를 순서대로 생성하여 링크드 리스트로 연결하고 start는 처음 객체를 가리킨다.
+
+각 객체에는 두 개의 draw() 메소드가 존재한다.
+
+main() 메소드는 다음과 같이 start 레퍼런스에 연결된 모든 도형 객체를 방문하면서 draw() 메소드를 호출한다.
+
+```java
+while (start != null) {
+    start.draw();       // start가 가리키는 객체의 오버라이딩된 draw() 메소드 호출
+    start = start.next; // start는 다음 객체의 레퍼런스 값을 가짐
+}
+```
+
+start 레퍼런스의 타입이 DObject 타입이므로 start.draw()는 각 객체의 DObject의 멤버 draw()를 호출하게 될 것 같지만, 실제 각 객체에서 오버라이딩한 draw() 메소드가 호출된다.
+
+그림에서 빨간색 점선 화살표로 표시된 것은 동적 바인딩에 의해 타원으로 둘러싼 draw()가 실행됨을 표시한다.
+
+***
+
+## 동적 바인딩 : 오버라이딩된 메소드가 항상 우선적으로 호출된다.
+
