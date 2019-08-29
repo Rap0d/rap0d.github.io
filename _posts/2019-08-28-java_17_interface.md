@@ -257,6 +257,8 @@ public class SmartPhone extends PDA implements MobilePhone, MP3 {
 
 ## 인터페이스와 추상 클래스
 
-인터페이스와 추상 클래스는 유사점이 많앋.
+인터페이스와 추상 클래스는 유사점이 많다.
 
 이 둘의 차이점을 다음 표에 정리하였다.
+
+![추상 클래스와 인터페이스의 차이점](/assets/img/study/java/190829_fig_1.png "추상 클래스와 인터페이스의 차이점")

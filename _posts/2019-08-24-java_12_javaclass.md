@@ -315,7 +315,7 @@ for (int i = 0; i < pa.length; i++) {   // 배열 원소 출력
 
 ***
 
-## 오버라이딩(Over riding)
+## [오버라이딩(Over riding)](https://rap0d.github.io/study/2019/08/28/java_20_overriding/)
 
 ***
 
