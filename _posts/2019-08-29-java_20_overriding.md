@@ -271,6 +271,7 @@ public class SuperObject {
         a.paint();
     }
 }
+
 /**
 * code_25
 */
@@ -331,3 +332,138 @@ b.paint();  // paint()는 SubObject에서 오버라이딩한 draw()를 호출한
 그 결과 paint() 메소드는 `SuperObject`의 멤버인 `draw()`가 오버라이딩된 메소드임을 발견하고 `SubObject`의 멤버 `draw()`를 호출한다.
 
 결국 `SuperObject`이든 `SubObject`이든 `draw()`를 호출하면 항상 동적 바인딩이 일어나서 오버라이딩한 SubObject의 `draw()`가 호출된다.
+
+**동적 바인딩**(dynamic binding)은 실행할 메소드를 **컴파일 시**(compile time)가 아니라 **실행 시**(run time)에 결정하는 것을 말한다.
+
+어떤 경우이든 자바에서 오버라이딩된 메소드가 있다면 동적 바인딩을 통해 우선적으로 실행된다.
+
+***
+
+## 오버라이딩과 super 키워드
+
+앞에서 설명한 내용은 메소드가 오버라이딩되어 있을 때 슈퍼 클래스의 메소드가 호출되면 동적 바인딩에 의해 항상 서브 클래스에 오버라이딩된 메소드가 호출된다는 것이다.
+
+그러면 오버라이딩된 슈퍼 클래스의 메소드는 이제 더 이상 쓸모없게 된 것일까?
+
+슈퍼 클래스의 메소드를 호출하려면 다음과 같이 서브 클래스에서 **super** 키워드를 이용하면 슈퍼 클래스의 멤버에 접근할 수 있다.
+
+```
+super.슈퍼클래스의멤버
+```
+
+*super*는 자바에서 자동으로 지원되는 것으로 **슈퍼 클레스에 대한 레퍼런스**이다.
+
+super로 필드와 메소드 모두 접근 가능하다.
+
+다음 코드의 사례를 살펴본다.
+
+```java
+class SuperObject {
+    protected String name;
+    public void paint() {
+        draw();
+    }
+    public void draw() {
+        System.out.println(name);
+    }
+}
+public class SubObject extends SuperObject {
+    protected String name;
+    public void draw() {
+        name = "Sub";
+        super.name = "Super";
+        super.draw();
+        System.out.println(name);
+    }
+    public static void main(String[] args) {
+        SuperObject b = new SubObject();
+        b.paint();
+    }
+}
+```
+
+### 실행 결과
+```
+Super
+Sub
+```
+
+`SubObject` 클래스의 `draw()`에 구현된 다음 코드를 보자.
+
+```java
+name = "Sub";           // SubObject 클래스의 필드 name에 접근
+super.name = "Super";   // SuperObject 클래스의 name에 접근
+super.draw();           // SuperObject 클래스의 draw() 메소드 호출
+```
+
+이 응용프로그램의 결과의 두 개 `name` 필드에 각각 다른 스트링이 지정되어 있는 것을 볼 수 있다.
+
+***
+
+## this, this(), super, super()의 사용
+
+**this**와 **super**는 모두 레퍼런스로서 *this*는 현재 객체의 주소(혹은 레퍼런스)를, *super*는 현재 객체 내에 있는 슈퍼 클래스 영역의 주소를 가진다.
+
+그러므로 다음과 같이 멤버에 접근한다.
+
+```
+this.객체내의 멤버
+super.객체내의 슈퍼클래스의 멤버
+```
+
+한편 **this()**와 **super()**는 모두 메소드 호출이며, *this()*는 생성자에서 동일한 클래스 내의 다른 생성자를 호출할 때 사용하고, *super()*는 서브 클래스의 생성자에서 슈퍼 클래스의 생성자를 선택 호출할 때 사용한다.
+
+***
+
+## 메소드 오버라이딩 예제
+
+`Person`을 상속받는 `Professor`라는 새로운 클래스를 만들고 `Professor` 클래스에서 `getPhone()` 메소드를 오버라이딩하고 이 메소드에서 슈퍼 클래스의 `getPhone()` 메소드를 호출한다.
+
+```java
+class Person {
+    String phone;
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    public String getPhone() {
+        return phone;
+    }
+}
+
+class Professor extends Person {
+    public String getPhone() {                      // Person의 getPhone()을 오버라이딩
+        return "Professor : " + super.getPhone();   // Person의 getPhone() 호출
+    }
+}
+
+public class Overriding {
+    public static void main(String[] args) {
+        Professor a = new Professor();
+        a.setPhone("011-123-1234");         // Professor의 getPhone() 호출
+        System.out.println(a.getPhone());
+
+        Person p = a;
+        System.out.println(p.getPhone());   // 동적 바인딩에 의해 Professor의 getPhone() 호출
+    }
+}
+```
+
+### 실행 결과
+
+```
+Professor : 011-123-1234
+Professor : 011-123-1234
+```
+
+***
+
+## 오버로딩(overloading)과 오버라이딩(overriding)
+
+메소드 **오버라이딩**은 슈퍼 클래스의 메소드와 이름, 매개 변수 타입, 매개 변수 리스트, 리턴 타입 등이 모두 동일한 메소드가 서브 클래스에 재정의되었을 경우를 가리키는 용어이며, **오버로딩**은 한 클래스나 상속 관계에 있는 클래스들에서 서로 인자의 타입이 다르거나 인자의 개수가 다른 여러 개의 동일한 이름의 메소드가 작성되는 것을 지칭한다.
+
+메소드 오버라이딩은 반드시 상속 관계에서만 성립되지만 오버로딩은 동일한 클래스 내 혹은 상속 관계 둘 다 가능하다.
+
+이 둘의 차이점을 다음 표에 정리하였다.
+
+![메소드 오버로딩과 오버라이딩의 차이점](/assets/img/study/java/190829_fig_4.png "메소드 오버로딩과 오버라이딩의 차이점")
