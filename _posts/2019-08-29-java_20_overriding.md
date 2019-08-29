@@ -172,12 +172,12 @@ Circle
 > - 슈퍼클래스에 선언된 메소드와 같은 이름, 같은 리턴타입, 같은 매개 변수 리스트를 갖는 메소드를 작성해야 한다.
 > 
 > **메소드 오버라이딩 시에 슈퍼클래스 메소드의 접근 지정자보다 접근의 범위가 좁아질 수 없다.**  
-> - 접근 지정자는 public, protected, default, private순으로 범위가 좁아진다.  
-> - 따라서 슈퍼 클래스의 메소드가 public으로 선언되었다면 서브 클래스에서 메소드 오버라이딩 시 protected나 private을 사용할 수 없으며 반드시 public으로 해야한다.  
-> - 또한 슈퍼 클래스의 메소드가 protected라면 메소드 오버라이딩 시에 protected나 public만 사용할 수 있다.
+> - 접근 지정자는 *public, protected, default, private*순으로 범위가 좁아진다.  
+> - 따라서 슈퍼 클래스의 메소드가 *public*으로 선언되었다면 서브 클래스에서 메소드 오버라이딩 시 *protected*나 *private*을 사용할 수 없으며 반드시 *public*으로 해야한다.  
+> - 또한 슈퍼 클래스의 메소드가 *protected*라면 메소드 오버라이딩 시에 *protected*나 *public*만 사용할 수 있다.
 >  
 > **메소드 오버라이딩에서 메소드 이름, 매개 변수 리스트는 같으나 리턴 타입만 다를 수 없다.**  
-> - 만일 Line 클래스를 아래와 같이 작성한다면 오버라이딩이 실패하고 컴파일 오류가 발생한다.  
+> - 만일 `Line` 클래스를 아래와 같이 작성한다면 오버라이딩이 실패하고 컴파일 오류가 발생한다.  
 > ```java
 > class Line extends DObject {
 >   public int draw() { //리턴타입이 달라 오버라이딩 실패, 컴파일 오류
@@ -186,7 +186,7 @@ Circle
 > }
 > ```
 > 
-> **static, private, final로 선언된 메소드는 오버라이딩될 수 없다.**
+> ***static, private, final*로 선언된 메소드는 오버라이딩될 수 없다.**
 
 ***
 
@@ -194,7 +194,7 @@ Circle
 
 메소드 오버라이딩은 서브 클래스를 작성하는 개발자가 상속받은 슈퍼 클래스의 어떤 메소드를 자신의 특성에 맞게 새로 만들어 사용하고 싶은 경우에 활용된다.
 
-메소드 오버라이딩의 활용 예를 들어보자. 위의 code_21에 정의된 클래스를 활용하는 main()메소드를 다음 코드에 작성하였다.
+메소드 오버라이딩의 활용 예를 들어보자. 위의 `code_21`에 정의된 클래스를 활용하는 `main()`메소드를 다음 코드에 작성하였다.
 
 ```java
 /**
@@ -232,11 +232,11 @@ Line
 Circle
 ```
 
-main() 메소드는 Line, Rect, Line, Circle 객체를 순서대로 생성하여 링크드 리스트로 연결하고 start는 처음 객체를 가리킨다.
+`main()` 메소드는 `Line, Rect, Line, Circle` 객체를 순서대로 생성하여 링크드 리스트로 연결하고 `start`는 처음 객체를 가리킨다.
 
-각 객체에는 두 개의 draw() 메소드가 존재한다.
+각 객체에는 두 개의 `draw()` 메소드가 존재한다.
 
-main() 메소드는 다음과 같이 start 레퍼런스에 연결된 모든 도형 객체를 방문하면서 draw() 메소드를 호출한다.
+`main()` 메소드는 다음과 같이 `start` 레퍼런스에 연결된 모든 도형 객체를 방문하면서 `draw()` 메소드를 호출한다.
 
 ```java
 while (start != null) {
@@ -245,11 +245,89 @@ while (start != null) {
 }
 ```
 
-start 레퍼런스의 타입이 DObject 타입이므로 start.draw()는 각 객체의 DObject의 멤버 draw()를 호출하게 될 것 같지만, 실제 각 객체에서 오버라이딩한 draw() 메소드가 호출된다.
+`start` 레퍼런스의 타입이 `DObject` 타입이므로 `start.draw()`는 각 객체의 `DObject`의 멤버 `draw()`를 호출하게 될 것 같지만, 실제 각 객체에서 오버라이딩한 `draw()` 메소드가 호출된다.
 
-그림에서 빨간색 점선 화살표로 표시된 것은 동적 바인딩에 의해 타원으로 둘러싼 draw()가 실행됨을 표시한다.
+그림에서 빨간색 점선 화살표로 표시된 것은 동적 바인딩에 의해 타원으로 둘러싼 `draw()`가 실행됨을 표시한다.
 
 ***
 
 ## 동적 바인딩 : 오버라이딩된 메소드가 항상 우선적으로 호출된다.
 
+```java
+/**
+* code_24
+* 오버라이딩된 메소드를 호출하는 동적 바인딩
+*/
+public class SuperObject {
+    protected String name;
+    public void paint() {
+        draw();
+    }
+    public void draw() {
+        System.out.println("Super Object");
+    }
+    public static void main(String[] args) {
+        SuperObject a = new SuperObject();
+        a.paint();
+    }
+}
+/**
+* code_25
+*/
+class SuperObject {
+    protected String name;
+    public void paint() {
+        draw();
+    }
+    public void draw() {        // 이 메소드를 호출하지 않음
+        System.out.println("Super Object");
+    }
+    public class SubObject extends SuperObject {
+        public void draw() {    // 이 메소드를 호출함 (동적 바인딩)
+            System.out.println("Sub Object");
+        }
+        public static void main(String[] args) {
+            SuperObject b = new SubObject();
+            b.paint();
+        }
+    }
+}
+```
+
+### code_24 실행결과
+
+```
+Super Object
+```
+
+### code_25 실행결과
+
+```
+Sub Object
+```
+
+위 코드는 두 개의 사례를 보여준다.
+
+24번 코드는 `SuperObject` 클래스 하나만 가진 응용프로그램이며 `SuperObject` 클래스는 `draw()` 메소드를 하나만 가지고 있다.
+
+그러므로 다음과 같이 `main()`에서 `a.paint()`  메소드를 호출하면 `SuperObject` 클래스의 `draw()`가 자연스럽게 호출된다.
+
+```java
+SuperObject a = new SuperObject();
+a.paint();  // paint()는 SuperObject의 draw()를 호출한다.
+```
+
+그러면 25번 코드를 보자.
+
+`SuperObject`와 이를 상속받는 `SubObject`가 있고 `SubObject`에서는 `draw()` 메소드를 오버라이딩하고 있다.
+
+`main()`에서 다음과 같이 `b.paint()`를 호출하면 객체 b에는 `draw()`가 두 개 존재하므로 `paint()`는 두 개의 메소드 중에서 어떤 것을 호출할지 결정하는 동적 바인딩의 과정을 거친다.
+
+```java
+SuperObject b = new SubObject();
+b.paint();  // paint()는 SubObject에서 오버라이딩한 draw()를 호출한다.
+```
+
+그 결과 paint() 메소드는 `SuperObject`의 멤버인 `draw()`가 오버라이딩된 메소드임을 발견하고 `SubObject`의 멤버 `draw()`를 호출한다.
+
+결국 `SuperObject`이든 `SubObject`이든 `draw()`를 호출하면 항상 동적 바인딩이 일어나서 오버라이딩한 SubObject의 `draw()`가 호출된다.
