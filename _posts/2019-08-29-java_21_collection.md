@@ -80,3 +80,4 @@ Stack&lt;E&gt;에서 E에 구체적인 타입을 지정하면, 지정된 특정 
 
 다음 그림은 제네릭 Stack&lt;E&gt;를 구체화한 사례를 보여준다.
 
+![제네릭 Stack<E>를 특정타입으로 구체화(specialization)한 경우](/assets/img/study/java/190830_fig_1.png "제네릭 Stack<E>를 특정타입으로 구체화(specialization)한 경우")
