@@ -61,7 +61,7 @@ tags: java
 
 ## 제네릭의 기본 개념
 
-제네릭은 모든 종류의 타입을 다룰 수 있도록 일반화된 타입 매개변수(Generic type)로 클래스나 메소드를 선언하는 기법으로 C++의 템플릿(template)와 동일하다.
+제네릭은 모든 종류의 타입을 다룰 수 있도록 일반화된 **타입 매개변수**(Generic type)로 클래스나 메소드를 선언하는 기법으로 C++의 템플릿(template)와 동일하다.
 
 Stack&lt;E&gt;클래스의 예를 들어보자. Stack&lt;E&gt; 클래스는 제네릭 타입 &lt;E&gt;를 가진 제네릭 클래스이며 그 모양은 다음과 같다.
 
@@ -76,7 +76,7 @@ class Stack<E> {
 
 Stack&lt;E&gt;에서 E에 구체적인 타입을 지정하면, 지정된 특정 타입만 다룰 수 있는 **구체화된(specialized) 스택**이 된다.
 
-예를 들어, Stack&lt;Integer&gt;는 Integer 타입만 다루는 스택이 되고, Stack&lt;Point&gt;는 Point 타입의 객체만 푸시(push)하고 팝(pop)할 수 있는 스택이 된다.
+예를 들어, Stack&lt;Integer&gt;는 *Integer* 타입만 다루는 스택이 되고, Stack&lt;Point&gt;는 *Point* 타입의 객체만 푸시(push)하고 팝(pop)할 수 있는 스택이 된다.
 
 다음 그림은 제네릭 Stack&lt;E&gt;를 구체화한 사례를 보여준다.
 

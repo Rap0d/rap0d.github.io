@@ -52,6 +52,8 @@ description: >
 - [18. 오버로딩(Over loading)](https://rap0d.github.io/study/2019/08/28/java_18_%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9/)
 - [19. 접근 지정자(제어자)](https://rap0d.github.io/study/2019/08/28/java_19_%EC%A0%9C%EC%96%B4%EC%9E%90/)
 - [20. 메소드 오버라이딩](https://rap0d.github.io/study/2019/08/29/java_20_overriding/)
+- [21. 컬렉션과 제네릭](https://rap0d.github.io/study/2019/08/29/java_21_collection/)
+- [22. 제네릭 컬렉션 활용](https://rap0d.github.io/study/2019/08/30/java_22_generic2/)
 
 ## Data Structure
 
