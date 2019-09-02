@@ -40,7 +40,7 @@ Iterator 객체를 **반복자**라고 부르기도 한다.
 Iterator<Integer> it = v.iterator();    // 벡터 v의 요소를 순차 검색할 Iterator 객체 리턴
 ```
 
-벡터 `v`의 요소 타입(Integer)에 맞추어 Iterator&lt;E&gt;의 &lt;E&gt;에 *Integer*를 지정하였다.
+벡터 `v`의 요소 타입(*Integer*)에 맞추어 Iterator&lt;E&gt;의 &lt;E&gt;에 *Integer*를 지정하였다.
 
 이제, `it` 객체를 이용하면 인덱스 없이 벡터의 각 요소를 순차적으로 검색할 수 있다.
 
