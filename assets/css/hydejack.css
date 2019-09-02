@@ -71,15 +71,17 @@
 
 
 .markdown-body code {
-  font-family: 'D2 Coding', Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-family: 'D2 Coding';
   font-size: 12px;
 }
+/* , Consolas, "Liberation Mono", Menlo, Courier, monospace */
 
 .markdown-body pre {
   margin-top: 0;
   margin-bottom: 0;
-  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font: 12px 'D2 Coding';
 }
+/* , Consolas, "Liberation Mono", Menlo, Courier, monospace */
 
 .markdown-body img {
   margin-left: auto;
