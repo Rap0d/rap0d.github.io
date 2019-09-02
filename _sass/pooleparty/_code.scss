@@ -3,8 +3,9 @@
 // Inline and block-level code snippets. Includes tweaks to syntax highlighted
 // snippets from Pygments/Rouge and Gist embeds.
 
+@import url(https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css);
 code, pre {
-  font-family: $code-font-family;
+  font-family: 'D2 coding' !important, $code-font-family;
 }
 
 code {
