@@ -205,3 +205,126 @@ return (T)stck[tos];    // 타입 매개 변수 T타입으로 캐스팅
 ***
 
 ## 제네릭과 배열
+
+제네릭에서는 배열에 대한 제한을 두고 있다.
+
+제네릭 클래스 또는 인터페이스 타입의 배열은 선언할 수 없다.
+
+```java
+GStack<Integer>[] gs = new GStack<Integer>[10]; // 컴파일 오류
+```
+
+그러나 제네릭 타입의 배열 선언은 허용된다.
+
+```java
+public void myArray(T[] a) {...}    // 허용
+```
+
+***
+
+## 제네릭 메소드
+
+클래스나 인터페이스에 메소드만 제네릭으로 구현할 수도 있다.
+
+toStack() 제네릭 메소드를 구현한 예는 다음과 같다.
+
+```java
+class GenericMethodEx {
+    static <T> void toStack(T[] a, GStack<T> gs) {
+        for (int i = 0; i < a.length; i++) {
+            gs.push(a[i]);
+        }
+    }
+}
+```
+
+타입 매개 변수는 메소드의 타입 앞에서 선언된다.
+
+위의 toStack()에서 &lt;T&gt;가 타입 매개 변수의 선언이다.
+
+제네릭 메소드를 호출할 때는 컴파일러가 메소드의 인자를 통해 이미 타입을 유추할 수 있어 제네릭 클래스나 인터페이스와는 달리 타입을 명시하지 않아도 된다.
+
+다음 소스는 컴파일러가 제네릭 메소드 toStack()의 호출시 타입 매개 변수 T를 Object로 유추하는 경우이다.
+
+```java
+Object oa = new Object[100];
+GStack<Object> gso = new GStack<Object>();
+GenericMethodEx.toStack(oa, gso);   // 타입 매개 변수 T를 Object로 유추함
+```
+
+아래의 소스는 컴파일러가 제네릭 메소드 toStack()의 호출시 타입 매개 변수 T를 String으로 유추하는 경우이다.
+
+```java
+String sa = new String[100];
+GStack<String> gss = new GStack<String>();
+GenericMethodEx.toStack(sa, gss);   // 타입 매개 변수 T를 String으로 유추함
+```
+
+아래의 경우는 타입 매개 변수 T를 Object로 유추한다.
+
+```java
+GenericMethodEx.toStack(sa, gso);
+```
+
+toStack() 메소드의 인자를 보면 String 타입과 Object 타입이 섞여 있는데, Object가 String의 슈퍼 클래스이므로 컴파일러는 타입을 Object로 유추한다.
+
+### 스택의 내용을 반대로 만드는 제네릭 메소드 만들기
+
+위의 코드 GStack을 이용하여 주어진 스택의 내용을 반대로 만드는 제네릭 메소드 reverse()를 작성한다.
+
+```java
+/**
+ * GenericMethodEx
+ */
+public class GenericMethodEx {
+    public static <T> GStack<T> reverse(GStack<T> a) {
+        // T가 타입 매개 변수인 제네릭 메소드
+        GStack<T> s = new GStack<T>();
+        // 스택 a를 반대로 저장할 목적 GStack 생성
+        while (true) {
+            T tmp;
+            tmp = a.pop();  // 원래 스택에서 요소 하나를 꺼냄
+            if (tmp == null) {  // 스택이 비었음
+                break;  // 거꾸로 만드는 작업 종료
+            } else {
+                s.push(tmp);    // 새 스택에 요소 삽입
+            }
+        }
+        return s;   // 새 스택을 리턴
+    }
+
+    public static void main(String[] args) {
+        GStack<Double> gs = new GStack<Double>();
+        // Double 타입의 GStack 생성
+
+        // 5개의 요소를 스택에 push
+        for (int i = 0; i < 5; i++) {
+            gs.push(new Double(i));
+        }
+        gs = reverse(gs);
+        // 컴파일러는 제네릭 메소드의 타입 매개 변수를 Double로 유추
+        for (int i = 0; i < 5; i++) {
+            System.out.println(gs.pop());
+        }
+    }
+}
+```
+
+#### 실행 결과
+
+```
+0.0
+1.0
+2.0
+3.0
+4.0
+```
+
+***
+
+## 제네릭의 장점
+
+> 동적으로 타입이 결정되지 않고 컴파일 시에 타입이 결정되므로 보다 안전한 프로그래밍 가능  
+> 런타임 타입 충돌 문제 방지  
+> 개발 시 타입 개스팅 절차 불필요  
+> ClassCastException 방지
