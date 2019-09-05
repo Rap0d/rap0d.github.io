@@ -12,9 +12,9 @@ Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절�
 
 ***
 
-### 객체 지향 언어의 목적
+## 객체 지향 언어의 목적
 
-#### 1. 소프트웨어의 생산성 향상
+### 1. 소프트웨어의 생산성 향상
 
 객체 지향 언어가 나온 배경은 컴퓨터 산업이 발전함에 따라 소프트웨어의 **생명 주기**(Life cycle)가 짧아졌는데, 이는 어떤 제품이 기획되면 짧은 시간안에 소프트웨어를 만들어야 했기 때문이다.
 
@@ -22,7 +22,7 @@ Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절�
 
 이는 곧 소프트웨어의 생산성을 향상시킬 수 있게 된다.
 
-#### 2. 실세계에 대한 쉬운 모델링
+### 2. 실세계에 대한 쉬운 모델링
 
 과거 절차 지향 언어를 사용한 소프트웨어는 수학 계산이나 통계처리를 하는 등 대체로 처리 과정이나 계산의 절차가 중요했다.
 
@@ -32,11 +32,11 @@ Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절�
 
 ***
 
-### 객체 지향 언어의 특성
+## 객체 지향 언어의 특성
 
 프로그래밍 언어에서 객체가 다음과 같은 특성을 가질 때 객체 지향적이라고 한다.
 
-#### 1. 캡슐화(Encapsulation)
+### 1. 캡슐화(Encapsulation)
 
 캡슐화란 객체를 캡슐로 싸서 그 내부를 보호하고 볼 수 없게하는 것을 말한다.
 
@@ -52,7 +52,7 @@ Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절�
 
 ![객체](/assets/img/study/java/190824_fig_1.png)
 
-#### 2. 상속(Ingeritance)
+### 2. 상속(Ingeritance)
 
 **상속**은 상위 개체의 속성이 하위 개체에 물려져, 하위 개체가 상위 개체의 속성을 모두 가지고 있음을 의미하는 관계이다.
 
@@ -64,7 +64,7 @@ Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절�
 
 즉 상속은 **코드의 재사용**을 가능하게 한다.
 
-#### 3. 다형성(Polymorphism)
+### 3. 다형성(Polymorphism)
 
 **다형성**은 같은 이름의 함수 호출에 대해 객체에 따라 다른 동작을 할 수 있도록 구현되는 것을 의미한다.
 
@@ -72,266 +72,36 @@ Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절�
 
 ***
 
-## 클래스와 객체
+## Java 문법
 
-**객체 지향 프로그래밍**에서 실제 세상의 물체들을 객체로 모델링을 한다.
+- [클래스와 객체](https://rap0d.github.io/study/2019/07/07/java_3_%EA%B0%9D%EC%B2%B4%EC%99%80_%ED%81%B4%EB%9E%98%EC%8A%A4/)
 
-실제 세상에서는 많은 사람들이 있지만 사람을 사람으로 구별지을 수 있는 공통된 특징을 가지고 있다.
+- [*this* 키워드](https://rap0d.github.io/study/2019/08/28/java_15_this/)
 
-이 공통된 특징, 속성을 기술한 것이 **클래스**이다.
+- [*static* 키워드](https://rap0d.github.io/study/2019/08/28/java_13_static/)
 
-그리고 사람은 그 속성에 따라 만들어진 **인스턴스**(Instance), **객체**(Object)라고 할 수 있다.
+- [생성자(Constructor)](https://rap0d.github.io/study/2019/08/28/java_14_생성자/)
 
-즉, 클래스는 객체를 생성하기 위한 설계도, 틀이라고 할 수 있고 객체는 클래스로 만들어낸 실체라고 볼 수 있다.
+- [접근 지정자(제어자)](https://rap0d.github.io/study/2019/08/28/java_19_제어자/)
 
-### Class 구성
+- [오버로딩(Over loading)](https://rap0d.github.io/study/2019/08/28/java_18_오버로딩/)
 
-자바에서 클래스를 선언할 때 `class` 키워드를 사용한다.
+- [상속](https://rap0d.github.io/study/2019/07/08/java_4_상속/)
 
-다음은 자바에서 클래스를 선언하는 예이다.
+- [*super* 키워드](https://rap0d.github.io/study/2019/08/28/java_20_overriding#this-this-super-super%ec%9d%98-%ec%82%ac%ec%9a%a9)
 
-```java
-/**
-* code_01
-*/
-public class Person {
-    public String name;         // 필드(field)
-    public int age;
+- [오버라이딩(Over riding)](https://rap0d.github.io/study/2019/08/28/java_20_overriding/)
 
-    public Person() {           // 생성자(Constructor)
-    }
-    
-    public Person(String s) {   // 생성자(Constructor)
-        name = s;       
-    }
+- 상속과 생성자의 관계
 
-    public String getName() {   // 메소드(method)
-        return name;    
-    }
-}
-```
+- 레퍼런스 형변환
+  - [Casting(형변환)](https://rap0d.github.io/study/2019/08/18/java_9_java_casting/)
+  - [UpCasting(업캐스팅)](https://rap0d.github.io/study/2019/08/19/java_10_java_upcasting/)
+  - [DownCasting(다운캐스팅)](https://rap0d.github.io/study/2019/08/19/java_11_java_downcasting/)
 
-- 클래스 접근 권한, `public`  
-    - 접근 권한을 표시하는것으로, `public` 접근 권한은 다른 모든 클래스들이 이 클래스에 대해 사용, 접근이 가능함을 뜻한다.
-- class Person
-    - `Person`이라는 이름의 클래스를 정의한다. `class` 다음에 클래스의 이름을 정의한다.
-    - 클래스는 '{'으로 시작하고 '}'으로 닫으며 이곳에 모든 멤버 필드와 메소드를 구현한다.
-- 필드(field)
-    - 값을 저장할 멤버 변수를 선언한다. **멤버 변수** 혹은 **필드**라고 부른다.
-    - 필드 앞에 붙은 접근 지정자 `public`은 이 필드가 다른 클래스에서 접근될 수 있도록 공개한다는 뜻이다.
-- 생성자(Constructor)
-    - 클래스의 이름과 동일한 메소드를 **생성자**(constructor)라고 한다.
-    - 생성자는 이 클래스의 객체가 생성될 때만 호출되는 메소드이다.
-- 메소드(method)
-    - 메소드는 실행 가능한 함수이며 객체의 행위를 구현한다.
-    - 메소드 앞에 붙은 접근 지정자 `public`은 이 메소드가 다른 클래스에서 접근될 수 있도록 공개한다는 뜻이다.
+- [추상 클래스와 추상 메소드(Abstract Class/Method)](https://rap0d.github.io/study/2019/08/28/java_16_추상/)
 
-### 객체 생성과 레퍼런스 변수
-
-위 `code_01`에서 정의한 클래스의 객체 혹은 인스턴스를 생성해보자.
-
-`Person` 클래스의 객체를 생성하고 활용하는 예는 다음과 같다.
-
-```java
-/**
-* code_02
-*/
-public static void main(String args[]) {
-    Person aPerson;                 // 객체에 대한 레퍼런스 변수 aPerson 선언
-    aPerson = new Person("김길동"); // Person 객체 생성
-
-    aPerson.age = 30;
-    String s = aPerson.getName();
-}
-```
-
-- `Peson` 클래스의 레퍼런스 변수 `aPerson` 선언
-    - 객체를 생성하기 전 객체를 가리킬 레퍼런스 변수의 선언이 필요하다.
-        ```java
-        Person aPerson;  // 레퍼런스 변수 aPerson 선언
-        ```
-    - 이 선언문으로는 `Person` 객체가 생성되지 않는다. 변수 `aPerson은` `Person` 타입의 객체에 대한 레퍼런스를 가지는 변수의 선언일 뿐 객체 자체는 아니다.
-    - 따라서 아직 객체가 생성된 것이 아니며 어떤 객체도 가리키고 있지 않은 상태이다.
-- 객체 생성, `new` 연산자 이용
-    - 자바에서는 반드시 `new` 연산자를 사용하여 다음과 같이 객체를 생성해야 한다.
-        ```java
-        aPerson = new Person("김길동");
-        ```
-    - 이 문장은 생성된 `Person` 객체에 대한 레퍼런스 값을 `aPerson` 변수에 대입한다.
-    - `new` 연산자에 의해 객체가 생성되는 과정은 다음과 같다.
-        > 1. `Person` 타입의 객체 메모리 공간확보  
-        > 2. `Person(String s) {...}` 생성자가 생성되어 `name` 필드 값을 `"김길동"`으로 설정
-
-### 객체 멤버 접근
-
-객체의 멤버에 접근할 때는 다음과 같이 점(.) 연산자를 붙인다.
-
-> 객체 레퍼런스.멤버
-
-예를 들어, 다음 코드는 aPerson 객체의 age 필드에 30을 대입한다.
-
-```java
-aPerson.age = 30;
-```
-
-반대로 aPerson 객체의 age 필드의 값을 읽어내고자 하면 다음과 같이 할 수 있다.
-
-```java
-int i = aPerson.age;
-```
-
-다음 코드는 aPerson 객체의 getName() 메소드를 호출한다.
-
-```java
-String s = aPerson.getName();
-```
-
-#### *Ex. 지수 클래스 MyExp*
-
-```java
-/**
-* code_03
-*/
-public class MyExp {
-    int base;
-    int exp;
-    int getValue() {
-        int res=1;
-        for (int i = 0; i < exp; i++) {
-            res = res * base;
-        }
-        return res;
-    }
-
-    public static void main(String[] args) {
-        MyExp num1 = new MyExp();
-        num1.base = 2;
-        num1.exp = 3;
-        MyExp num2 = new MyExp();
-        num2.base = 3;
-        num2.exp = 4;
-
-        System.out.println("2의 3승 =" + num1.getValue());
-        System.out.println("3의 4승 =" + num2.getValue());
-    }
-}
-```
-
-> `MyExp`는 지수 값을 표현하는 클래스로서 두 개의 정수형 멤버 필드 `base`와 `exp`를 가진다.  
-> $$2^3$$의 경우, `base`는 2이며, `exp`는 3이다. 또한 `MyExp`는 정수 값을 리턴하는 `getValue()`라는 메소드를 제공한다.  
-> `getValue()`는 `base`와 `exp`값으로부터 지수를 계산하여 정수 값으로 리턴한다.  
-> 예를 들어, `base`가 2, `exp`가 3이라면 `getValue()`는 8을 리턴한다.  
-
-### 객체 배열
-
-자바 기본타입의 배열과 같이 객체가 원소인 객체 배열도 만들 수 있다.
-
-객체 배열이란 객체에 대한 레퍼런스를 원소로 갖는 배열이다.
-
-다음 코드를 이용하여 객체 배열을 설명한다.
-
-```java
-/**
-* code_04
-*/
-Person[] pa;                // 배열에 대한 레퍼런스 선언
-pa = new Person[10];        // 레퍼런스 배열 생성
-for (int i = 0; i < pa.length; i++) {
-    pa[i] = new Person();   // 배열의 원소 객체 생성
-    pa[i].age = 30 + i;     // 객체 배열 사용
-}
-for (int i = 0; i < pa.length; i++) {   // 배열 원소 출력
-    System.out.println(pa[i].age);
-}
-```
-
-#### 배열에 대한 레퍼런스 선언
-- 다음은 Person 타입의 객체 배열 선언문이다. 객체 배열에 대한 레퍼런스 변수 `pa`를 선언한다.
-```java
-Person[] pa;
-```
-- 이 선언문에 의해 레퍼런스 변수만 생성될 뿐 배열이 생성되지 않는다. 다음과 같이 원소 개수를 지정해서는 안된다.
-```java
-Person[10] pa;  // <- 오류
-```
-#### 레퍼런스 배열 생성
-- 두 번째로 다음 소스는 10개의 레퍼런스 배열을 생성한다. 배열의 원소는 객체에 대한 레퍼런스이다.
-```java
-pa = new Person[10];
-```
-#### 객체 생성
-- 다음 소스를 이용하여 `Person` 객체를 하나씩 생성하여 레퍼런스 배열의 각 원소에 대입한다.
-```java
-for (int i = 0; i < pa.length; i++) {
-    pa[i] = new Person();
-    pa[i].age = 30 + i;   
-}
-```
-- 배열의 크기만큼 `Person` 객체를 생성하여 배열의 원소인 레퍼런스 변수에 대입을 한다.
-- 이렇게 하여 `Person` 타입 객체 배열이 생성된다.
-#### 객체 접근
-- pa의 배열의 각 원소는 `Person` 객체이므로 배열의 i번째 객체를 접근하기 위해서는 `pa[i]` 레퍼런스를 사용한다.
-```java
-pa[i].age = 30 + i;
-```
-- 위 소스는 i번째 `Person` 객체의 필드 `age`에 30+i 의 값을 대입하는 소스이다.
-- 배열의 각 `Person` 객체의 `age`필드 값을 화면에 출력하는 소스는 다음과 같다.
-```java
-for (int i = 0; i < pa.length; i++) {   // 배열 원소 출력
-    System.out.println(pa[i].age);
-}
-```
-#### 이 소스의 실행 결과는 다음과 같다.
-
-`30 31 32 33 34 35 36 37 38 39`
-
-***
-
-## [*this* 키워드](https://rap0d.github.io/study/2019/08/28/java_15_this/)
-
-***
-
-## [static 키워드](https://rap0d.github.io/study/2019/08/28/java_13_static/)
-
-***
-
-## [생성자(Constructor)](https://rap0d.github.io/study/2019/08/28/java_14_생성자/)
-
-***
-
-## [접근 지정자(제어자)](https://rap0d.github.io/study/2019/08/28/java_19_제어자/)
-
-***
-
-## [오버로딩(Over loading)](https://rap0d.github.io/study/2019/08/28/java_18_오버로딩/)
-
-***
-
-## [상속](https://rap0d.github.io/study/2019/07/08/java_4_상속/)
-
-***
-
-## super 키워드
-
-***
-
-## [오버라이딩(Over riding)](https://rap0d.github.io/study/2019/08/28/java_20_overriding/)
-
-***
-
-## 상속과 생성자의 관계
-
-***
-
-## 레퍼런스 형변환
-
-***
-
-## [추상 클래스와 추상 메소드(Abstract Class/Method)](https://rap0d.github.io/study/2019/08/28/java_16_추상/)
-
-***
-
-## [Interface](https://rap0d.github.io/study/2019/08/28/java_17_interface/)
+- [Interface](https://rap0d.github.io/study/2019/08/28/java_17_interface/)
 
 ***
 
