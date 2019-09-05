@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Sitemap
 slug: Sitemap
 menu: true
@@ -54,6 +54,15 @@ description: >
 - [20. 메소드 오버라이딩](https://rap0d.github.io/study/2019/08/29/java_20_overriding/)
 - [21. 컬렉션과 제네릭](https://rap0d.github.io/study/2019/08/29/java_21_collection/)
 - [22. 제네릭 컬렉션 활용](https://rap0d.github.io/study/2019/08/30/java_22_generic2/)
+- [23. 제네릭 컬렉션 활용 - ArrayList](https://rap0d.github.io/study/2019/09/02/java_23_arraylist/)
+- [24. 제네릭 컬렉션 활용 - Iterator ](https://rap0d.github.io/study/2019/09/02/java_24_iterator/)
+- [25. 제네릭 컬렉션 활용 - HashMap ](https://rap0d.github.io/study/2019/09/02/java_25_hashmap/)
+- [26. 제네릭 컬렉션 활용 - LinkedList와 Collections 클래스 ](https://rap0d.github.io/study/2019/09/02/java_26_linkedlist/)
+- [27. 제네릭 만들기 ](https://rap0d.github.io/study/2019/09/03/java_27_makegeneric/)
+- [28. 제네릭 요약 ](https://rap0d.github.io/study/2019/09/03/java_28_genericcon/)
+- [29. 입출력 스트림 ](https://rap0d.github.io/study/2019/09/03/java_29_stream01/)
+- [30. 바이트 스트림과 파일 입출력 ](https://rap0d.github.io/study/2019/09/03/java_30_bytestream/)
+- [31. 유용한 클래스 ](https://rap0d.github.io/study/2019/09/03/java_31_utilclass/)
 
 ## Data Structure
 
