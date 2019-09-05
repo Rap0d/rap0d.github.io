@@ -11,9 +11,9 @@ description: >
 
 ***
 
-# Tip
+> # Tip
 
-> ## Other Tips-
+## Other Tips
 
 - [마크다운(Markdown) 작성법](https://rap0d.github.io/tip/2019/07/04/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9E%91%EC%84%B1%EB%B2%95/)
 - [Angular2에서 환경변수 설정하기](https://rap0d.github.io/tip/2019/07/09/Angular_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98/)
@@ -28,7 +28,7 @@ description: >
 
 ***
 
-# Study
+> # Study
 
 ## Java
 
@@ -76,6 +76,6 @@ description: >
 
 *** 
 
-# Review
+> # Review
 
 ***

@@ -92,7 +92,7 @@ abbr {
 }
 
 blockquote {
-  padding: .5rem 1rem;
+  padding: 0rem 1rem;
   margin: .8rem 0;
   color: #8a898b;
   border-left: .25rem solid #c179eb;
@@ -100,8 +100,8 @@ blockquote {
   &.lead {
     font-size: 1.25rem;
     font-weight: 300;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
     border-left-width: 0.4rem;
   }
 
