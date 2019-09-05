@@ -183,7 +183,7 @@ SUCCESSED
 FileOutputStream fout = new FileOutputStream("/Users/xxx/Desktop/file_test.txt");
 ```
 
-이 코드는 `/Users/xxx/Desktop/file_test.txt` 파일을 열고, 이 파일에 연결된 스트림 객체 `fout을` 생성한다.
+이 코드는 `/Users/xxx/Desktop/file_test.txt` 파일을 열고, 이 파일에 연결된 스트림 객체 `fout`을 생성한다.
 
 이제 다음과 같이 `fout` 객체의 메소드를 호출하여 파일에 데이터를 기록해보자.
 
@@ -198,10 +198,5 @@ fout.write(b);  // 파일에 바이트 배열 b의 내용을 모두 그대로 �
 fout.close();
 ```
 
-실행 결과 `/Users/seungheonchang/Desktop/file_test.txt`은 바이너리 파일이 되며, 다음과 같이 기록된 내용을 가지게 된다.
+실행 결과 `/Users/seungheonchang/Desktop/file_test.txt`은 바이너리 파일이 되며, `num[]` 배열의 값 `1, 4, -1, 88, 50`의 바이너리 바이트가 파일에 그대로 기록된 것을 볼 수 있다.
 
-```
-
-```
-
-`num[]` 배열의 값 `1, 4, -1, 88, 50`의 바이너라 바이트가 파일에 그대로 기록된 것을 볼 수 있다.

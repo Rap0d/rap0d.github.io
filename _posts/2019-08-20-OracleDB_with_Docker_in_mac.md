@@ -9,7 +9,7 @@ tags: mactip
 ![oracledb](/assets/img/tip/mactip/oracle/oracledb_logo.png "OracleDB")
 ![docker](/assets/img/tip/mactip/oracle/docker_logo.png "Docker")
 
-##  Overview
+## Overview
 
 Mac OS에서 Docker를 사용하여 OracleDB를 설치하기 위한 절차를 설명하는 문서
 
