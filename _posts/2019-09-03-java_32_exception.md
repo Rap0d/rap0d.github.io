@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 32. 예외 처리
-subtitle: 예외 처리
+title: 32. 예외처리
+subtitle: 예외처리
 categories: study
 tags: java
 ---
@@ -82,11 +82,11 @@ Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 3
 
 ***
 
-## 예외 처리하기
+## 예외처리하기
 
-유연한 프로그래밍을 위한 예외 처리의 기법에 대해 살펴보자.
+유연한 프로그래밍을 위한 예외처리의 기법에 대해 살펴보자.
 
-다음은 예외 처리를 위한 **try, catch**문의 기본 구조이다.
+다음은 예외처리를 위한 **try, catch**문의 기본 구조이다.
 
 ```java
 try {
@@ -350,7 +350,7 @@ test.sayNick("genious");
 
 물론 `test.sayNick("fool");` 문장 수행 시에는 `FoolException`이 발생하겠지만 그 다음 문장인 `test.sayNick("genious");` 역시 수행이 된다.
 
-하지만 `main` 메소드에서 다음과 같이 예외 처리를 한 경우에는 두 번째 문장인 `test.sayNick("genious");`가 수행되지 않을 것이다.
+하지만 `main` 메소드에서 다음과 같이 예외처리를 한 경우에는 두 번째 문장인 `test.sayNick("genious");`가 수행되지 않을 것이다.
 
 이미 첫 번째 문장에서 예외가 발생하여 *catch* 문으로 빠져버리기 때문이다.
 
@@ -358,7 +358,7 @@ test.sayNick("genious");
 try {
     test.sayNick("fool");
     test.sayNick("genious");
-}catch(FoolException e) {
+} catch(FoolException e) {
     System.err.println("FoolException이 발생했습니다.");
 }
 ```
@@ -411,7 +411,7 @@ try {
 
 쇼핑몰 운영자는 **포장, 영수증발행, 발송**이라는 메소드 중 1가지라도 실패하면 모두 취소하고 싶어한다.
 
-이런경우 어떻게 예외처리를 하는 것이 좋겠는가?
+이런 경우 어떻게 예외처리를 하는 것이 좋겠는가?
 
 다음과 같이 **포장, 영수증발행, 발송** 메소드에서는 예외를 *throw*하고, 상품발송 메소드에서 *throw*된 예외를 처리하여 모두 취소하는 것이 완벽한 트랜잭션 처리 방법이다.
 
@@ -421,7 +421,7 @@ try {
         포장();
         영수증발행();
         발송();
-    }catch(예외) {
+    } catch(예외) {
        모두취소();
     }
 }
@@ -453,7 +453,7 @@ try {
 포장(){
     try {
        ...
-    }catch(예외) {
+    } catch(예외) {
        포장취소();
     }
 }
@@ -461,7 +461,7 @@ try {
 영수증발행() {
     try {
        ...
-    }catch(예외) {
+    } catch(예외) {
        영수증발행취소();
     }
 }
@@ -469,7 +469,7 @@ try {
 발송() {
     try {
        ...
-    }catch(예외) {
+    } catch(예외) {
        발송취소();
     }
 }
