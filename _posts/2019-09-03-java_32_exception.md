@@ -58,7 +58,7 @@ Exception in thread "main" java.lang.ArithmeticException: / by zero
     at Test.main(Test.java:14)
 ```
 
-4를 0으로 나우려니까 `ArithmeticException`라는 이름의 예외가 발생한다.
+4를 0으로 나누려니까 `ArithmeticException`라는 이름의 예외가 발생한다.
 
 마지막으로 다음 에러를 보자.
 
@@ -187,10 +187,10 @@ public class Test {
 ```java
 public class Test {
     public void sayNick(String nick) {
-        if("fool".equals(nick)) {
+        if ("fool".equals(nick)) {
             return;
         }
-        System.out.println("당신의 별명은 "+nick+" 입니다.");
+        System.out.println("당신의 별명은 " + nick + " 입니다.");
     }
 
     public static void main(String[] args) {
@@ -219,10 +219,10 @@ public class FoolException extends RuntimeException {
 ```java
 public class Test {
     public void sayNick(String nick) {
-        if("fool".equals(nick)) {
+        if ("fool".equals(nick)) {
             throw new FoolException();
         }
-        System.out.println("당신의 별명은 "+nick+" 입니다.");
+        System.out.println("당신의 별명은 " + nick + " 입니다.");
     }
 
     public static void main(String[] args) {
@@ -256,9 +256,239 @@ Exception in thread "main" FoolException
 
 다른 말로 *Exception*을 ***Checked Exception***, *RuntimeException*을 ***Unchecked Exception***이라고도 한다.
 
+### Exception
+
+그렇다면 `FoolException`을 다음과 같이 변경해보자.
+
+```java
+public class FoolException extends Exception {
+}
+```
+
+`RuntimeException`을 상속하던 것을 `Exception`을 상속하도록 변경했다.
+
+이렇게 하면 `Test` 클래스에서 컴파일 오류가 발생할 것이다.
+
+예측 가능한 *Checked Exception*이기 때문에 예외처리를 컴파일러가 강제하기 때문이다.
+
+다음과 같이 변경해야 정상적으로 컴파일이 될 것이다.
+
+```java
+public class Test {
+    public void sayNick(String nick) {
+        try {
+            if ("fool".equals(nick)) {
+                throw new FoolException();
+            }
+            System.out.println("당신의 별명은 " + nick + " 입니다.");
+        } catch(FoolException e) {
+            System.err.println("FoolException이 발생했습니다.");
+        }
+    }
+
+    public static void main(String[] args) {
+        Test test = new Test();
+        test.sayNick("fool");
+        test.sayNick("genious");
+    }
+}
+```
+
+`sayNick` 메소드에서 *try... catch* 문으로 `FoolException`을 처리했다.
+
+### 예외 던지기(throws)
+
+위 예제를 보면 `sayNick`이라는 메소드에서 `FoolException`을 발생시키고 예외처리도 `sayNick`이라는 메소드에서 했다.
+
+`sayNick`을 호출한 곳에서 `FoolException`을 처리하도록 예외를 위로 던질 수 있는 방법이 있다.
+
+다음 예제를 보자.
+
+```java
+public void sayNick(String nick) throws FoolException {
+    if ("fool".equals(nick)) {
+        throw new FoolException();
+    }
+    System.out.println("당신의 별명은 " + nick + " 입니다.");
+}
+```
+
+`sayNick` 메소드 뒷부분에 *throws*라는 구문을 이용하여 `FoolException`을 위로 보낼 수가 있다. ("예외를 뒤로 미루기"라고도 한다.)
+
+위와 같이 `sayNick` 메소드를 변경하면 `main` 메소드에서 컴파일 에러가 발생할 것이다.
+
+*throws* 구문 때문에 `FoolException`의 예외를 처리해야 하는 대상이 `sayNick` 메소드에서 `main` 메소드(`sayNick` 메소드를 호출하는 메소드)로 변경되었기 때문이다.
+
+`main` 메소드는 컴파일이 되기 위해서 다음과 같이 변경되어야 한다.
+
+```java
+public static void main(String[] args) {
+    Test test = new Test();
+    try {
+        test.sayNick("fool");
+        test.sayNick("genious");
+    } catch(FoolException e) {
+        System.err.println("FoolException이 발생했습니다.");
+    }
+}
+```
+
+`main` 메소드에서 *try... catch*로 `sayNick` 메소드에 대한 `FoolException` 예외를 처리하였다.
+
+자, 이제 한가지 고민이 남아있다. 
+
+`FoolException` 처리를 `sayNick` 메소드에서 하는것이 좋을까? 아니면 `main` 메소드에서 하는것이 좋을까?
+
+`sayNick` 메소드에서 처리하는 것과 `main` 메소드에서 처리하는 것에는 아주 큰 차이가 있다.
+
+`sayNick` 메소드에서 예외를 처리하는 경우에는 다음의 두 문장이 모두 수행이된다.
+
+```java
+test.sayNick("fool");
+test.sayNick("genious");
+```
+
+물론 `test.sayNick("fool");` 문장 수행 시에는 `FoolException`이 발생하겠지만 그 다음 문장인 `test.sayNick("genious");` 역시 수행이 된다.
+
+하지만 `main` 메소드에서 다음과 같이 예외 처리를 한 경우에는 두 번째 문장인 `test.sayNick("genious");`가 수행되지 않을 것이다.
+
+이미 첫 번째 문장에서 예외가 발생하여 *catch* 문으로 빠져버리기 때문이다.
+
+```java
+try {
+    test.sayNick("fool");
+    test.sayNick("genious");
+}catch(FoolException e) {
+    System.err.println("FoolException이 발생했습니다.");
+}
+```
+
+프로그래밍 시 *Exception*을 처리하는 위치는 대단히 중요하다.
+
+프로그램의 수행여부를 결정하기도 하고 트랜잭션 처리와도 밀접한 관계가 있기 때문이다.
 
 ***
 
-#### 참고 자료
+## 트랜잭션 (Transaction)
+
+**트랜잭션**과 **예외처리**는 매우 밀접한 관련이 있다.
+
+트랜잭션과 예외처리가 서로 어떤 관련이 있는지 알아보도록 하자.
+
+트랜잭션은 하나의 작업 단위를 뜻한다.
+
+쇼핑몰의 *상품발송*이라는 트랜잭션을 가정 해 보자.
+
+*상품발송*이라는 트랜잭션에는 다음과 같은 작업들이 있을 수 있다.
+
+- 포장
+- 영수증발행
+- 발송
+
+이 3가지 일들 중 하나라도 실패하면 3가지 모두 취소하고 *상품발송* 전 상태로 되돌리고 싶을 것이다. (모두 취소하지 않으면 데이터의 **정합성**이 크게 흔들리게 된다. 이렇게 모두 취소하는 행위를 **Rollback**이라고 한다.)
+
+프로그램이 다음과 같이 작성되어 있다고 가정해보자. (※ 아래는 실제 코드가 아니라 어떻게 동작하는지를 간략하게 표현한 *pseudo* 코드이다.)
+
+```
+상품발송() {
+    포장();
+    영수증발행();
+    발송();
+}
+
+포장() {
+   ...
+}
+
+영수증발행() {
+   ...
+}
+
+발송() {
+   ...
+}
+```
+
+쇼핑몰 운영자는 **포장, 영수증발행, 발송**이라는 메소드 중 1가지라도 실패하면 모두 취소하고 싶어한다.
+
+이런경우 어떻게 예외처리를 하는 것이 좋겠는가?
+
+다음과 같이 **포장, 영수증발행, 발송** 메소드에서는 예외를 *throw*하고, 상품발송 메소드에서 *throw*된 예외를 처리하여 모두 취소하는 것이 완벽한 트랜잭션 처리 방법이다.
+
+```
+상품발송() {
+    try {
+        포장();
+        영수증발행();
+        발송();
+    }catch(예외) {
+       모두취소();
+    }
+}
+
+포장() throws 예외 {
+   ...
+}
+
+영수증발행() throws 예외 {
+   ...
+}
+
+발송() throws 예외 {
+   ...
+}
+```
+
+위와 같이 코드를 작성하면 **포장, 영수증발행, 발송**이라는 세 개의 단위작업 중 하나라도 실패할 경우 ***예외***가 발생되어 상품발송이 모두 취소 될 것이다.
+
+만약 위 처럼 *상품발송* 메소드가 아닌 포장, 영수증발행, 발송 메소드에 각각 예외처리가 되어 있다고 가정 해 보자.
+
+```
+상품발송() {
+    포장();
+    영수증발행();
+    발송();
+}
+
+포장(){
+    try {
+       ...
+    }catch(예외) {
+       포장취소();
+    }
+}
+
+영수증발행() {
+    try {
+       ...
+    }catch(예외) {
+       영수증발행취소();
+    }
+}
+
+발송() {
+    try {
+       ...
+    }catch(예외) {
+       발송취소();
+    }
+}
+```
+
+이렇게 각각의 메소드에 예외가 처리되어 있다면 포장은 되었는데 발송은 안되고 포장도 안되었는데 발송이 되고 이런 뒤죽박죽의 상황이 연출될 것이다.
+
+실제 프로젝트에서도 두번째 경우처럼 트랜잭션관리를 잘못하는 경우는 일종의 재앙에 가깝다.
+
+이 포스트에서 자바의 예외처리에 대해서 알아보았다.
+
+사실 예외처리는 자바에서 난이도가 있는 부분에 속한다.
+
+보통 프로그래머의 실력을 평가 할 때 이 예외처리를 어떻게 하고 있는지를 보면 그 사람의 실력을 어느정도 가늠해 볼 수 있다고들 말한다.
+
+예외처리는 부분만 알아서는 안되고 전체를 관통하여 모두 알아야만 정확히 할 수 있기 때문이다.
+
+***
+
+### 출처
 
 - [점프 투 자바-예외처리](https://wikidocs.net/229)
