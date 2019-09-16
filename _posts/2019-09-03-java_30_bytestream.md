@@ -42,7 +42,7 @@ tags: java
 
 *InputStream*은 추상 클래스이므로 목적에 따라 *InputStream*을 상속받은 *FileInputStream*이나 *DataInputStream* 클래스를 이용한다.
 
-파일에서 읽을 때는 FileIn*putStream 클래스를 사용한다.
+파일에서 읽을 때는 *FileInputStream* 클래스를 사용한다.
 
 *FileInputStream*의 생성자와 주로 사용되는 메소드는 다음 표와 같다.
 
@@ -200,3 +200,34 @@ fout.close();
 
 실행 결과 `/Users/seungheonchang/Desktop/file_test.txt`은 바이너리 파일이 되며, `num[]` 배열의 값 `1, 4, -1, 88, 50`의 바이너리 바이트가 파일에 그대로 기록된 것을 볼 수 있다.
 
+***
+
+## read() 메소드
+
+개발자들은 아래 코드와 같이 파일이나 입력 스트림을 읽는 `read()` 메소드를 보면서 두 가지 의문을 가질 수 있다.
+
+```java
+FileInputStream in = new FileInputStream("c:\\test.dat");
+int c = in.read();  // int 타입으로 한 바이트를 읽어 리턴한다.
+while((c = in.read()) != -1) {  // 파일의 끝을 만나면 -1을 리턴한다.
+    System.out.println((char)c);
+}
+```
+
+첫째, `read()`는 한 바이트나 한 문자를 리턴하므로, 리턴 타입이 *byte* 혹은 *char*인 것이 합당한데, *int*로 선언한 이유는 무엇일까?
+
+둘째, `read()`가 스트림의 끝 혹은 파일의 끝을 만나면 -1을 리턴하는데, 스트림이나 파일에 -1이 있다면 이 둘을 어떻게 구분할 수 있을까?
+
+이 두 의문의 해답은 모두 스트림 혹은 파일의 끝 처리와 연관되어 있다.
+
+만일 스트림이나 파일에 `0xFF` 같이 있다고 하면, `read()`는 `0xFF`를 리턴한다.
+
+이 때, 개발자들은 '`0xFF`는 -1인데, 파일의 끝을 나타내는 -1과 혼동된다!'라고 생각할 수 있다.
+
+그러나 `read()`는 *int* 타입으로 리턴하므로, `0xFF`를 32비트의 `0x000000FF`로 리턴한다.
+
+이것은 -1이 아니다. *int* 타입의 -1은 `0xFFFFFFFF`이다.
+
+스트림이나 파일에서 `read()`가 `0xFF`의 값을 읽어 리턴하는 것과 확연히 구분된다.
+
+이것이 바로 `read()`의 리턴타입이 *int*인 이유이다.
