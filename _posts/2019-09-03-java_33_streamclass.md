@@ -175,3 +175,46 @@ FileWriter의 생성자는 File 객체나 문자열이 가리키는 파일과 �
 
 이제 파일 출력 스트림을 만들고 파일에 텍스트를 쓰는 예를 들어보자.
 
+### FileWriter 문자 출력 스트림 생성
+
+`c:\test.txt` 파일에 텍스트를 쓰는 출력 스트림 생성 코드는 다음과 같다.
+
+```java
+FileWriter fout = new FileWriter("c:\\test.txt");
+```
+
+이 코드를 실행하면 `c:\test.txt` 파일을 찾아 열고, 파일이 없는 경우 빈 파일을 생성한 후, 문자 단위로 쓰는 스트림 객체 fout을 생성한다.
+
+파일에 문자를 기록하는 코드는 다음과 같다.
+
+```java
+FileWriter fout = new FileWriter("c:\\test.txt");
+fout.write('A');    // 문자 'A'를 파일에 기록
+fout.close();       // 스트림을 닫는다. 파일을 저장하고 닫는다.
+```
+
+### 키보드 입력을 파일로 저장하기
+
+키보드에서 입력받는 데이터를 `c:\test.txt` 파일에 저장하는 프로그램
+
+```java
+public class FileWriterEx {
+    public static void main(String[] args) {
+        InputStreamReader in = new InputStreamReader(System.in);
+        // 콘솔과 연결된 입력 문자 스트림 생성
+
+        FileWriter fout = null;
+        int c;
+        try {
+            fout = new FileWriter("c:\\test.txt");
+            // 파일과 연결된 출력 문자 스트림 생성
+            while((c = in.read()) != -1) {
+                fout.write(c);
+            }
+        } catch (IOException e) {
+            System.out.println("입출력 오류");
+        }
+    }
+}
+```
+

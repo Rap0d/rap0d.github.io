@@ -36,7 +36,7 @@ ArrayList는 내부에 배열을 가지고 있으며 이 배열을 가변적 크
 | E elementAt(int index) | 인덱스 index의 요소 리턴 |
 | E get(int index) | 인텍스 index의 요소 리턴 |
 | int indexOf(Object 0) | o와 같은 첫 번째 요소의 인덱스 리턴. 없으면 -1 리턴 |
-| boolean isEmpty() | ArrayList가 비어 잇으면 true 리턴 |
+| boolean isEmpty() | ArrayList가 비어 있으면 true 리턴 |
 | E remove(int index) | 인덱스 index의 요소 삭제 |
 | boolean remove(Object o) | 객체 o와 같은 첫 번째 요소를 ArrayList에서 삭제 |
 | int size() | ArrayList가 포함하는 요소의 개수 리턴 |
