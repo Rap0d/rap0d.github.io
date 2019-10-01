@@ -6,7 +6,7 @@ categories: tip
 tags: etctip
 ---
 
-![vscode](/assets/img/tip/etctip/vscode_logo.png "VsCode")
+![vscode](/assets/img/logo/vscode_logo.png "VsCode")
 
 ## Overview
 

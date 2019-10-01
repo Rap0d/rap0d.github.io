@@ -5,7 +5,7 @@ subtitle: Interface
 categories: study
 tags: java
 ---
-
+![javalogo](/assets/img/logo/java-logo.png)
 ## Overview
 
 자바에서의 인터페이스 개념은 추상 클래스와 유사하며 **interface** 키워드를 사용하여 선언한다.

@@ -6,6 +6,8 @@ categories: study
 tags: java
 ---
 
+![javalogo](/assets/img/logo/java-logo.png)
+
 ## Overview
 
 **Casting**(형변환)은 **OOP**(객체지향프로그래밍)에서 중요한 개념이다. 이 포스트에서는 Java를 통해 설명한다.

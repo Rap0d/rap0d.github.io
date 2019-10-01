@@ -6,7 +6,7 @@ categories: tip
 tags: mactip
 ---
 
-![mysql](/assets/img/tip/mactip/mysql/mysql_logo.png "MySql")
+![mysql](/assets/img/logo/mysql_logo.png "MySql")
 
 ## Overview
 

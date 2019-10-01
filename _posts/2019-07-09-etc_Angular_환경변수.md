@@ -6,7 +6,7 @@ categories: tip
 tags: etctip
 ---
 
-![angular](/assets/img/tip/etctip/angular.png "Angular")
+![angular](/assets/img/logo/angular-logo.png "Angular")
 
 ## Overview
 

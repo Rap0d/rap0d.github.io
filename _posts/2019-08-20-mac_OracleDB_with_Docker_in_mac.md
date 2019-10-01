@@ -6,8 +6,8 @@ categories: tip
 tags: mactip
 ---
 
-![oracledb](/assets/img/tip/mactip/oracle/oracledb_logo.png "OracleDB")
-![docker](/assets/img/tip/mactip/oracle/docker_logo.png "Docker")
+![oracledb](/assets/img/logo/oracledb_logo.png "OracleDB")
+![docker](/assets/img/logo/docker_logo.png "Docker")
 
 ## Overview
 

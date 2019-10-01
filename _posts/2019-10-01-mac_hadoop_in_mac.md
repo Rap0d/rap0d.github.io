@@ -6,7 +6,7 @@ categories: tip
 tags: mactip
 ---
 
-![hadoop](/assets/img/tip/mactip/hadoop/hadoop-logo.png "hadoop")
+![hadoop](/assets/img/logo/hadoop-logo.png "hadoop")
 
 ## Overview
 

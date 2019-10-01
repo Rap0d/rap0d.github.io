@@ -5,7 +5,7 @@ subtitle: Transaction
 categories: study
 tags: database
 ---
-
+![db](/assets/img/logo/oracledb_logo.png)
 ## Overview
 
 데이터베이스의 중요한 개념인 트랜잭션에 대한 포스트

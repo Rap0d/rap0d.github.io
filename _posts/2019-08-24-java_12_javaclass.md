@@ -6,6 +6,8 @@ categories: study
 tags: java
 ---
 
+![javalogo](/assets/img/logo/java-logo.png)
+
 ## Overview
 
 Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절차 지향 언어**(Structured Procedural Programming Language)의 단점을 보완하고 다음의 목적을 달성하기 위해 탄생했다.

@@ -5,7 +5,7 @@ subtitle: 컬렉션과 제네릭
 categories: study
 tags: java
 ---
-
+![javalogo](/assets/img/logo/java-logo.png)
 ## Overview
 
 자바에서의 **컬렉션**(Collection)은 현대의 자바 프로그램을 작성하는데 빼놓을 수 없는 중요한 도구이다.

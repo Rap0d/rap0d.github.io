@@ -5,7 +5,7 @@ subtitle: 예외처리
 categories: study
 tags: java
 ---
-
+![javalogo](/assets/img/logo/java-logo.png)
 ## Overview 
 
 프로그램을 만들다 보면 수없이 많은 에러가 난다.

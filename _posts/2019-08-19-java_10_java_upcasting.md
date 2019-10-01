@@ -6,6 +6,8 @@ categories: study
 tags: java
 ---
 
+![javalogo](/assets/img/logo/java-logo.png)
+
 ## Overview
 
 [이전 포스팅](https://rap0d.github.io/study/2019/08/18/java_9_java_casting/)에서 **Casting**(형변환)에 대해 다루었다.
