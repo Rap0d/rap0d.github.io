@@ -26,9 +26,9 @@ Hadoop : 3.2.1
 
 ## 설치
 
-Mac OS에서는 brew를 이용하여 쉽게 설치할 수 있다.
+Mac OS에서는 ***brew***를 이용하여 쉽게 설치할 수 있다.
 
-혹시 brew가 설치되지 않았으면 [brew 설치 방법](https://whitepaek.tistory.com/3)을 참고한다.
+혹시 *brew*가 설치되지 않았으면 [brew 설치 방법](https://whitepaek.tistory.com/3)을 참고한다.
 
 터미널에서 다음 명령어를 통해 하둡을 설치한다.
 
@@ -61,7 +61,7 @@ brew install hadoop
 기존: export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true"  
 변경: export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="  
 ```
-> 해당하는 파일의 기존 내용이 없다면 변경에 해당하는 내용을 추가로 기재한다.
+- 해당하는 파일의 기존 내용이 없다면 변경에 해당하는 내용을 추가로 기재한다.
 
 2. Core-site.xml
 
@@ -79,7 +79,7 @@ brew install hadoop
 </configuration>
 ```
 
-> 파일의 configuration 태그 안에 작성한다.
+- 파일의 `configuration` 태그 안에 작성한다.
 
 3. mapred-site.xml
   
@@ -92,7 +92,7 @@ brew install hadoop
 </configuration>
 ```
 
-> 파일의 configuration 태그 안에 작성한다.
+- 파일의 `configuration` 태그 안에 작성한다.
 
 4. hdfs-site.xml
 
@@ -105,7 +105,7 @@ brew install hadoop
 </configuration>
 ```
 
-> 파일의 configuration 태그 안에 작성한다.
+- 파일의 `configuration` 태그 안에 작성한다.
 
 ***
 
@@ -121,7 +121,7 @@ hdfs namenode -format
 
 위의 명령어로 HDFS으로 포맷을 해주고, 아래와 같이 *ssh key*를 생성하고 사용한다.
 
-이 때, `ssh-keygen -t rsa` 를 실행 시킨 후 key 이름과 비밀번호 입력 라인이 나올때, 빈칸으로 엔터를 누르면 자동으로 `id_rsa.pub`이 생성된다.
+이 때, `ssh-keygen -t rsa` 를 실행 시킨 후 *key* 이름과 비밀번호 입력 라인이 나올때, 빈칸으로 엔터를 누르면 자동으로 `id_rsa.pub`이 생성된다.
 
 ```
 ssh-keygen -t rsa
@@ -162,7 +162,7 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
 ### 하둡 확인
 
-localhost로 하둡을 띄운것이기 때문에 localhost로 접속해서 하둡의 상태를 체크할 수 있다.
+*localhost*로 하둡을 띄운것이기 때문에 *localhost*로 접속해서 하둡의 상태를 체크할 수 있다.
 
 - Cluster status: http://localhost:8088  
 ![hadoopfig03](/assets/img/tip/mactip/hadoop/hadoop-fig03.png "hadoopfig03")
