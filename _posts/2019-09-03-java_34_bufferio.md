@@ -5,8 +5,10 @@ subtitle: 버퍼 입출력
 categories: study
 tags: java
 ---
+
 ![javalogo](/assets/img/logo/java-logo.png)
-## Overview
+
+## Overview 
 
 입출력 스트림은 운영체제 API를 호출하여 입출력 장치와 프로그램 사이에서 데이터가 전송되도록 한다.
 

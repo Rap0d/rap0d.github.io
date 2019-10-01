@@ -5,8 +5,10 @@ subtitle: 제네릭 만들기
 categories: study
 tags: java
 ---
+
 ![javalogo](/assets/img/logo/java-logo.png)
-## Overview
+
+## Overview 
 
 지금까지 *JDK*에 제네릭으로 구현된 컬렉션을 사용하는 법을 알아보았다.
 

@@ -5,8 +5,10 @@ subtitle: 메소드 오버라이딩
 categories: study
 tags: java
 ---
+
 ![javalogo](/assets/img/logo/java-logo.png)
-## Overview
+
+## Overview 
 
 **메소드 오버라이딩**(method overriding)은 슈퍼 클래스와 서브 클래스의 메소드 사이에 발생하는 관계이며, 슈퍼 클래스의 메소드를 동일한 이름으로 서브 클래스에서 재작성하는 것이다.
 

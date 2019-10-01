@@ -5,8 +5,10 @@ subtitle: 제네릭 컬렉션 활용 - ArrayList
 categories: study
 tags: java
 ---
+
 ![javalogo](/assets/img/logo/java-logo.png)
-## Overview
+
+## Overview 
 
 [제네릭 컬렉션](https://rap0d.github.io/study/2019/08/29/java_21_collection/)의 ArrayList&lt;E&gt;에 대해서 알아본다.
 
