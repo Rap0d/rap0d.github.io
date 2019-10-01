@@ -55,57 +55,57 @@ brew install hadoop
 > mapred-site.xml  
 > hdfs-site.xml
 
-1. hadoop-env.sh
+- hadoop-env.sh
 
-```
-기존: export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true"  
-변경: export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="  
-```
-- 해당하는 파일의 기존 내용이 없다면 변경에 해당하는 내용을 추가로 기재한다.
+    ```
+    기존: export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true"  
+    변경: export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="  
+    ```
+    - 해당하는 파일의 기존 내용이 없다면 변경에 해당하는 내용을 추가로 기재한다.
 
-2. Core-site.xml
+- Core-site.xml
 
-```
-<configuration>
-    <property>
-        <name>hadoop.tmp.dir</name>
-        <value>/usr/local/Cellar/hadoop/hdfs/tmp</value>
-        <description>A base for other temporary directories.</description>
-    </property>
-    <property>
-        <name>fs.default.name</name>
-        <value>hdfs://localhost:9000</value>
-    </property>
-</configuration>
-```
+    ```
+    <configuration>
+        <property>
+            <name>hadoop.tmp.dir</name>
+            <value>/usr/local/Cellar/hadoop/hdfs/tmp</value>
+            <description>A base for other temporary directories.</description>
+        </property>
+        <property>
+            <name>fs.default.name</name>
+            <value>hdfs://localhost:9000</value>
+        </property>
+    </configuration>
+    ```
 
-- 파일의 `configuration` 태그 안에 작성한다.
+    - 파일의 `configuration` 태그 안에 작성한다.
 
-3. mapred-site.xml
+- mapred-site.xml
   
-```
-<configuration>
-    <property>
-        <name>mapred.job.tracker</name>
-        <value>localhost:9010</value>
-    </property>
-</configuration>
-```
+    ```
+    <configuration>
+        <property>
+            <name>mapred.job.tracker</name>
+            <value>localhost:9010</value>
+        </property>
+    </configuration>
+    ```
 
-- 파일의 `configuration` 태그 안에 작성한다.
+    - 파일의 `configuration` 태그 안에 작성한다.
 
-4. hdfs-site.xml
+- hdfs-site.xml
 
-```
-<configuration>
-    <property>
-        <name>dfs.replication</name>
-        <value>1</value>
-    </property>
-</configuration>
-```
+    ```
+    <configuration>
+        <property>
+            <name>dfs.replication</name>
+            <value>1</value>
+        </property>
+    </configuration>
+    ```
 
-- 파일의 `configuration` 태그 안에 작성한다.
+    - 파일의 `configuration` 태그 안에 작성한다.
 
 ***
 
@@ -113,13 +113,13 @@ brew install hadoop
 
 하둡을 실행하기 전에 하둡 파일 시스템(HDFS)으로 포맷을 해야한다.
 
-다음과 같이 입력하여 하둡 파일 시스템(HDFS)으로 포맷한다.
+터미널에서 다음과 같이 입력하여 HDFS로 포맷한다.
 
 ```
 hdfs namenode -format
 ```
 
-위의 명령어로 HDFS으로 포맷을 해주고, 아래와 같이 *ssh key*를 생성하고 사용한다.
+포맷 후, 아래와 같이 *ssh key*를 생성하고 사용한다.
 
 이 때, `ssh-keygen -t rsa` 를 실행 시킨 후 *key* 이름과 비밀번호 입력 라인이 나올때, 빈칸으로 엔터를 누르면 자동으로 `id_rsa.pub`이 생성된다.
 
