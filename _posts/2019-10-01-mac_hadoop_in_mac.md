@@ -159,9 +159,12 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
 localhost로 하둡을 띄운것이기 때문에 localhost로 접속해서 하둡의 상태를 체크할 수 있다.
 
-> Cluster status: http://localhost:8088  
-> HDFS status: http://localhost:9870  
-> Secondary NameNode status: http://localhost:9868  
+- Cluster status: http://localhost:8088  
+![hadoopfig03](/assets/img/tip/mactip/hadoop/hadoop-fig03.png "hadoopfig03")
+- HDFS status: http://localhost:9870  
+![hadoopfig04](/assets/img/tip/mactip/hadoop/hadoop-fig04.png "hadoopfig04")
+- Secondary NameNode status: http://localhost:9868  
+![hadoopfig05](/assets/img/tip/mactip/hadoop/hadoop-fig05.png "hadoopfig05")
 
 ***
 
