@@ -56,11 +56,15 @@ brew install hadoop
 > hdfs-site.xml
 
 1. hadoop-env.sh
-> -기존: export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true"  
-> -변경: export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="  
+
+```
+기존: export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true"  
+변경: export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="  
+```
 > 해당하는 파일의 기존 내용이 없다면 변경에 해당하는 내용을 추가로 기재한다.
 
 2. Core-site.xml
+
 ```
 <configuration>
     <property>
@@ -78,6 +82,7 @@ brew install hadoop
 > 파일의 configuration 태그 안에 작성한다.
 
 3. mapred-site.xml
+  
 ```
 <configuration>
     <property>
