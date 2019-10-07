@@ -103,31 +103,6 @@ R의 행렬은 수학 시간에 배운 행렬의 정의와 같이 행과 열의 
 
 ***
 
-## apply 함수
-
-R에는 벡터, 행렬, 데이터 프레임에 임의의 함수를 적용한 결과를 얻어 내기 위한 apply 계열 함수가 있다.
-이 함수들은 데이터 전체(벡터, 행렬, 리스트, 데이터 프레임)에 대하여 함수를 적용시키는 벡터 연산을 수행하며 속도가 빠르다.
-
-| 함수 | 설명 | 특징 |
-|:---------:|:---------|:---------|
-| `apply()` | 배열이나 행렬에 주어진 함수를 적용한 결과를 벡터, 배열 , 리스트로 반환 | 배열 또는 행렬에 적용 |
-| `lapply()` |벡터, 리스트, 표현식에 함수를 적용한 결과를 리스트로 반환 | 결과가 리스트 |
-| `sapply()` | `lapply()`와 유사하지만 결과를 벡터, 행렬, 배열로 반환 | 결과가 벡터, 배열, 행렬 |
-| `tapply()` | 벡터에 있는 데이터를 특정 기준에 따라 그룹으로 묶고, 각그룹마다 주어진 함수를 적용한 결과를 반환 | 데이터를 그룹으로 묶어 함수를 적용 |
-| `mapply()` | `sapply()` 함수의 확장<br>여러 개의 벡터, 리스트를 인자로 받아 함수에 각 데이터의 첫째, 둘째, 셋째 요소들을 각각 적용한 결과를 반환 | 여러 데이터를 함수의 인자로 적용 |
-
-### apply()의 사용
-
-> 사용 형식 : `apply( x, margin, fun)`
-
-| 매개 변수 | 설명 |
-|:---------:|:--------|
-| x | 배열, 행렬 |
-| margin | 함수를 적용하는 방향.<br>***1 : 행, 2 : 열*** |
-| fun | 적용할 함수(sum, mean 등) |
-
-***
-
 ## List
 
 리스트는 서로 다른 자료 구조들을 중첩시켜서 만드는 자료 구조이다.
@@ -164,7 +139,7 @@ num
 
 #### 결과
 
-```
+```R
 [[1]]
 [1] 1 2 3 4 5
 
@@ -184,7 +159,7 @@ member$name
 
 #### 결과
 
-```
+```R
 $name
 [1] "이순신"
 
@@ -211,181 +186,4 @@ $gender
 
 > 사용 형식 : `data.frame(col1=data1, col2=data2, ...)`
 
-### 특징
-
-- 데이터베이스의 테이블 구조와 유사
-- 컬럼 단위로 서로 다른 타입의 데이터 저장이 가능
-- 리스트와 벡터의 혼합형으로 컬럼은 리스트, 컬럼 내의 데이터는 벡터 자료 구조를 가짐
-- 생성 함수 : `data.frame(), read.table(), read.csv()`
-- 자료 처리 함수 : `str(), ncol(), nrow(), apply(), summary(), subset()` 등
-- 생성 방법 : *Vector*, *Matrix*, 파일(*txt, excel, csv* 파일) 이용
-
-### 데이터 프레임의 주요 함수
-
-| 함수 | 기능 |
-|:----------:|:-----------|
-| `ncol(dataframe)` | dataframe의 열 개수 |
-| `nrow(dataframe)` | dataframe의 행 개수 |
-| `names(dataframe)` | dataframe의 열 이름 출력 |
-| `rownames(dataframe)` /<br>`row.names(dataframe)` | dataframe의 행 이름 출력 |
-| `colwnames(dataframe)` /<br>`col.names(dataframe)` | dataframe의 열 이름 출력<br># 열 이름 설정 :<br>`colwnames(dataframe) <- c('name', 'age')` |
-| `dataframe[c(1:5),]` | 1, 2, 3, 4, 5 행의 순서대로 출력 |
-| `dataframe[c(1:5)]` | 1, 2, 3, 4, 5 열의 순서대로 출력 |
-
-### DataFrame을 생성하는 여러 방법
-
-데이터프레임은 열에 대하여 서로 다른 형식의 자료형을 포함할 수 있기 때문에 벡터와 행렬을 이용하여 데이터프레임 객체를 생성할 수 있다.
-
-또한 기존의 데이터 파일을 불러와서 데이터프레임 객체를 생성할 수도 있다.
-
-엑셀 파일, 텍스트 파일 등을 이용하여 여러 가지 방법으로 데이터 프레임을 만드는 예를 살펴본다.
-
-#### 벡터를 이용한 객체 생성
-
-```R
-# 여러 개의 벡터를 이용하여 생성이 가능하다.
-no <- c(1, 2, 3)
-name <- c('hong', 'lee', 'kim')
-pay <- c(100, 200, 300)
-emp01 <- data.frame(No=no, Name=name, Pay=pay)
-emp01
-```
-- 실행 결과
-    ```
-    No Name Pay
-    1  1 hong 100
-    2  2  lee 200
-    3  3  kim 300
-    ```
-
-#### 행렬을 이용한 생성
-
-```R
-m <- matrix(c(1, 'hong', 100, 2, 'kim', 200, 3, 'kang', 300), 3, byrow=T)
-emp02 <- data.frame(m)
-emp02
-```
-- 실행 결과
-    ```
-      X1   X2  X3
-    1  1 hong 100
-    2  2  kim 200
-    3  3 kang 300
-    ```
-
-#### file을 이용한 생성
-
-```R
-emp03 <- read.table('emp.txt', header=T, sep='')
-emp03
-```
-- 실행 결과
-    ```
-      사번 이름 급여
-    1   1  hong  100
-    2   2  kim   200
-    3   3  kang  300
-    ```
-
-#### `col.names` 속성 사용
-
-컬럼명이 없는 경우, `col.names` 속성을 사용한다.
-
-```R
-name <- c('사번', '이름', '급여')
-emp04 <- read.csv('emp2.csv', header=F, col.names=name)
-emp04
-```
-- 실행 결과
-    ```
-      사번 이름 급여
-    1   1  hong  100
-    2   2  kim   200
-    3   3  kang  300
-    ```
-#### merge
-
-두 개 이상의 데이터 프레임을 대상으로 특정 컬럼을 기준으로 하나로 합친 데이터 프레임을 생성할 수 있다. 
-
-```R
-x1 <- data.frame( name=c("a", "b", "c"), math=c(1, 2, 3) )
- 
-y1 <- data.frame( name=c("c", "b", "a"), english=c(4, 5, 6) )
-
-merge(x1, y1, by.x='name', by.y='name') 
-
-merge(x1, y1)
-# 양쪽의 공통된 컬럼을 이용하여 머지해준다.
-#   name math english
-# 1    a    1       6
-# 2    b    2       5
-# 3    c    3       4
- 
-x2 <- data.frame( name=c("a", "b", "c"), math=c(1, 2, 3) )
- 
-y2 <- data.frame( name=c("a", "b", "d"), english=c(4, 5, 6) )
- 
-# 기본 값(all=FALSE 인자) : 공통된 항목만 보여 준다.
-merge(x2, y2)
-#   name math english
-# 1    a    1       4
-# 2    b    2       5
- 
-# all=TRUE 인자 : 비어 있는 데이터는 NA가 추가된다.
-merge(x2, y2, all=TRUE)
-#   name math english
-# 1    a    1       4
-# 2    b    2       5
-# 3    c    3      NA
-# 4    d   NA       6
-```
-
-- 실행 결과
-  ```
-  > x1 <- data.frame( name=c("a", "b", "c"), math=c(1, 2, 3) )
-  >  
-  > y1 <- data.frame( name=c("c", "b", "a"), english=c(4, 5, 6) )
-  > 
-  > merge(x1, y1, by.x='name', by.y='name') 
-    name math english
-  1    a    1       6
-  2    b    2       5
-  3    c    3       4
-  > 
-  > merge(x1, y1)
-    name math english
-  1    a    1       6
-  2    b    2       5
-  3    c    3       4
-  > # 양쪽의 공통된 컬럼을 이용하여 머지해준다.
-  > #   name math english
-  > # 1    a    1       6
-  > # 2    b    2       5
-  > # 3    c    3       4
-  >  
-  > x2 <- data.frame( name=c("a", "b", "c"), math=c(1, 2, 3) )
-  >  
-  > y2 <- data.frame( name=c("a", "b", "d"), english=c(4, 5, 6) )
-  >  
-  > # 기본 값(all=FALSE 인자) : 공통된 항목만 보여 준다.
-  > merge(x2, y2)
-    name math english
-  1    a    1       4
-  2    b    2       5
-  > #   name math english
-  > # 1    a    1       4
-  > # 2    b    2       5
-  >  
-  > # all=TRUE 인자 : 비어 있는 데이터는 NA가 추가된다.
-  > merge(x2, y2, all=TRUE)
-    name math english
-  1    a    1       4
-  2    b    2       5
-  3    c    3      NA
-  4    d   NA       6
-  > #   name math english
-  > # 1    a    1       4
-  > # 2    b    2       5
-  > # 3    c    3      NA
-  > # 4    d   NA       6
-  ```
+데이터 프레임에 대해서는 [이 문서]("https://rap0d.github.io/study/2019/10/07/r_007_dataframe/")에서 자세히 다룬다.
