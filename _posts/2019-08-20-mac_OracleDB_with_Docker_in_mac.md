@@ -43,6 +43,7 @@ Oracle Database Version :
 ![dockerdown](/assets/img/tip/mactip/oracle/dockerdown.png "DockerDown")  
 2. 상단 Docker의 아이콘을 클릭하여 **Kitematic**을 클릭하여 설치 후 실행한다.  
 ![kite](/assets/img/tip/mactip/oracle/kitematic.png "Kitematic")  
+    - [Kitematic Github](https://github.com/docker/kitematic/releases) 버전이 정상적으로 작동하지 않으면 최신버전을 Github에서 받는다.
 
 ### Docker 컨테이너 생성
 
