@@ -23,9 +23,9 @@ description: >
 
 ## Mac Tip
 
-- [Mac OS에서 MySQL 설치하기](https://rap0d.github.io/tip/2019/07/04/MySQL-Mac%EC%97%90%EC%84%9C-%EC%84%A4%EC%B9%98/)
-- [Mac OS에서 Docker를 사용해서 OracleDB 설치하기](https://rap0d.github.io/tip/2019/08/20/OracleDB_with_Docker_in_mac/)
-- [Mac OS에서 Hadoop 설치하기]({% post_url 2019-10-01-mac_hadoop_in_mac %})
+- [macOS에서 MySQL 설치하기](https://rap0d.github.io/tip/2019/07/04/MySQL-Mac%EC%97%90%EC%84%9C-%EC%84%A4%EC%B9%98/)
+- [macOS에서 Docker를 사용해서 OracleDB 설치하기](https://rap0d.github.io/tip/2019/08/20/OracleDB_with_Docker_in_mac/)
+- [macOS에서 Hadoop 설치하기]({% post_url 2019-10-01-mac_hadoop_in_mac %})
 
 ***
 

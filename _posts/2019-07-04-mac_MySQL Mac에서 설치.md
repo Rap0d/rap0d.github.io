@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Mac OS에서 MySQL 설치하기
-subtitle: Mac OS에서 MySQL 설치하기
+title: macOS에서 MySQL 설치하기
+subtitle: macOS에서 MySQL 설치하기
 categories: tip
 tags: mactip
 ---
@@ -10,15 +10,13 @@ tags: mactip
 
 ## Overview
 
-Mac OS에서 MySQL을 사용하기 위한 일련의 절차를 설명하는 문서
+macOS에서 MySQL을 사용하기 위한 일련의 절차를 설명하는 문서
 
 ## 사용된 환경
 
-OS : Mac OS Mojave 10.14.5(18F132)
-
-MySQL Version : 8.0.16 for osx10.14 on x86_64 (Homebrew)
-
-기준 일자 : 2019년 5월 14일
+> OS : macOS Mojave 10.14.5(18F132)  
+> MySQL Version : 8.0.16 for osx10.14 on x86_64 (Homebrew)  
+> 기준 일자 : 2019-5-14  
 
 ## 설치
 

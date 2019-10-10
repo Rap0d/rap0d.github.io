@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Mac OS에서 Docker를 사용해서 OracleDB 설치하기
-subtitle: Mac OS에서 Docker를 사용해서 OracleDB 설치하기
+title: macOS에서 Docker를 사용해서 OracleDB 설치하기
+subtitle: macOS에서 Docker를 사용해서 OracleDB 설치하기
 categories: tip
 tags: mactip
 ---
@@ -11,31 +11,28 @@ tags: mactip
 
 ## Overview
 
-Mac OS에서 Docker를 사용하여 OracleDB를 설치하기 위한 절차를 설명하는 문서
+macOS에서 Docker를 사용하여 OracleDB를 설치하기 위한 절차를 설명하는 문서
 
-OracleDB는 Mac OS 환경에서 구동되지 않아 리눅스 가상 머신인 Docker를 사용하여 구동한다.
+OracleDB는 macOS 환경에서 구동되지 않아 리눅스 가상 머신인 Docker를 사용하여 구동한다.
 
 ***
 
 ## 사용된 환경
 
-OS : Mac OS Mojave 10.14.6(18G87)
-
-Oracle Database Version : 
-
-> Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production  
-> PL/SQL Release 11.2.0.2.0 - Production  
-> CORE	11.2.0.2.0	Production  
-> TNS for Linux: Version 11.2.0.2.0 - Production  
-> NLSRTL Version 11.2.0.2.0 - Production  
-
-기준 일자 : 2019년 8월 20일
+> OS : macOS Mojave 10.14.6(18G87)  
+> Oracle Database Version : 
+> > Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production  
+> > PL/SQL Release 11.2.0.2.0 - Production  
+> > CORE	11.2.0.2.0	Production  
+> > TNS for Linux: Version 11.2.0.2.0 - Production  
+> > NLSRTL Version 11.2.0.2.0 - Production  
+> 기준 일자 : 2019-8-20  
 
 ***
 
 ## 설치
 
-다음은 Mac OS 환경에서 Docker를 설치하고 Oracle Database 11g를 설치하는 절차이다.
+다음은 macOS 환경에서 Docker를 설치하고 Oracle Database 11g를 설치하는 절차이다.
 
 ### Docker 설치
 

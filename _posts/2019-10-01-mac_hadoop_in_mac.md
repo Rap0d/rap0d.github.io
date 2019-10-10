@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Mac OS에서 Hadoop 설치하기
-subtitle: Mac OS에서 Hadoop 설치하기
+title: macOS에서 Hadoop 설치하기
+subtitle: macOS에서 Hadoop 설치하기
 categories: tip
 tags: mactip
 ---
@@ -10,23 +10,21 @@ tags: mactip
 
 ## Overview
 
-Mac OS에서 Hadoop(하둡)을 설치하기 위한 절차를 설명하는 문서
+macOS에서 Hadoop(하둡)을 설치하기 위한 절차를 설명하는 문서
 
 ***
 
 ## 사용된 환경
 
-OS : Mac OS Mojave 10.14.6(18G103)
-
-Hadoop : 3.2.1
-
-기준 일자 : 2019년 10월 1일
+> OS : macOS Mojave 10.14.6(18G103)  
+> Hadoop : 3.2.1  
+> 기준 일자 : 2019-10-1
 
 ***
 
 ## 설치
 
-Mac OS에서는 ***brew***를 이용하여 쉽게 설치할 수 있다.
+macOS에서는 ***brew***를 이용하여 쉽게 설치할 수 있다.
 
 혹시 *brew*가 설치되지 않았으면 [brew 설치 방법](https://whitepaek.tistory.com/3)을 참고한다.
 
