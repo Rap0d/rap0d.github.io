@@ -12,7 +12,7 @@ _drafts
 *.rej
 *.swo
 *.swp
-*.zip
+# *.zip
 *.vi
 *~
 
