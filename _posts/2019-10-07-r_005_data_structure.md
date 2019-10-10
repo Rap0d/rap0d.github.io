@@ -186,4 +186,4 @@ $gender
 
 > 사용 형식 : `data.frame(col1=data1, col2=data2, ...)`
 
-데이터 프레임에 대해서는 [이 문서](https://rap0d.github.io/study/2019/10/07/r_007_dataframe/)에서 자세히 다룬다.
+데이터 프레임에 대해서는 [이 문서](/study/2019/10/07/r_007_dataframe/)에서 자세히 다룬다.

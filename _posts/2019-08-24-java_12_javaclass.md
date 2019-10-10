@@ -76,33 +76,33 @@ Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절�
 
 ## Java 문법
 
-- [클래스와 객체](https://rap0d.github.io/study/2019/07/07/java_3_%EA%B0%9D%EC%B2%B4%EC%99%80_%ED%81%B4%EB%9E%98%EC%8A%A4/)
+- [클래스와 객체](/study/2019/07/07/java_3_%EA%B0%9D%EC%B2%B4%EC%99%80_%ED%81%B4%EB%9E%98%EC%8A%A4/)
 
-- [*this* 키워드](https://rap0d.github.io/study/2019/08/28/java_15_this/)
+- [*this* 키워드](/study/2019/08/28/java_15_this/)
 
-- [*static* 키워드](https://rap0d.github.io/study/2019/08/28/java_13_static/)
+- [*static* 키워드](/study/2019/08/28/java_13_static/)
 
-- [생성자(Constructor)](https://rap0d.github.io/study/2019/08/28/java_14_생성자/)
+- [생성자(Constructor)](/study/2019/08/28/java_14_생성자/)
 
-- [접근 지정자(제어자)](https://rap0d.github.io/study/2019/08/28/java_19_제어자/)
+- [접근 지정자(제어자)](/study/2019/08/28/java_19_제어자/)
 
-- [오버로딩(Over loading)](https://rap0d.github.io/study/2019/08/28/java_18_오버로딩/)
+- [오버로딩(Over loading)](/study/2019/08/28/java_18_오버로딩/)
 
-- [상속](https://rap0d.github.io/study/2019/07/08/java_4_상속/)
+- [상속](/study/2019/07/08/java_4_상속/)
 
-- [*super* 키워드](https://rap0d.github.io/study/2019/08/29/java_20_overriding/#%ec%98%a4%eb%b2%84%eb%9d%bc%ec%9d%b4%eb%94%a9%ea%b3%bc-super-%ed%82%a4%ec%9b%8c%eb%93%9c)
+- [*super* 키워드](/study/2019/08/29/java_20_overriding/#%ec%98%a4%eb%b2%84%eb%9d%bc%ec%9d%b4%eb%94%a9%ea%b3%bc-super-%ed%82%a4%ec%9b%8c%eb%93%9c)
 
-- [오버라이딩(Over riding)](https://rap0d.github.io/study/2019/08/28/java_20_overriding/)
+- [오버라이딩(Over riding)](/study/2019/08/28/java_20_overriding/)
 
-- [상속과 생성자의 관계](https://rap0d.github.io/study/2019/07/08/java_4_%EC%83%81%EC%86%8D/#%ec%b6%94%ec%83%81-%eb%a9%94%ec%86%8c%eb%93%9c%ec%99%80-%ec%b6%94%ec%83%81-%ed%81%b4%eb%9e%98%ec%8a%a4)
+- [상속과 생성자의 관계](/study/2019/07/08/java_4_%EC%83%81%EC%86%8D/#%ec%b6%94%ec%83%81-%eb%a9%94%ec%86%8c%eb%93%9c%ec%99%80-%ec%b6%94%ec%83%81-%ed%81%b4%eb%9e%98%ec%8a%a4)
 
-- [레퍼런스 형변환](https://rap0d.github.io/study/2019/08/18/java_9_java_casting/)
-  - [UpCasting(업캐스팅)](https://rap0d.github.io/study/2019/08/19/java_10_java_upcasting/)
-  - [DownCasting(다운캐스팅)](https://rap0d.github.io/study/2019/08/19/java_11_java_downcasting/)
+- [레퍼런스 형변환](/study/2019/08/18/java_9_java_casting/)
+  - [UpCasting(업캐스팅)](/study/2019/08/19/java_10_java_upcasting/)
+  - [DownCasting(다운캐스팅)](/study/2019/08/19/java_11_java_downcasting/)
 
-- [추상 클래스와 추상 메소드(Abstract Class/Method)](https://rap0d.github.io/study/2019/08/28/java_16_추상/)
+- [추상 클래스와 추상 메소드(Abstract Class/Method)](/study/2019/08/28/java_16_추상/)
 
-- [Interface](https://rap0d.github.io/study/2019/08/28/java_17_interface/)
+- [Interface](/study/2019/08/28/java_17_interface/)
 
 ***
 
