@@ -1,7 +1,7 @@
 ---
 layout: post
-title: macOS환경의 R에서 rJava가 load되지 않는 문제 해결
-subtitle: macOS환경의 R에서 rJava가 load되지 않는 문제 해결
+title: macOS환경의 R에서 rJava가 정상적으로 로드되지 않는 문제 해결
+subtitle: macOS환경의 R에서 rJava가 정상적으로 로드되지 않는 문제 해결
 categories: tip
 tags: mactip
 ---
@@ -10,7 +10,7 @@ tags: mactip
 
 ## Overview
 
-macOS환경의 R에서 rJava가 load되지 않는 문제 해결
+macOS환경의 R에서 rJava가 정상적으로 로드되지 않는 문제를 해결하는 문서
 
 ***
 
@@ -44,19 +44,19 @@ Error: package or namespace load failed for ‘rJava’:
 
 우선 [MAC OS :: tm 및 KoNLP 로딩오류 문제](https://rstudio-pubs-static.s3.amazonaws.com/390520_0e53f55571474119b82a059e9dc1403d.html)의 문서를 따라 해결 한다.
 
-위의 문서에서 해결이 안되었을 경우 위의 에러 메시지에서 요구하는 *JDK 11.0.1*을 설치하여 PATH에 등록한 후 사용한다.
+위의 문서에서 해결이 안되었을 경우, 에러 메시지에서 요구하는 *JDK 11.0.1*을 설치하여 PATH에 등록한 후 사용한다.
 
 *JDK 11.0.1*은 ***[이곳](https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase11-5116896.html)***에서 다운받을 수 있다.
 
-해결 방법은 다음과 같다.
+설치 후 다음 세팅을 마무리 한다.
 
 1. R Studio 콘솔에서 다음 코드를 입력한다.
     ```R
     Sys.setenv("JAVA_HOME" = '/Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home')
     dyn.load('/Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home/lib/server/libjvm.dylib')
     ```
-2. `Sys.getenv()` 명령어를 통해 JAVA_HOME 경로가 잘 들어갔는지 확인한다.
-3. *Terminal*에서 다음 명령어를 입력한다.
+2. `Sys.getenv()` 명령어를 통해 *JAVA_HOME* 경로가 잘 들어갔는지 확인한다.
+3. Terminal에서 다음 명령어를 입력한다.
     ```
     sudo R CMD javareconf
     ```
