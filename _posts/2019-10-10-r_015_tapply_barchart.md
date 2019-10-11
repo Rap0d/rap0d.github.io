@@ -12,7 +12,7 @@ tags: rprogramming
 
 R의 plyr 패키지 실습을 해본다.
 
-> 예제 파일 : [progbook.csv]({{"/assets/file/r/progbook.csv" | absolute_url}})
+> 예제 파일 : [progbook.csv]({{"/assets/file/r/191010/progbook.csv" | absolute_url}})
 
 *** 
 
