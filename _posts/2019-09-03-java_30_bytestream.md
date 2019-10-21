@@ -200,7 +200,7 @@ fout.write(b);  // 파일에 바이트 배열 b의 내용을 모두 그대로 �
 fout.close();
 ```
 
-실행 결과 `/Users/seungheonchang/Desktop/file_test.txt`은 바이너리 파일이 되며, `num[]` 배열의 값 `1, 4, -1, 88, 50`의 바이너리 바이트가 파일에 그대로 기록된 것을 볼 수 있다.
+실행 결과 `/Users/pathxxx/Desktop/file_test.txt`은 바이너리 파일이 되며, `num[]` 배열의 값 `1, 4, -1, 88, 50`의 바이너리 바이트가 파일에 그대로 기록된 것을 볼 수 있다.
 
 ***
 
