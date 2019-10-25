@@ -19,9 +19,7 @@ R의 plyr 패키지 실습을 해본다.
 ## plyr 패키지 실습
 
 ```R
-getwd()
-setwd('../../R_data/')
-install.packages('dplyr')
+# install.packages('dplyr')
 par(family='D2Coding')
 
 library(plyr)

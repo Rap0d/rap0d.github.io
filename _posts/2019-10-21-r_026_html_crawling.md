@@ -24,7 +24,6 @@ library(rvest)
 library(dplyr)
 library(stringr)
 
-setwd('R Basic Source/11.크롤링/')
 url <- 'http://movie.daum.net/moviedb/grade?movieId=112942&type=netizen&page=1'
 
 # read_html 함수를 통해 html을 불러온다.
