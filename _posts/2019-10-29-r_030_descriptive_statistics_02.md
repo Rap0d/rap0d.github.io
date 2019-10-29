@@ -1,0 +1,71 @@
+---
+layout: post
+title: 30. 교차 분석과 카이 제곱 검정
+subtitle: 교차 분석과 카이 제곱 검정
+categories: study
+tags: rprogramming
+---
+
+![r](/assets/img/logo/r-logo.png)
+
+## Overview
+
+교차 분석은 두 개 이상의 **범주형 변수**를 대상으로 교차 분할표를 작성하고, **변수 상호 간의 관련성 여부를 분석**하는 방법이다.
+
+교차 분석은 특히 빈도 분석 결과에 대한 보충 자료를 제시하는데 효과적으로 이용할 수 있다.
+
+또한 카이 제곱 검정은 교차 분석으로 얻어진 교차 분할표를 대상으로 유의 확률(p-value)을 적용하여 변수들 간의 독립성 및 관련성 여부 등을 검정하는 분석 방법이다.
+
+***
+
+## 교차 분할표
+
+교차 분할표를 만들기 위해서는 `table()` 함수를 사용하면 된다. 
+
+반환 값은 'table' 인스턴스의 분할표이다.
+
+분할 표에는 값이 배열 형태로 저장이 되어 있다.
+
+> 사용형식 : `table(x, useNA = 'always') # useNA : NA도 포함`  
+> X : Factor로 해석할 수 있는 하나 이상의 객체(data.frame etc.)
+
+### 교차 분할 표 예시
+
+```R
+# table 함수를 이용하여 교차 분할표를생성한다.
+# 부모의 학력과 자녀의 대학 합격 여부에 대한 교차 분할표
+table(result)
+
+# Pass
+# Level fail pass
+# 고졸 4049
+# 대졸 2755
+# 대학원졸 23 31
+```
+
+***
+
+## 교차 분할표 관련 패키지
+
+gmodels 패키지에는 교차 분할표를 좀더 세밀하게 보여주는 함수가 있다.
+
+### 패키지 설치
+```R
+from install.packages("gmodels")
+library(gmodels)
+```
+
+### CrossTable()
+
+교차 분석을 위하여 사용할 수 있는 함수
+
+`chisq` 옵션을 이용하여 **카이 제곱 검정**을 수행할 수 있다.
+
+| 항목 | 설명 |
+|:--------:|:--------|
+| 사용 형식 | `CrossTable(x, y, prop.chisq = FALSE, prop.t = FALSE, prop.r = FALSE, dnn = c('predicted', 'actual'))` |
+| x, y | 교차하고자 하는 데이터를 지정<br>예) 분류 문제에서 `x`는 정답을 의미하는 `label`, `y`는 예측 값을 의미하는 `prediction` 지정 |
+| chisq | 카이 제곱 검정을 수행할 때 True 사용 |
+| prop.t | True : 테이블 비율(proportion table)을 포함 |
+| prop.r | True : 행 비율(proportion row)을 포함 |
+| dnn | *dimnames names* 을 사용자 정의 형식으로 부여할 때 사용 |
