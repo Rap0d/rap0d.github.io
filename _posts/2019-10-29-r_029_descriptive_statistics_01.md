@@ -84,6 +84,7 @@ tags: rprogramming
 > # gender brandA.mean
 > # 1 남자 2.95
 > # 2 여자 3.20
+> ```
 
 ### Hmisc 패키지
 
