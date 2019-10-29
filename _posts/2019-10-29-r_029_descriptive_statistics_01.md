@@ -71,20 +71,26 @@ tags: rprogramming
 | 관심도 | 관심 있음 | 2,460 | 82.00 |
 | 관심도 | 관심 없음 | 540 | 18.00 |
 
-### 주요 패키지
+***
 
-> **prettyR** 패키지  
-> **Hmisc** 패키지 : 홍보 이벤트 효과 분석.R 파일 참조 요망 # 'doBy' 패키지 설치
-> ```R
-> install.packages('doBy')
-> library(doBy)
-> # 성별로 그룹핑하여 brandA 에 대한 평균을 구해준다.
-> myttest01 <- summaryBy(brandA ~ gender, ttest01)
-> myttest01
-> # gender brandA.mean
-> # 1 남자 2.95
-> # 2 여자 3.20
-> ```
+## 주요 패키지
+
+- *doBy* 패키지
+- *Hmisc* 패키지
+- *prettyR* 패키지
+
+### doBy 패키지
+
+```R
+install.packages('doBy')
+library(doBy)
+# 성별로 그룹핑하여 brandA 에 대한 평균을 구해준다.
+myttest01 <- summaryBy(brandA ~ gender, ttest01)
+myttest01
+# gender brandA.mean
+# 1 남자 2.95
+# 2 여자 3.20
+```
 
 ### Hmisc 패키지
 
