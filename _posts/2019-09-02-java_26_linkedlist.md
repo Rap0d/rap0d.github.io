@@ -34,7 +34,7 @@ LinkedList는 맨 앞과 맨 뒤를 가리키는 **head, tail** 레퍼런스를 
 
 > `sort()` - 컬렉션에 포함된 요소들의 정렬  
 > `reverse()` - 요소를 반대 순으로 정렬  
-> `max(), min()` - 요소들의 최댓값과 최솟값 찾아내기  
+> `max(), min()` - 요소들의 최댓값과 최소값 찾아내기  
 > `binarySearch()` - 이진 검색  
 
 Collections 클래스의 메소드는 모두 `static` 타입이므로 Collections 객체를 생성할 필요는 없다.
