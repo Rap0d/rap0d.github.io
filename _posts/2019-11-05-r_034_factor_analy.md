@@ -104,3 +104,29 @@ tags: rprogramming
 
 **유의 확률(p-value)의 값이 0.05보다 적으면 요인 수가 부족**하다는 의미
 
+| 항목 | 설명 |
+|:--------:|:--------|
+| 사용 형식 | `result <- factanal(dataset, factors=2, rotation='varimax')` |
+| dataset | 요인 해석을 위한 데이터 셋을 지정 |
+| factor | 주성분 변수(요인 갯수)의 갯수를 지정 |
+| rotation | 요인 회전법 이름(varimax, promax, none) |
+| scores | 요인 점수를 계산하는 방법<br>`c('none', 'regression', 'Bartlett')`<br>예) regression(회귀 분석으로 요인 점수를 계산하는 방식) |
+| na.action | 결측치에 대한 처리 |
+
+### factanal 출력 결과 예시
+
+```R
+result <- factanal(subject, factors=3, rotation='varimax', scores='regression') result
+
+Call:
+factanal(x = subject, factors = 3, scores = "regression", rotation = "varimax")
+Uniquenesses: # 유효성을 판단하여 제시한 값으로 통상 0.5 이하이면 유효한 것으로 본다.
+국어 수학 인문 물리 사회 영어
+0.005 0.051 0.240 0.005 0.005 0.056
+Loadings: # 변수와 요인 간의 상관 관계이다.
+    # 예를 들어 Factor1과 인문과목과 사회과목이 상관계수가 높다
+
+SS loadings # 각 요인 적재 값들의 제곱의 총합
+
+The degrees of freedom for the model is 0 and the fit was 0.7745
+```
