@@ -18,7 +18,7 @@ macOS의 zsh 터미널에서 alias를 등록하는 과정을 담은 포스트
 
 > OS : macOS Catalina 10.15(19B88)  
 > zsh : zsh 5.7.1 (x86_64-apple-darwin19.0)  
-> 기준 일자 : 2019-11-18 
+> 기준 일자 : 2019-11-18  
 
 ***
 
