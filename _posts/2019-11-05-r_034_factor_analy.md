@@ -108,7 +108,7 @@ tags: rprogramming
 |:--------:|:--------|
 | 사용 형식 | `result <- factanal(dataset, factors=2, rotation='varimax')` |
 | dataset | 요인 해석을 위한 데이터 셋을 지정 |
-| factor | 주성분 변수(요인 갯수)의 갯수를 지정 |
+| factor | 주성분 변수(요인 개수)의 개수를 지정 |
 | rotation | 요인 회전법 이름(varimax, promax, none) |
 | scores | 요인 점수를 계산하는 방법<br>`c('none', 'regression', 'Bartlett')`<br>예) regression(회귀 분석으로 요인 점수를 계산하는 방식) |
 | na.action | 결측치에 대한 처리 |

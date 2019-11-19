@@ -143,7 +143,7 @@ title
 src <- data %>% html_nodes('.thumb') %>% html_node('img') %>% html_attr('src')
 src
 
-# 반복할 전체 갯수
+# 반복할 전체 개수
 iteration <- c(1:length(attr))
 iteration
 

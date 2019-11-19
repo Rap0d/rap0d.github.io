@@ -288,8 +288,8 @@ coupTypeTable
 # 분할표에 있는 쿠폰들의 유형에 대한 비율을 구해보세요.(prop.table)
 propCoupType <- prop.table(coupTypeTable)
 propCoupType
-# 쿠폰 유형별 갯수에 대한 막대 그래프를 그려 보세요.
-barplot(coupTypeTable, col = rainbow(nrow(coupTypeTable)), main = '쿠폰 유형별 갯수')
+# 쿠폰 유형별 개수에 대한 막대 그래프를 그려 보세요.
+barplot(coupTypeTable, col = rainbow(nrow(coupTypeTable)), main = '쿠폰 유형별 개수')
 # ############################################################
 # # 쿠폰 03.쿠폰 사용 분야 기술 통계 
 # ############################################################
@@ -310,7 +310,7 @@ propCate
 # 쿠폰 사용처에 대한 막대 그래프를 그려 보세요.
 barplot(coupCateTable, col = rainbow(nrow(coupCateTable)), ylim = c(0, 30), main = '쿠폰 사용처')
 # ############################################################
-# 참조 그림 : 쿠폰 사용처.png / 쿠폰 유형별 갯수.png
+# 참조 그림 : 쿠폰 사용처.png / 쿠폰 유형별 개수.png
 ```
 
 ### 실습 코드 3
