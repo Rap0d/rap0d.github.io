@@ -113,7 +113,7 @@ tags: rprogramming
 | n | **시행 횟수**<br>x의 길이가 2라면 무시 |
 | p | 성공 확률에 대한 가설 |
 | alternative | 대립 가설의 형태를 의미<br>기본 값은 양측 검정<br>`alternative = c("two.sided"(default)`<br>옵션 : "less", "greater" |
-| conf.level | 신뢰 수준(default : 0.95 |
+| conf.level | 신뢰 수준(default : 0.95) |
 
 ### 이항 분포 비율 검정 예시
 
