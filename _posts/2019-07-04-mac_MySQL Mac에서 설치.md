@@ -36,7 +36,7 @@ macOS에서 MySQL을 사용하기 위한 일련의 절차를 설명하는 문서
 
 5. brew install mysql
 
-6. mysql.server start // 서버 실행
+6. mysql.server start // 서버 실행  
 6.1. 네트워크 연결 허용
 
 7. mysql_secure_installation // mysql 설정
