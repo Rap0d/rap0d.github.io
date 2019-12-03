@@ -26,9 +26,9 @@ macOS에서 MySQL을 사용하기 위한 일련의 절차를 설명하는 문서
 
 [brew로 mysql 설치 방법](https://whitepaek.tistory.com/16)
 
-2. cask 설치
-2.1. brew install cask 
-2.2. brew list 명령어로 확인
+2. cask 설치  
+2.1. brew install cask  
+2.2. brew list 명령어로 확인  
 
 3. brew update
 
