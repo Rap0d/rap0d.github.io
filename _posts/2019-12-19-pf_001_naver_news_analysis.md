@@ -426,7 +426,7 @@ CmtPlotData1$Month <- factor(CmtPlotData1$Month, levels=xorder, labels=xorder)
 - 댓글수
 ![commentplot](/assets/img/pf/nv-chisq-com01.png)
 - 조회수
-![viewplot](../assets/img/pf/nv-chisq-view01.png)
+![viewplot](/assets/img/pf/nv-chisq-view01.png)
 
 ```R
 options("scipen" = 100)
