@@ -300,3 +300,35 @@ else {
 }
 ```
 
+이제 각 변수에 들어가 있는 데이터들을 query에 넣어 DBI 패키지의 `dbSendQuery()`함수를 사용하여 send한다.
+
+```R
+for(l in c(1:len)) {
+    query <- paste("INSERT INTO ", tab, " VALUES(\'", NEWSID[l], '\', ', NEWSRANK[l], ', \'', TITLE[l], '\',\'', SUBTITLE[l], '\',\'',  SRC[l], '\',\'', NEWSDATE[l], '\', ', NVIEW[l], ', ', NCOMMENT[l], ', ', CURR_CMT[l], ', ', DELETED[l], ', ', BROKEN[l], ', ', MALER[l], ', ', FEMALER[l], ', ', X10[l], ', ', X20[l], ', ', X30[l], ', ', X40[l], ', ', X50[l], ', ', X60[l], ")", sep='')
+    
+    dbSendQuery(conn, query)
+}
+```
+
+위의 send 함수를 각 뉴스 세션(6개)과 시트(12개월)로 반복하여 실행한다. 다음 코드로 섹션과 시트 개수만큼 반복하게된다.
+
+```R
+for(i in c(1:6)) {
+  type <- types[i]
+  section <- sections[i]
+  tab <- tables[i]
+  fpath <- paste(path, section, '/2018_view_data_', section, ext, sep='')
+  for(i in c(1:12)) {
+    df <- read.xlsx(fpath, sheet=i, colNames=T, rowNames=F)
+    df <- cleanData(df)
+    dbsend(df, type, section, tab)
+    cat('-', i, '-\n')
+  }
+}
+```
+
+***
+
+# 카이 제곱 검정
+
+네이버 뉴스의 
