@@ -705,3 +705,136 @@ Overall Statistics
 
 # 인공 신경망
 
+인공 신경망 알고리즘이 구현된 R의 nnet Package를 이용하여 네이버 댓글의 속성으로 뉴스 카테고리 예측을 해본다.
+
+## 데이터 셋
+
+예측할 데이터의 종속변수를 늘리기 위해 댓글의 수와 성별, 연령대 컬럼을 사용하였다. 독립 변수는 뉴스 섹션을 One-hot encoding 방식으로 변환하였다.
+
+## One-hot encoding
+
+`nnet` 함수를 사용하기 위해 section을 각 컬럼으로 나누었다. 이 때 사용한 함수는 `class.ind`을 사용하였다. 
+
+```R
+section.ind <- class.ind(NewsData$section)
+NewsDataE <- cbind(NewsData, section.ind)
+```
+
+### 결과
+
+| ... | section | Economy | IT | Life_Cult | Politics | Society | World |
+|:----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+| ... | Life_Cult | 0 | 0 | 1 | 0 | 0 | 0 |
+| ... | IT | 0 | 1 | 0 | 0 | 0 | 0 |
+| ... | Economy | 1 | 0 | 0 | 0 | 0 | 0 |
+| ... | World | 0 | 0 | 0 | 0 | 0 | 1 |
+| ... | Life_Cult | 0 | 0 | 1 | 0 | 0 | 0 |
+| ... | World | 0 | 0 | 0 | 0 | 0 | 1 |
+
+## 테스트 데이터 선별
+
+One-hot encoding된 데이터들의 80%를 train 데이터로 하고 20%를 test 데이터로 잘라내었다. 이 때 원본 데이터의 각 행을 구별하기 위해 다음과 같이 전처리를 하였다.
+
+```R
+Elen <- nrow(subset(NewsDataE, section == "Economy"))
+Ilen <- nrow(subset(NewsDataE, section == "IT"))
+Llen <- nrow(subset(NewsDataE, section == "Life_Cult"))
+Plen <- nrow(subset(NewsDataE, section == "Politics"))
+Slen <- nrow(subset(NewsDataE, section == "Society"))
+Wlen <- nrow(subset(NewsDataE, section == "World"))
+
+Ei <- sample(c(1:Elen), 0.8*Elen)
+Ii <- sample(c(1:Ilen), 0.8*Ilen)
+Li <- sample(c(1:Llen), 0.8*Llen)
+Pi <- sample(c(1:Plen), 0.8*Plen)
+Si <- sample(c(1:Slen), 0.8*Slen)
+Wi <- sample(c(1:Wlen), 0.8*Wlen);
+
+idx <- c(
+    Ei,
+    Ii + Elen,
+    Li + Elen + Ilen,
+    Pi + Elen + Ilen + Llen,
+    Si + Elen + Ilen + Llen + Plen,
+    Wi + Elen + Ilen + Llen + Plen + Slen
+)
+
+trData <- NewsDataE[idx,]
+teData <- NewsDataE[-idx,]
+```
+
+각 행의 길이를 구하고 시작점을 찾기 위해 다음 column으로 갈 때 이전 column의 길이를 더한 index 값을 설정하여 train과 test 데이터를 만들었다.
+
+## nnet 적용
+
+`nnet`함수의 매개변수는 x(독립 변수),  y(종속 변수), softmax가 있다. nnet model을 만들기 위해 x에 1열부터 11열까지(댓글 속성), y에 13열부터 18열까지(one-hot encoding된 카테고리)를 넣었으며, softmax에 True 값을 넣어 각 값들 사이가 보간(interpolation)되도록 하였다.
+
+```R
+trX <- trData[,c(1:11)]
+trY <- trData[,c(13:18)]
+teX <- teData[,c(1:11)]
+
+nnModel <- nnet(x=trX, y=trY, size=15, softmax=T)
+```
+
+만들어진 nnet model을 시각화 해보았다. 시각화를 하기 위해 nnet plot 함수를 별도로 다운로드 받았다.
+
+```R
+# 시각화 R 코드 함수 다운로드
+source_url('https://gist.githubusercontent.com/fawda123/7471137/raw/466c1474d0a505ff044412703516c34f1a4684a5/nnet_plot_update.r')
+
+plot.nnet(nnModel)
+```
+
+![nnet](/assets/img/pf/nv-nnet-01.png)
+
+
+시각화된 nnet 모델을 보면 hidden 계층이 하나 있고, 종속변수 11개, 독립 변수 6개와 bias 값이 있는 것을 확인할 수 있다.
+
+## 예측 모델 적용 및 결과 분석
+
+nnet의 결과인 모델을 이용하여 test 데이터로 예측을 수행한다. 예측을 위해 `predict` 함수를 이용했다. 예측 결과물은 table로 만들어 적중률을 도출했다.
+
+```R
+nnPrediction <- predict(nnModel, teX, type="class")
+predTable <- table(nnPrediction, teData$section)
+```
+
+| - | Economy | IT | Life_Cult | Politics | Society | World |
+|:---------:|:-------:|:----:|:---------:|:--------:|:-------:|:-----:|
+| Economy | 765 | 216 | 183 | 11 | 24 | 407 |
+| IT | 93 | 1423 | 557 | 0 | 6 | 342 |
+| Life_Cult | 243 | 353 | 956 | 9 | 54 | 663 |
+| Politics | 160 | 10 | 59 | 1694 | 586 | 87 |
+| Society | 795 | 154 | 338 | 441 | 1493 | 449 |
+| World | 132 | 32 | 95 | 33 | 25 | 240 |
+
+교차표로 결과값을 비교한 결과를 바탕으로 정확도를 계산했다.
+
+```R
+calcAcc <- function(compTable) {
+    len <- nrow(compTable)
+    total <- 0
+    for(l in c(1:len)) { total <- total + compTable[l,l] }
+    accuracy <- round((total / sum(compTable)) * 100, 2)
+    return(accuracy)
+}
+predAccuracy <- cat(calcAcc(predTable), "%\n")
+# 50.05 %
+```
+
+nnet 모델의 예측 정확도는 50.05%가 나왔다. 평균 예측 정확도를 얻기 위해 5번 반복하여 시각화하고 평균치를 구했다.
+
+```R
+df=data.frame(x=c(1:5), y=c(50.05, 50.53, 44.24, 56.92, 50.68))
+ggplot(data=df, mapping=aes(x=x, y=y, col=x, fill=x)) +
+  geom_col(position="identity", show.legend=F) +
+  geom_text(label=paste(df$y, "%"), nudge_y=2, color="black") +
+  geom_hline(aes(yintercept=mean(df$y))) +
+  geom_text(x=3, y=51, label=paste("mean :", mean(df$y)), check_overlap=T, color="Red") +
+  labs(title="nnet result", x="Tries", y="Percentage")
+```
+
+![nnet02](/assets/img/pf/nv-nnet-02.png)
+
+위 데이터는 데이터를 5번 샘플링하여 각각 nnet을 적용시킨 결과이다. 평균값은 50.484%가 나왔으며 대체로 정확도가 낮다는 것을 확인할 수 있다.
