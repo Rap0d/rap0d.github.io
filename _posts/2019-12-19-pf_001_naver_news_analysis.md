@@ -838,3 +838,6 @@ ggplot(data=df, mapping=aes(x=x, y=y, col=x, fill=x)) +
 ![nnet02](/assets/img/pf/nv-nnet-02.png)
 
 위 데이터는 데이터를 5번 샘플링하여 각각 nnet을 적용시킨 결과이다. 평균값은 50.484%가 나왔으며 대체로 정확도가 낮다는 것을 확인할 수 있다.
+
+## 결론
+
