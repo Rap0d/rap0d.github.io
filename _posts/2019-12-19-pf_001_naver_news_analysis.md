@@ -851,5 +851,139 @@ ggplot(data=df, mapping=aes(x=x, y=y, col=x, fill=x)) +
 
 ## 데이터 셋
 
-비율로 제시되어 있는 댓글 작성자의 성별, 연령대 데이터를 수치화하여 raw 데이터로 바꾼것을 데이터 셋으로 한다.
+비율로 제시되어 있는 댓글 작성자의 성별, 연령대 데이터를 수치화하여 raw 데이터로 바꾼것을 데이터 셋으로 한다. 네이버 정책에 따른 뉴스의 댓글수가 100개 미만인 경우 성비, 연령대 정보를 제공하지 않기 때문에, 30대가 0이 아닌 경우만을 적합한 데이터로 선정하였다.
+
+```R
+df <- subset(df, df$X30 != 0)
+df <- changeNum(df)
+```
+
+군집화를 할 때, Vector 메모리 부족과 덴드로그램을 그릴때 세션이 Abort되어, 적정 수치로 샘플링을 하였다. 이 프로젝트에서는 5%(3281개)의 샘플 데이터를 이용하였다.
+
+```R
+idx <- sample(1:nrow(df), 0.05 * nrow(df))
+df <- df[idx, ]
+```
+
+군집분석에 필요한 데이터는 텍스트 데이터가 아닌 정수형 데이터를 넣어야 하기 때문에 뉴스 카테고리를 정수로 표현하였다.
+
+> type : 경제(1), IT(2), 생활(3), 정치(4), 사회(5), 세계(6)
+
+```R
+df$type <- ifelse(df$cate == 'E', 1,
+                    ifelse(df$cate == 'I', 2,
+                    ifelse(df$cate == 'L', 3,
+                    ifelse(df$cate == 'P', 4,
+                    ifelse(df$cate == 'S', 5, 6)))))
+```
+
+## 거리 측정
+
+각 행(데이터)의 거리를 측정하기 위해 유클라디언 거리 측정법으로 계산하였다. 기존 데이터셋의 2열부터 9열까지의 속성(성별, 연령대)을 독립 변수로 지정하고 유클라디언 거리를 측정했다.
+
+```R
+target <- sampling[,4:11]
+gender_type_dist <- dist(target, 'euclidean')
+```
+
+|     |       4881  |    32733  |    44421   |   10192  |    50251 |     29771 |
+|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+|32733 | 29.782545||||                                                       
+|44421 | 28.195744 | 12.961481   |                                         
+|10192 | 21.400935 | 19.467922  |11.874342
+|...|...|...|...|...|...|...|
+
+## 군집 분석 수행
+
+측정된 데이터간 거리를 바탕으로 평균 연결 방법(ave)을 통해 `hclust`함수를 사용하여 군집화를 수행하였다.
+
+```R
+gender_type_res <- hclust(gender_type_dist , method="ave")
+```
+
+```
+Call:
+hclust(d = gender_type_dist, method = "ave")
+
+Cluster method   : average 
+Distance         : euclidean 
+Number of objects: 260 
+```
+
+군집화된 데이터를 시각화 해보았다.
+
+```R
+plot(gender_type_res, hang = -1, main = 'Gender and Category Cluster Dendrogram')
+rect.hclust(gender_type_res, k = 6, border = rainbow(K))
+```
+
+![nv-hclust-01.png](/assets/img/pf/nv-hclust-01.png)
+
+남성과 여성, 그리고 20대, 3-40대, 50대, 10-60대로 그룹화된 것을 볼 수 있다.
+
+최적의 k 값을 도출하기 위해 k를 1부터 10까지 변화시키며, witness 값이 급격하게 변하는 Elbow point를 구했다.
+
+```R
+maxlen <- 10
+for(i in 1:maxlen){
+    wss[i] <- sum(kmeans(target, centers = i)$withinss)
+} 
+wss # witness
+```
+
+변화하는 witness의 값을 시각화하여 
+
+```R
+plot(1:10, wss, type="b",xlab = "Number of Clusters", ylab = "Within group sum of squares")
+```
+
+![nv-hclust-02.png](/assets/img/pf/nv-hclust-02.png)
+
+위 그래프를 보면 완만해지는 부분(Elbow point)이 4로 보여진다. 따라서 Elbow point를 4로 설정하였다. 설정된 elbow point를 이용해 k-means 군집을 하고 시각화 해보았다.
+
+```R
+kms <- kmeans(target , elbow)
+plot(target , col = kms$cluster)
+```
+
+```
+K-means clustering with 4 clusters of sizes 26, 371, 136, 5
+
+Cluster means:
+     MALER    FEMALER        X10        X20       X30       X40
+1 3640.483 1188.40192  40.665769  486.08385 1182.2319 1520.3785
+2  338.936   97.85968   4.491024   46.23863  114.9720  143.0425
+3 1335.988  458.10794  12.677647  160.39625  439.5718  589.7121
+4 7813.844 3909.55600 126.162000 1285.68800 3004.7820 3785.5340
+         X50       X60
+1 1085.32385 500.55192
+2   89.27108  38.91423
+3  407.20007 181.85154
+4 2564.49000 969.41200
+```
+
+![nv-hclust-03.png](/assets/img/pf/nv-hclust-03.png)
+
+k-means 군집이 된 위 그래프를 보면, 대체로 선명하게 4가지로 분류된 것을 볼 수 있다. 하지만 10대와 교차되는 데이터들은 다른 분류와 다르게 섞여있는 것을 확인할 수 있다. 10대 데이터는 가짓수가 적어 생기는 문제로 보인다.
+
+## 군집화된 집단 자르기
+
+군집 분석 결과를 앞서 도출된 Elbow point인 4개의 대상의 군집수를 지정하기 위해 `cutree` 함수를 사용한다. 관측치를 대상으로 4개의 군집수를 지정하여 군집을 의미하는 숫자(1~4)가 출력이 된다.
+
+```R
+ghc <- cutree(gender_type_res, k = K)
+```
+
+군집수(ghc)를 기존 데이터셋의 컬럼에 추가하고, 군집수의 빈도를 구한다.
+
+```R
+sampling$ghc <- ghc
+table(sampling$ghc)
+```
+
+| 1그룹 | 2그룹 | 3그룹 | 4그룹 |
+|:-----:|:-----:|:-----:|:-----:|
+| 210 | 1 | 2 | 37 | 
+
+1그룹과 4그룹을 제외하면 빈도수가 적어 정확한 판단이 어렵다는 것을 볼 수 있다.
 
