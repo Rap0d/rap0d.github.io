@@ -1101,8 +1101,76 @@ test_y <- test[, 9]
 
 ## KNN 알고리즘 적용(k = 1)
 
-전처리된 데이터셋을 KNN 알고리즘을 통해 학습 모델을 만들어본다. train parameter에 train 데이터의 독립 변수를 넣으며, test parameter에 확인데이터(valid)의 독립 변수를 넣고, cl(class 변수)에 train의 종속 변수를 넣었다. 또 k에는 1을 넣었으며, 
+전처리된 데이터셋을 KNN 알고리즘을 통해 학습 모델을 만들어본다. train parameter에 train 데이터의 독립 변수를 넣으며, test parameter에 확인데이터(valid)의 독립 변수를 넣고, cl(class 변수)에 train의 종속 변수를 넣었다. 또 k값은 1을 넣어 모델을 생성하여 정확도를 계산해 보았다.
 
 ```R
 knn_1 <- knn(train = train_x, test = valid_x, cl = train_y, k = 1, use.all = F)
+table(knn_21, valid_y)
+accuracy_21 <- sum(knn_21 == valid_y) / length(valid_y)
 ```
+
+- 생성된 모델
+  
+    ```
+    [1] L L S S S S S S S S S S S L S S S S S S S S L S S S
+    [27] L S S S S S S S S S S S S S S S S L S S S S S S S S
+    [53] S L S S S L S S S S S S S S S S S S L S S S S S S S
+    [79] S L S S S S S L S L S S S S S S S S S S L S S S S S
+    ```
+- 분류된 결과의 cross table
+
+    ```
+            valid_y
+    knn_21    L       S
+    L         1090    38
+    S         251     2141
+    ```
+- 정확도 계산
+
+    ```
+    0.9099943
+    ```
+
+k가 1일때 뉴스 섹션 분류 정확도는 90%가량 나왔다.
+
+## 최적의 k값 구하기
+
+k가 1부터 train 데이터의 행 개수 만큼 변화할 때 분류 정확도를 구하려 했다. 반복문을 이용하여 k가 1부터 train 행 개수만큼 변화할 때, 분류 정확도가 몇 %가 되는지 그래프를 그려보고 최적의 k값을 확인해 본다.
+
+- 분류 정확도 사전 할당
+  
+  ```R
+  accuracy_k <- NULL
+  ```
+- k가 1부터 train 데이터의 행 개수까지 반복
+  
+  ```R
+  pb <- progress_bar$new(format="[:bar] :current/:total (:percent)", total=cnt)
+  cnt <- nrow(train)
+  for(idx in c(1:cnt)){
+    # k가 idx일 때 knn 적용
+    knn_k <- knn(train = train_x, test = valid_x, cl = train_y, k = idx)
+    # 분류 정확도 계산
+    accuracy_k <- c(accuracy_k, sum(knn_k == valid_y) / length(valid_y))
+    pb$tick(0)
+    pb$tick(1)
+  }
+  ```
+- 에러 발생
+  
+  ```
+  [=========>----------------------------------------------------] 499/4188 ( 12%)
+  Error in knn(train = train_x, test = valid_x, cl = train_y, k = idx) : 
+    too many ties in knn
+  ```
+  500 이상의 k 값이 에러가 뜨므로, 150까지로 제한하여(cnt <- 150) k값을 구해 보았다.
+
+- k에 따른 분류 정확도 데이터 생성 및 시각화
+
+    ```R
+    valid_k <- data.frame(k = c(1:cnt), accuracy = accuracy_k)
+    plot(formula = accuracy ~ k, data = valid_k, type = "o", pch = 20, main = "validation - optimal k")
+    ```
+
+    
+- 
