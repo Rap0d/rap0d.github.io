@@ -1119,19 +1119,14 @@ accuracy_21 <- sum(knn_21 == valid_y) / length(valid_y)
     ```
 - 분류된 결과의 cross table
 
-    ```
-            valid_y
-    knn_21    L       S
-    L         1090    38
-    S         251     2141
-    ```
-- 정확도 계산
+    
+    |knn_21||valid_y|
+    |:----|:----|:----|:----|
+    ||L|S|
+    |L|1125|233|
+    |S|216|1946|
 
-    ```
-    0.9099943
-    ```
-
-k가 1일때 뉴스 섹션 분류 정확도는 90%가량 나왔다.
+> k가 1일때 뉴스 섹션 분류 정확도는 87.24%가량 나왔다.
 
 ## 최적의 k값 구하기
 
@@ -1171,6 +1166,67 @@ k가 1부터 train 데이터의 행 개수 만큼 변화할 때 분류 정확도
     valid_k <- data.frame(k = c(1:cnt), accuracy = accuracy_k)
     plot(formula = accuracy ~ k, data = valid_k, type = "o", pch = 20, main = "validation - optimal k")
     ```
-
+![knn01](/assets/img/pf/nv-knn-01.png)
     
-- 
+- 분류 정확도가 가장 높으면서, 가장 작은 k값 도출
+
+    ```R
+    sort(valid_k$accuracy, decreasing = T)
+    maxdata <- max(valid_k$accuracy)
+
+    min_position <- min(which(valid_k$accuracy == maxdata))
+    ```
+    `min_position`의 값과 그래프를 확인해보면 적정 k값을 알 수 있다. 최적의 `min_position`은 21이 나왔으며, 이 때, `maxdata`(최대의 분류 정확도)는 91.96%가 나왔다. k가 1일때와 비교해보면 4%가량 정확도가 높아진 것을 볼 수 있다.
+
+## 최적의 k 값을 이용한 KNN 알고리즘
+
+최적의 K값 21을 이용하여 test 데이터에 적용한 모델을 생성했다.
+
+```R
+knn_optimization <- knn(train = train_x, test = test_x, cl = train_y, k = min_position)
+```
+
+생성된 모델을 test 데이터와 비교하기 위해 Confusion Matrix를 구성한다.
+
+```R
+result <- matrix(NA, nrow = 2, ncol = 2)
+rownames(result) <- paste0("real_", c('S', 'L'))
+colnames(result) <- paste0("clsf_", c('S', 'L'))
+
+result[1, 1] <- sum(ifelse(test_y == "S" & knn_optimization == "S", 1, 0))
+result[2, 1] <- sum(ifelse(test_y == "L" & knn_optimization == "L", 1, 0))
+result[1, 2] <- sum(ifelse(test_y == "S" & knn_optimization == "L", 1, 0))
+result[2, 2] <- sum(ifelse(test_y == "L" & knn_optimization == "S", 1, 0))
+```
+
+최종 결과는 다음과 같은 Confusion Matrix로 나타났다.
+
+| | clsf_S | clsf_L |
+|:------:|:------:|:---:|
+| real_S | 2226 | 43 |
+| real_L | 1099 | 261 |
+
+## 최종 정확도 계산
+
+최적 k값을 이용한 KNN 모델에 test데이터를 넣어 분류하고, 그 정확도를 table로 정리하였다.
+
+```R
+table(prediction=knn_optimization, answer=test_y)
+
+accuracy <- sum(knn_optimization == test_y) / sum(result)
+accuracy
+```
+
+|  | 생활 | 사회 |
+|:------:|:------:|:---:|
+| 생활 | 1099 | 43 |
+| 사회 | 261 | 2226 |
+
+> k가 21일때 뉴스 섹션 분류 정확도는 91.62%가량 나왔다.
+
+## 결론
+
+최적의 K 값(k = 21)을 이용한 KNN 알고리즘을 통해 Training 된 데이터로 Test 데이터를 통해 예측한 결과, 최종 정확도는 91.62%가 나왔다.
+이는 최적 K값을 사용하지 않은(k = 1) 경우에 비해 4% 높은 결과가 나온 것을 볼 수 있다.
+
+90% 이상의 정확도를 가진 분류 알고리즘으로 성공적인 예측을 할 수 있다는 결과를 도출하였다.
