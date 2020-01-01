@@ -3,7 +3,6 @@ layout: post
 title: Naver 뉴스 댓글 유형 분석
 subtitle: Naive Bayes
 categories: portfolio
-tags: portfolio
 ---
 
 ![r](/assets/img/logo/r-logo.png)
@@ -1060,7 +1059,7 @@ training <- training[,c(-1)]
 
 ## 데이터 분리
 
-Train, Test, Valid 데이터를 3:1:1의 비율로 갖추고 입력(종속 변수)과 출력(독립 변수) 데이터로 분리하는 과정을 거쳤다.
+Train, Test, Valid 데이터를 3:1:1의 비율로 갖추고 입력(독립 변수)과 출력(종속 변수) 데이터로 분리하는 과정을 거쳤다.
 
 ```R
 idx <- sample(x = c("train", "valid", "test"), size = nrow(training), replace = TRUE, prob = c(3, 1, 1))
@@ -1078,7 +1077,8 @@ valid_y <- valid[, 9]
 test_y <- test[, 9]
 ```
 
-- 종속 변수
+- 독립 변수
+  
     | MALER | FEMALER | X10 | X20 | X30 | X40 | X50 | X60 |
     |:-------:|:-------:|:------:|:------:|:-------:|:-------:|:-------:|:------:|
     | 4304.81 | 1592.19 | 117.94 | 648.67 | 1415.28 | 2004.98 | 1297.34 | 471.76 |
@@ -1088,7 +1088,8 @@ test_y <- test[, 9]
     | 694 | 694 | 13.88 | 166.56 | 499.68 | 471.92 | 194.32 | 41.64 |
     | ... | ... | ... | ... | ... | ... | ... | ... |
 
-- 독립 변수
+- 종속 변수
+  
     | x |
     |:-:|
     | S |
@@ -1099,3 +1100,9 @@ test_y <- test[, 9]
     | ... |
 
 ## KNN 알고리즘 적용(k = 1)
+
+전처리된 데이터셋을 KNN 알고리즘을 통해 학습 모델을 만들어본다. train parameter에 train 데이터의 독립 변수를 넣으며, test parameter에 확인데이터(valid)의 독립 변수를 넣고, cl(class 변수)에 train의 종속 변수를 넣었다. 또 k에는 1을 넣었으며, 
+
+```R
+knn_1 <- knn(train = train_x, test = valid_x, cl = train_y, k = 1, use.all = F)
+```
