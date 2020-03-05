@@ -47,16 +47,18 @@ STS에서 Spring MVC Project를 생성하면 기본 Spring Framework 버전은 3
 pom.xml에서 다음 과정을 통해 버전을 수정한다.
 
 1) java version을 1.6에서 1.8로, springframework version을 3.1.1에서 4.3.26으로 변경
-   ```xml
-   <properties>
+
+    ```xml
+    <properties>
         <java-version>1.8</java-version>
         <org.springframework-version>4.3.4.RELEASE<org.springframework-version>
         <org.aspectj-version>1.6.10</org.aspectj-version>
         <org.slf4j-version>1.6.6</org.slf4j-version>
     </properties>
-   ```
+    ```
 
 2) Servlet api 버전을 2.5에서 3.0.1 로 변경하고, artifactId 도 servlet-api 에서 javax.servlet-api로 변경
+
     ```xml
     <dependency>
         <groupId>javax.servlet</groupId>
