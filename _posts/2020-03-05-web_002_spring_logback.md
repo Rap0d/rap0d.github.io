@@ -85,7 +85,42 @@ tags: web
         <version>${logback.version}</version>
     </dependency>
     ```
+- `logback.xml` 추가
+  - `src/main/resources`, `src/test/resources` 위치의 log4j.xml 파일을 삭제하고 logback-spring.xml 파일 추가
+  ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <configuration>  
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+            </layout>
+        </appender>
 
+        <logger name="org.springframework" level="info" additivity="false">
+            <appender-ref ref="STDOUT"/>
+        </logger>
+
+        <logger name="com.spring.board" level="debug" additivity="false">
+            <appender-ref ref="STDOUT"/>
+        </logger>
+        
+        <root level="error">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </configuration>
+  ```
+
+***
+
+## 사용
+
+```java
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+protected final Logger logger = LoggerFactory.getLogger(this.getClass());
+```
+
+`System.out.println()` 자리에 `logger.info()`를 사용하여 콘솔에서 볼 수 있다.
 
 ***
 
