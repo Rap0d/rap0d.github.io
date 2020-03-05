@@ -100,7 +100,7 @@ tags: web
             <appender-ref ref="STDOUT"/>
         </logger>
 
-        <logger name="com.spring.board" level="debug" additivity="false">
+        <logger name="com.[COMPANY].[PACKAGE]" level="debug" additivity="false">
             <appender-ref ref="STDOUT"/>
         </logger>
         
