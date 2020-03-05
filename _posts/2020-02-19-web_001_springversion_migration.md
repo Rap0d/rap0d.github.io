@@ -44,7 +44,7 @@ STS에서 Spring MVC Project를 생성하면 기본 Spring Framework 버전은 3
 
 `pom.xml`에서 다음 과정을 통해 버전을 수정한다.
 
-1) *java version*을 `1.6`에서 `1.8`로, springframework version을 `3.1.1`에서 `4.3.26`으로 변경  
+1) *java version*을 `1.6`에서 `1.8`로, *springframework version*을 `3.1.1`에서 `4.3.26`으로 변경  
 
 ```xml
 <properties>
@@ -55,7 +55,7 @@ STS에서 Spring MVC Project를 생성하면 기본 Spring Framework 버전은 3
 </properties>
 ```
 
-1) *Servlet api* 버전을 `2.5`에서 `3.0.1` 로 변경하고, *artifactId* 도 `servlet-api` 에서 `javax.servlet-api`로 변경
+2-1) *Servlet api* 버전을 `2.5`에서 `3.0.1` 로 변경하고, *artifactId* 도 `servlet-api` 에서 `javax.servlet-api`로 변경
 
 ```xml
 <dependency>
@@ -65,3 +65,47 @@ STS에서 Spring MVC Project를 생성하면 기본 Spring Framework 버전은 3
     <scope>provided</scope>
 </dependency>
 ```
+
+2-2) *jsp api* 버전을 `2.1`에서 `2.2`로 변경
+
+```xml
+<dependency>
+    <groupId>javax.servlet.jsp</groupId>
+    <artifactId>jsp-api</artifactId>
+    <version>2.2</version>
+    <scope>provided</scope>
+</dependency>
+```
+
+2-3) *maven compiler*의 *source*와 *target*을 `1.8`로 변경
+
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>2.5.1</version>
+    <configuration>
+        <source>1.8</source>
+        <target>1.8</target>
+        <compilerArgument>-Xlint:all</compilerArgument>
+        <showWarnings>true</showWarnings>
+        <showDeprecation>true</showDeprecation>
+    </configuration>
+</plugin>
+```
+
+3) *Servlet Spec*이 변경되면 `web.xml`의 DTD도 버전에 맞게 수정되어야 함
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         id="WebApp_ID" version="3.0">
+</web-app>
+```
+`xsi:schemaLocation`과 `<web-app version>`을 3.0으로 수정한다.
+
+
+4) Project Properties 수정
+
