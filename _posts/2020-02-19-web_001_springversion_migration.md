@@ -109,3 +109,13 @@ STS에서 Spring MVC Project를 생성하면 기본 Spring Framework 버전은 3
 
 4) Project Properties 수정
 
+1. Java Build Path의 Libraries에서 JRE System Library 수정
+2. Java Compiler의 Compiler level을 1.8로 지정
+3. Project Facets에서 Dynamic Web Module을 3.0, java는 1.8로 지정
+4. Project의 팝업 메뉴에서 Maven -> Update Project를 선택하여 설정 내용 적용
+
+***
+
+## 참고 자료
+
+- [https://offbyone.tistory.com/16](https://offbyone.tistory.com/16)
