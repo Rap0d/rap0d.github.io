@@ -126,4 +126,4 @@ protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 ## 참고 자료
 
-- [https://offbyone.tistory.com/16](https://offbyone.tistory.com/16)
+- [https://tychejin.tistory.com/21?category=765216](https://tychejin.tistory.com/21?category=765216)
