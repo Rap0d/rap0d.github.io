@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Spring에서 log4j를 loackback으로 변경하기
-subtitle: Spring에서 log4j를 loackback으로 변경하기
+title: Spring에서 log4j를 logback으로 변경하기
+subtitle: Spring에서 log4j를 logback으로 변경하기
 categories: study
 tags: web
 ---
