@@ -1,16 +1,16 @@
 ---
 layout: post
-title: macOS에서 Mariadb Stop이 안될때 해결법
-subtitle: macOS에서 Mariadb Stop이 안될때 해결법
+title: macOS에서 mariadb Stop이 안될때 해결법
+subtitle: macOS에서 mariadb Stop이 안될때 해결법
 categories: tip
 tags: mactip
 ---
 
-![zsh-logo](/assets/img/logo/mariadb-logo.png)
+![mariadb-logo](/assets/img/logo/mariadb-logo.png)
 
 ## Overview
 
-macOS에서 Mariadb가 꺼지지 않는 현상을 해결하는 과정을 담은 포스트
+macOS에서 mariadb가 꺼지지 않는 현상을 해결하는 과정을 담은 포스트
 
 ***
 
