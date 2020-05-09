@@ -32,12 +32,10 @@ macOS의 zsh 터미널에서 alias를 등록하는 과정을 담은 포스트
 
 ## 사용
 
-1. mac 터미널 기본 경로에서 다음 명령어를 사용하여 vi 에디터를 통해 `.zshrc` 확장자 파일을 생성한다.
-
-    이 포스트의 예시로 `mysqlZsh.zshrc` 파일을 생성하였다.
+1. mac 터미널 기본 경로에서 다음 명령어를 사용하여 vi 에디터를 통해 `.zshrc` 파일을 생성(혹은 진입)한다.
 
     ```
-    vi mysqlZsh.zshrc
+    vi .zshrc
     ```
 
 2. 에디터에 들어간 후 `i`를 눌러 *insert* 모드로 변경하고 다음을 타이핑한다.
@@ -52,8 +50,6 @@ macOS의 zsh 터미널에서 alias를 등록하는 과정을 담은 포스트
     alias ms-start="mysql.server stop"
     ```
 
-3. 설정 저장 후 `source ~/[파일명].zshrc`를 통해 재실행한다.
-    
-    이 예시에서는 `source ~/mysqlZsh.zshrc` 명령어를 사용하였다.
+3. 설정 저장 후 `source ~/.zshrc`를 통해 적용한다.
 
 4. 이제 터미널에서 `ms-start`와 `ms-stop`으로 *mysql* 서버를 열고 닫을 수 있게 되었다.
