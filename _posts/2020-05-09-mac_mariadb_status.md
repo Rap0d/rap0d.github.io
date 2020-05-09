@@ -24,7 +24,7 @@ macOS에서 mariadb가 꺼지지 않는 현상을 해결하는 과정을 담은 
 
 ## ISSUE
 
-mariadb를 macOS환경에서 [brew로 설치](/tip/2020/05/09/mac_mariadb_install/)했다고 가정한다.
+mariadb를 macOS환경에서 [brew로 설치](/tip/2020/05/09/mac_mariadb/)했다고 가정한다.
 
 mariadb를 일반적인 방법으로 시작하고 끄는 방법은 다음과 같다.
 
