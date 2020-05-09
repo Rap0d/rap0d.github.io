@@ -63,9 +63,11 @@ brew services list
 
 종료된 것을 확인할 수 있다.
 
-하지만 자주 mariadb를 켜고 끄는 상황이라면 brew에서 mariadb를 제어하면 편하다.
+***
 
 ## brew에서 mariadb 제어하기
+
+하지만 자주 mariadb를 켜고 끄는 상황이라면 brew에서 mariadb를 사용하면 편하다.
 
 brew에서 mariadb를 제어하는 명령어는 다음과 같다.
 
@@ -80,28 +82,4 @@ brew services list
 brew services stop mariadb
 ```
 
-위의 명령어가 길기 때문에 zsh의 alias 기능을 활용한다.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+위의 명령어가 길기 때문에 [zsh의 alias 기능](/tip/2019/11/18/mac_zsh_alias/)을 참고하여 Alias를 적용하면 편하게 사용할 수 있다.

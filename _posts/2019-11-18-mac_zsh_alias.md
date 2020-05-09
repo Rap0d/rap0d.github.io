@@ -50,6 +50,8 @@ macOS의 zsh 터미널에서 alias를 등록하는 과정을 담은 포스트
     alias ms-start="mysql.server stop"
     ```
 
-3. 설정 저장 후 `source ~/.zshrc`를 통해 적용한다.
+    작성을 끝마쳤으면 `esc` -> `:wq`를 통해 저장한다.
+
+3. vi 편집기에서 빠져나온 후, `source ~/.zshrc`를 타이핑하여 적용한다.
 
 4. 이제 터미널에서 `ms-start`와 `ms-stop`으로 *mysql* 서버를 열고 닫을 수 있게 되었다.
