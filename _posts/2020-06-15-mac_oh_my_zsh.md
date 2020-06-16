@@ -69,14 +69,13 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 > **옵션** : 터미널의 이름의 `macbook-pro` 부분을 지우기 위해 `.zshrc`파일 최하단에 다음 코드를 붙여넣는다. 
 
-```zsh
+{% raw %}
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-```
-`prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"`
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
   fi
 }
-
+{% endraw %}
 
 수정된 `.zshrc`파일은 `soruce .zshrc` 명령어로 적용시킨다.
 
@@ -105,7 +104,7 @@ build_prompt() {
 
 그리고 하단에 다음 코드를 추가한다.
 
-```zsh
+{% raw %}
 prompt_newline() {
   if [[ -n $CURRENT_BG ]]; then
     echo -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR
@@ -117,7 +116,7 @@ prompt_newline() {
   echo -n "%{%f%}"
   CURRENT_BG=''
 }
-```
+{% endraw %}
 
 ### *Syntax Highlight* 적용
 
