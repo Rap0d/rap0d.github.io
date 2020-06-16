@@ -69,10 +69,12 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 > **옵션** : 터미널의 이름의 `macbook-pro` 부분을 지우기 위해 `.zshrc`파일 최하단에 다음 코드를 붙여넣는다. 
 
-```zsh
+<pre>
+<code>
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
   fi
 }
-```
+</pre>
+</code>
