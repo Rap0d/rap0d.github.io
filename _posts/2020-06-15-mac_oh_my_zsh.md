@@ -57,7 +57,7 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 ### *Agnoster* Theme 설정
 
-![agnoster](../assets/img/tip/mactip/zsh/agnoster.png)
+![agnoster](/assets/img/tip/mactip/zsh/agnoster.png)
 
 *agnoster* Theme는 현재 디렉토리에서 Git의 상태(branch, Commit 여부 등)를 알려준다.
 
@@ -66,3 +66,13 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 > *Oh My Zsh*를 설치하면 기존에 `.zshrc`파일의 내용은 `.zshrc.pre-oh-my-zsh`파일에 복사가 되니 유의한다.  
 
 `.zshrc`파일에서 상단 5 ~ 15번째 줄 사이에 `ZSH_THEME="******"`으로 되어있는 부분을 `ZSH_THEME="agnoster"`로 수정한다.
+
+> **옵션** : 터미널의 이름의 `macbook-pro` 부분을 지우기 위해 `.zshrc`파일 최하단에 다음 코드를 붙여넣는다. 
+
+```zsh
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+  fi
+}
+```
