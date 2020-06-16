@@ -68,3 +68,11 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 `.zshrc`파일에서 상단 5 ~ 15번째 줄 사이에 `ZSH_THEME="******"`으로 되어있는 부분을 `ZSH_THEME="agnoster"`로 수정한다.
 
 > **옵션** : 터미널의 이름의 `macbook-pro` 부분을 지우기 위해 `.zshrc`파일 최하단에 다음 코드를 붙여넣는다. 
+
+```zsh
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+  fi
+}
+```
