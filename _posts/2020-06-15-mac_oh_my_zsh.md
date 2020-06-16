@@ -26,21 +26,21 @@ MacOS Catalina의 기본 Terminal인 ZSH에 Theme과 Plugin을 사용하기 위�
 
 ### iTerm2 설치
 
-![iterm-img](../assets/img/tip/mactip/zsh/iterm.png){: width="200"}
+![iterm-img](/assets/img/tip/mactip/zsh/iterm.png){: width="200"}
 
 [iTerm2](https://www.iterm2.com/)는 맥의 기본 터미널 기능을 확장하여 커스텀 단축키나 스크립트, 화면 나누기 등 다양한 기능을 제공한다.
 
 [iTerm2 Color Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes)에 들어가면 iTerm2에서 사용가능한 다양한 Theme을 다운받을 수 있다.
 
-![iterm-schemes-img](../assets/img/tip/mactip/zsh/iterm-schemes.png)
+![iterm-schemes-img](/assets/img/tip/mactip/zsh/iterm-schemes.png)
 
 다운받은 폴더의 schemes폴더에 `.itemcolors` 확장자를 가진 파일이 Color Schemes이다.
 
-![iterm-pref-01](../assets/img/tip/mactip/zsh/iterm-pref-01.png)
+![iterm-pref-01](/assets/img/tip/mactip/zsh/iterm-pref-01.png)
 
 iTerm2에서 `Preferences - Profile - Colors`의 좌하단에 *Color Presets...*가 Scheme을 변경할 수 있는 옵션이다.
 
-![iterm-pref-02](../assets/img/tip/mactip/zsh/iterm-pref-02.png)
+![iterm-pref-02](/assets/img/tip/mactip/zsh/iterm-pref-02.png)
 
 버튼을 클릭하고 *Import...*를 통해 이전에 다운받은 Theme을 선택할 수 있다.
 
@@ -54,3 +54,15 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 ```
 
 위의 명령어를 터미널에서 실행하여 *Oh My Zsh*를 설치한다.
+
+### *Agnoster* Theme 설정
+
+![agnoster](../assets/img/tip/mactip/zsh/agnoster.png)
+
+*agnoster* Theme는 현재 디렉토리에서 Git의 상태(branch, Commit 여부 등)를 알려준다.
+
+`.zshrc`파일을 수정하여 agnoster Theme으로 설정할 수 있다.
+
+> *Oh My Zsh*를 설치하면 기존에 `.zshrc`파일의 내용은 `.zshrc.pre-oh-my-zsh`파일에 복사가 되니 유의한다.  
+
+`.zshrc`파일에서 상단 5 ~ 15번째 줄 사이에 `ZSH_THEME="******"`으로 되어있는 부분을 `ZSH_THEME="agnoster"`로 수정한다.
