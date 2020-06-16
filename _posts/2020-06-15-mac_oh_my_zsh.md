@@ -69,12 +69,64 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 > **옵션** : 터미널의 이름의 `macbook-pro` 부분을 지우기 위해 `.zshrc`파일 최하단에 다음 코드를 붙여넣는다. 
 
-<pre>
-<code>
+```zsh
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+```
+`prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"`
   fi
 }
-</pre>
-</code>
+
+
+수정된 `.zshrc`파일은 `soruce .zshrc` 명령어로 적용시킨다.
+
+> 만약 폰트가 깨진다면 `D2Coding` 폰트를 iTerm2에 적용한다.
+
+### New Line 적용
+
+명령어를 칠 때 화면에서 벗어나는 경우를 고치기 위해 *New Line* 옵션을 적용해준다.
+
+*agnoster* Theme이 적용된 것을 기준으로 `~/.oh-my-zsh/themes/agnoster.zsh-theme` 파일을 수정한다.
+
+```zsh
+build_prompt() {
+  RETVAL=$?
+  prompt_status
+  prompt_virtualenv
+  prompt_context
+  prompt_dir
+  prompt_git
+  prompt_bzr
+  prompt_hg
+  prompt_newline // 이 부분을 추가
+  prompt_end
+}
+```
+
+그리고 하단에 다음 코드를 추가한다.
+
+```zsh
+prompt_newline() {
+  if [[ -n $CURRENT_BG ]]; then
+    echo -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR
+%{%k%F{blue}%}$SEGMENT_SEPARATOR"
+  else
+    echo -n "%{%k%}"
+  fi
+
+  echo -n "%{%f%}"
+  CURRENT_BG=''
+}
+```
+
+### *Syntax Highlight* 적용
+
+사용할 수 있는 명령어는 초록색으로 Highlighting 해주고, 잘못된 명령어는 빨간색으로 표시된다.
+
+*Syntax Highlight*는 brew를 통해 설치할 수 있다.
+
+```zsh
+brew install zsh-syntax-highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+```
+
