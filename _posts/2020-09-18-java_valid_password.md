@@ -51,6 +51,7 @@ import java.util.regex.Pattern;
 public class RegexTest {
 
   public static void main(String[] args) {
+    // Test Set
     String[] testSet = {
         "votmdnj&em123"
         , "kjs@aldkjfklj43"
@@ -63,11 +64,11 @@ public class RegexTest {
         , "xp@tmxm85 84"
         // 공백 테스트 문자열
         , ""
-        // 문자 길이 검사를 위한 문자열
+        // 문자 길이 테스트 문자열
         , "OJHDSJK@HFzDLKDJLJoiejwf42^%wij"
         , "xyz47@"
         , "1lkjvneim@"
-        // 여기부터 ASCII Overflow 검사를 위한 문자열
+        // ASCII Overflow 테스트 문자열
         , "/01alkjdffn"
         , "9:;aslkdjfkja2"
         , "?@alakjlkiie3"
@@ -78,7 +79,7 @@ public class RegexTest {
     };
 
     for (String s : testSet) {
-      System.out.println("Password: " + s);
+      System.out.println("Password: \"" + s + "\"");
       System.out.println(isValidPassword(s));
       System.out.println("--------------------------------");
     }
@@ -91,21 +92,24 @@ public class RegexTest {
    * @return 오류 메시지
    */
   public static String isValidPassword(String password) {
+    // 최소 8자, 최대 20자 상수 선언
     final int MIN = 8;
     final int MAX = 20;
 
-    // 영어, 숫자, 특수문자 포함한 8-20 글자 정규식
-    final String REGEX = "^((?=.*\\d)(?=.*[a-zA-Z])(?=.*[\\W]).{" + MIN + "," + MAX + "})$";
+    // 영어, 숫자, 특수문자 포함한 MIN to MAX 글자 정규식
+    final String REGEX = 
+      "^((?=.*\\d)(?=.*[a-zA-Z])(?=.*[\\W]).{" + MIN + "," + MAX + "})$";
     // 3자리 연속 문자 정규식
     final String SAMEPT = "(\\w)\\1\\1";
     // 공백 문자 정규식
     final String BLANKPT = "(\\s)";
+    
     // 정규식 검사객체
     Matcher matcher;
 
     // 공백 체크
     if (password == null || "".equals(password)) {
-      return "No Password";
+      return "Detected: No Password";
     }
 
     // ASCII 문자 비교를 위한 UpperCase
@@ -115,27 +119,30 @@ public class RegexTest {
 
     // 글자 길이 체크
     if (strLen > 20 || strLen < 8) {
-      return "Detect: Incorrect Length(Length: " + strLen + ")";
+      return "Detected: Incorrect Length(Length: " + strLen + ")";
     }
 
     // 공백 체크
     matcher = Pattern.compile(BLANKPT).matcher(tmpPw);
     if (matcher.find()) {
-      return "Detect: Blank";
+      return "Detected: Blank";
     }
 
     // 비밀번호 정규식 체크
     matcher = Pattern.compile(REGEX).matcher(tmpPw);
     if (!matcher.find()) {
-      return "Detect: Wrong Regex";
+      return "Detected: Wrong Regex";
     }
 
     // 동일한 문자 3개 이상 체크
     matcher = Pattern.compile(SAMEPT).matcher(tmpPw);
     if (matcher.find()) {
-      return "Detect: Same Word";
-    } else {
-      // 연속된 문자 / 숫자 3개 이상 체크
+      return "Detected: Same Word";
+    } 
+
+    // 연속된 문자 / 숫자 3개 이상 체크
+    if {
+      // ASCII Char를 담을 배열 선언
       int[] tmpArray = new int[strLen];
 
       // Make Array
@@ -150,13 +157,14 @@ public class RegexTest {
             && tmpArray[i + 2] < 58)
             || (tmpArray[i] > 64
             && tmpArray[i + 2] < 91)) {
+          // 배열의 연속된 수 검사
           // 3번째 글자 - 2번째 글자 = 1, 3번째 글자 - 1번째 글자 = 2
           if (Math.abs(tmpArray[i + 2] - tmpArray[i + 1]) == 1
               && Math.abs(tmpArray[i + 2] - tmpArray[i]) == 2) {
             char c1 = (char) tmpArray[i];
             char c2 = (char) tmpArray[i + 1];
             char c3 = (char) tmpArray[i + 2];
-            return "Detect: Continuous Pattern: \"" + c1 + c2 + c3 + "\"";
+            return "Detected: Continuous Pattern: \"" + c1 + c2 + c3 + "\"";
           }
         }
       }
@@ -170,61 +178,61 @@ public class RegexTest {
 # 결과
 
 ```
-Password: votmdnj&em123
-Detect: Continuous Pattern: "123"
+Password: "votmdnj&em123"
+Detected: Continuous Pattern: "123"
 --------------------------------
-Password: kjs@aldkjfklj43
+Password: "kjs@aldkjfklj43"
 >>> All Pass
 --------------------------------
-Password: QBWfklj4543
-Detect: Wrong Regex
+Password: "QBWfklj4543"
+Detected: Wrong Regex
 --------------------------------
-Password: abct438983
-Detect: Wrong Regex
+Password: "abct438983"
+Detected: Wrong Regex
 --------------------------------
-Password: acdf@sabcer9182
-Detect: Continuous Pattern: "ABC"
+Password: "acdf@sabcer9182"
+Detected: Continuous Pattern: "ABC"
 --------------------------------
-Password: alfl234kdd
-Detect: Wrong Regex
+Password: "alfl234kdd"
+Detected: Wrong Regex
 --------------------------------
-Password: asd@fasdf987
-Detect: Continuous Pattern: "987"
+Password: "asd@fasdf987"
+Detected: Continuous Pattern: "987"
 --------------------------------
-Password: xp@tmxm85 84
-Detect: Blank
+Password: "xp@tmxm85 84"
+Detected: Blank
 --------------------------------
-Password: 
-No Password
+Password: ""
+Detected: No Password
 --------------------------------
-Password: OJHDSJK@HFzDLKDJLJoiejwf42^%wij
-Detect: Incorrect Length(Length: 31)
+Password: "OJHDSJK@HFzDLKDJLJoiejwf42^%wij"
+Detected: Incorrect Length(Length: 31)
 --------------------------------
-Password: xyz47@
-Detect: Incorrect Length(Length: 6)
+Password: "xyz47@"
+Detected: Incorrect Length(Length: 6)
 --------------------------------
-Password: 1lkjvneim@
-Detect: Continuous Pattern: "LKJ"
+Password: "1lkjvneim@"
+Detected: Continuous Pattern: "LKJ"
 --------------------------------
-Password: /01alkjdffn
-Detect: Continuous Pattern: "LKJ"
+Password: "/01alkjdffn"
+Detected: Continuous Pattern: "LKJ"
 --------------------------------
-Password: 9:;aslkdjfkja2
+Password: "9:;aslkdjfkja2"
 >>> All Pass
 --------------------------------
-Password: ?@alakjlkiie3
+Password: "?@alakjlkiie3"
 >>> All Pass
 --------------------------------
-Password: Z[\ekjmvkfd4
+Password: "Z[\ekjmvkfd4"
 >>> All Pass
 --------------------------------
-Password: @abieofinv2
+Password: "@abieofinv2"
 >>> All Pass
 --------------------------------
-Password: 89:8973589723dfasb
+Password: "89:8973589723dfasb"
 >>> All Pass
 --------------------------------
-Password: YZ[qoeirnvk235
+Password: "YZ[qoeirnvk235"
 >>> All Pass
 --------------------------------
 ```
