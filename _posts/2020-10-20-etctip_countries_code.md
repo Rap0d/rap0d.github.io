@@ -14,10 +14,6 @@ tags: etctip
 
 국가 영문 표기 및 국가 코드는 ISO-3166에 정의되어 있으며, 국제전화 나라 번호는 ITU-T 권고 E.164로 결정된다.
 
-### 출처
-> 국가 영문 표기 및 국가 코드: [ISO-3166](https://www.iso.org/iso-3166-country-codes.html)  
-> 국제전화 나라 번호: [Wikipedia](https://ko.wikipedia.org/wiki/국제전화_나라_번호)
-
 ## Table
 
 \* 일부 제외된 섬, 제도가 있음  
@@ -243,3 +239,7 @@ tags: etctip
 |필리핀|the Philippines|63|PH|PHL|
 |헝가리|Hungary|36|HU|HUN|
 |홍콩|Hong Kong|852|HK|HKG|
+
+### 출처
+> 국가 영문 표기 및 국가 코드: [ISO-3166](https://www.iso.org/iso-3166-country-codes.html)  
+> 국제전화 나라 번호: [Wikipedia](https://ko.wikipedia.org/wiki/국제전화_나라_번호)
