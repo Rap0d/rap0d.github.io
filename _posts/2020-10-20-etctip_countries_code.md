@@ -6,7 +6,7 @@ categories: tip
 tags: etctip
 ---
 
-![iso-logo](/assets/img/logo/iso-logo.png){:height="200"}
+![iso-logo](/assets/img/logo/iso-logo.jpg){:height="200"}
 
 ## Overview
 
