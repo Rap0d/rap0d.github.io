@@ -8,7 +8,7 @@ tags: java
 
 ![javalogo](/assets/img/logo/java-logo.png)
 
-## Overview 
+# Overview 
 
 프로그램을 만들다 보면 수없이 많은 에러가 난다.
 
@@ -20,7 +20,7 @@ tags: java
 
 ***
 
-## 예외는 언제 발생하는가?
+# 예외는 언제 발생하는가?
 
 에러를 처리하는 방법을 알기 전에 어떤 상황에서 에러가 나는지 본다.
 
@@ -84,7 +84,7 @@ Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 3
 
 ***
 
-## 예외처리하기
+# 예외처리하기
 
 유연한 프로그래밍을 위한 예외처리의 기법에 대해 살펴보자.
 
@@ -118,7 +118,7 @@ try {
 
 `ArithmeticException`이 발생하면 c에 -1을 대입하도록 예외처리한 것이다.
 
-### finally
+## finally
 
 프로그램 수행 도중 예외가 발생하면 프로그램이 중지되거나 예외처리를 했을 경우 *catch*구문이 실행된다.
 
@@ -182,7 +182,7 @@ public class Test {
 
 ***
 
-## 예외 발생시키기(throw, throws)
+# 예외 발생시키기(throw, throws)
 
 이번에는 예외를 작성해보고 어떻게 활용할 수 있는가에 대해서 알아보자.
 
@@ -205,7 +205,7 @@ public class Test {
 
 `sayNick` 메소드는 `fool`이라는 문자열이 입력되면 *return*으로 메소드를 종료하여 별명이 출력되지 못하도록 하고 있다.
 
-### RuntimeException
+## RuntimeException
 
 단순히 별명을 출력하지 못하도록 하는 것이 아니라 적극적으로 예외를 발생시켜 보도록 하자.
 
@@ -258,7 +258,7 @@ Exception in thread "main" FoolException
 
 다른 말로 *Exception*을 ***Checked Exception***, *RuntimeException*을 ***Unchecked Exception***이라고도 한다.
 
-### Exception
+## Exception
 
 그렇다면 `FoolException`을 다음과 같이 변경해보자.
 
@@ -298,7 +298,7 @@ public class Test {
 
 `sayNick` 메소드에서 *try... catch* 문으로 `FoolException`을 처리했다.
 
-### 예외 던지기(throws)
+## 예외 던지기(throws)
 
 위 예제를 보면 `sayNick`이라는 메소드에서 `FoolException`을 발생시키고 예외처리도 `sayNick`이라는 메소드에서 했다.
 
@@ -371,7 +371,7 @@ try {
 
 ***
 
-## 트랜잭션 (Transaction)
+# 트랜잭션 (Transaction)
 
 **트랜잭션**과 **예외처리**는 매우 밀접한 관련이 있다.
 
@@ -491,6 +491,6 @@ try {
 
 ***
 
-### 출처
+## 출처
 
 - [점프 투 자바-예외처리](https://wikidocs.net/229)

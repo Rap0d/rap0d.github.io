@@ -8,15 +8,15 @@ tags: java
 
 ![javalogo](/assets/img/logo/java-logo.png)
 
-## Overview
+# Overview
 
 Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절차 지향 언어**(Structured Procedural Programming Language)의 단점을 보완하고 다음의 목적을 달성하기 위해 탄생했다.
 
 ***
 
-## 객체 지향 언어의 목적
+# 객체 지향 언어의 목적
 
-### 1. 소프트웨어의 생산성 향상
+## 1. 소프트웨어의 생산성 향상
 
 객체 지향 언어가 나온 배경은 컴퓨터 산업이 발전함에 따라 소프트웨어의 **생명 주기**(Life cycle)가 짧아졌는데, 이는 어떤 제품이 기획되면 짧은 시간안에 소프트웨어를 만들어야 했기 때문이다.
 
@@ -24,7 +24,7 @@ Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절�
 
 이는 곧 소프트웨어의 생산성을 향상시킬 수 있게 된다.
 
-### 2. 실세계에 대한 쉬운 모델링
+## 2. 실세계에 대한 쉬운 모델링
 
 과거 절차 지향 언어를 사용한 소프트웨어는 수학 계산이나 통계처리를 하는 등 대체로 처리 과정이나 계산의 절차가 중요했다.
 
@@ -34,11 +34,11 @@ Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절�
 
 ***
 
-## 객체 지향 언어의 특성
+# 객체 지향 언어의 특성
 
 프로그래밍 언어에서 객체가 다음과 같은 특성을 가질 때 객체 지향적이라고 한다.
 
-### 1. 캡슐화(Encapsulation)
+## 1. 캡슐화(Encapsulation)
 
 캡슐화란 객체를 캡슐로 싸서 그 내부를 보호하고 볼 수 없게하는 것을 말한다.
 
@@ -54,7 +54,7 @@ Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절�
 
 ![객체](/assets/img/study/java/190824_fig_1.png)
 
-### 2. 상속(Ingeritance)
+## 2. 상속(Ingeritance)
 
 **상속**은 상위 개체의 속성이 하위 개체에 물려져, 하위 개체가 상위 개체의 속성을 모두 가지고 있음을 의미하는 관계이다.
 
@@ -66,7 +66,7 @@ Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절�
 
 즉 상속은 **코드의 재사용**을 가능하게 한다.
 
-### 3. 다형성(Polymorphism)
+## 3. 다형성(Polymorphism)
 
 **다형성**은 같은 이름의 함수 호출에 대해 객체에 따라 다른 동작을 할 수 있도록 구현되는 것을 의미한다.
 
@@ -74,7 +74,7 @@ Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절�
 
 ***
 
-## Java 문법
+# Java 문법
 
 - [클래스와 객체](/study/2019/07/07/java_3_%EA%B0%9D%EC%B2%B4%EC%99%80_%ED%81%B4%EB%9E%98%EC%8A%A4/)
 
@@ -106,5 +106,5 @@ Java는 **객체 지향 언어**(Object Oriented Language)로써, 기존 **절�
 
 ***
 
-### 참고문서
+## 참고문서
 - 

@@ -8,13 +8,13 @@ tags: mactip
 
 ![mariadb-logo](/assets/img/logo/mariadb-logo.png)
 
-## Overview
+# Overview
 
 macOS에서 Brew로 mariadb 설치하는 과정을 담은 포스트
 
 ***
 
-## 사용된 환경
+# 사용된 환경
 
 > OS : macOS Catalina 10.15.4(19E287)
 > zsh : zsh 5.7.1 (x86_64-apple-darwin19.0)  
@@ -22,7 +22,7 @@ macOS에서 Brew로 mariadb 설치하는 과정을 담은 포스트
 
 ***
 
-## Install
+# Install
 
 사용하는 mac에 brew가 설치되어 있다고 가정한다.
 

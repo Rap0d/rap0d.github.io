@@ -8,13 +8,13 @@ tags: mactip
 
 ![zsh-logo](/assets/img/logo/zsh-logo.png)
 
-## Overview
+# Overview
 
 macOS의 zsh 터미널에서 alias를 등록하는 과정을 담은 포스트
 
 ***
 
-## 사용된 환경
+# 사용된 환경
 
 > OS : macOS Catalina 10.15(19B88)  
 > zsh : zsh 5.7.1 (x86_64-apple-darwin19.0)  
@@ -22,7 +22,7 @@ macOS의 zsh 터미널에서 alias를 등록하는 과정을 담은 포스트
 
 ***
 
-## alias
+# alias
 
 긴 명령어를 줄임말로 간편하게 사용할 수 있도록 하는 일종의 매크로이다.
 
@@ -30,7 +30,7 @@ macOS의 zsh 터미널에서 alias를 등록하는 과정을 담은 포스트
 
 ***
 
-## 사용
+# 사용
 
 1. mac 터미널 기본 경로에서 다음 명령어를 사용하여 vi 에디터를 통해 `.zshrc` 파일을 생성(혹은 진입)한다.
 

@@ -8,7 +8,7 @@ tags: rprogramming
 
 ![r](/assets/img/logo/r-logo.png)
 
-## Overview
+# Overview
 
 R의 plyr 패키지 실습을 해본다.
 
@@ -16,7 +16,7 @@ R의 plyr 패키지 실습을 해본다.
 
 *** 
 
-## plyr 패키지 실습
+# plyr 패키지 실습
 
 ```R
 # install.packages('dplyr')
@@ -93,7 +93,7 @@ p3 <- data.frame(qty = tyn, price = tyx)
 p3
 ```
 
-### 실행 결과
+## 실행 결과
 
 ```R
 > # plyr 패키지와 'progbook.csv' 파일을 이용하여 다음 물음에 답하세요.

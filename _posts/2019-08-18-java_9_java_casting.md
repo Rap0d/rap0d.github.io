@@ -8,13 +8,13 @@ tags: java
 
 ![javalogo](/assets/img/logo/java-logo.png)
 
-## Overview
+# Overview
 
 **Casting**(형변환)은 **OOP**(객체지향프로그래밍)에서 중요한 개념이다. 이 포스트에서는 Java를 통해 설명한다.
 
 ***
 
-### Casting
+# Casting
 
 캐스팅은 데이터를 바꾸는 것이 주목적이 아닌,
 
@@ -74,5 +74,5 @@ double b = 1;
 
 ***
 
-### 참고 문서
+# 참고 문서
 - [Casting](https://mommoo.tistory.com/40)

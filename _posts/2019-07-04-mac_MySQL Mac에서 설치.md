@@ -8,17 +8,17 @@ tags: mactip
 
 ![mysql](/assets/img/logo/mysql_logo.png "MySql")
 
-## Overview
+# Overview
 
 macOS에서 MySQL을 사용하기 위한 일련의 절차를 설명하는 문서
 
-## 사용된 환경
+# 사용된 환경
 
 > OS : macOS Mojave 10.14.5(18F132)  
 > MySQL Version : 8.0.16 for osx10.14 on x86_64 (Homebrew)  
 > 기준 일자 : 2019-5-14  
 
-## 설치
+# 설치
 
 1. brew로 mysql을 설치
 
@@ -96,14 +96,14 @@ No - 적용시키지 않는다.
 
 8. mysql -uroot -p 명령어를 이용하여 비밀번호를 입력 후 로그인
 
-## MySQL 삭제
+# MySQL 삭제
 
 1. sudo rm -rf /usr/local/var/mysql 후 mac 비밀번호 입력
 2. sudo rm -rf /usr/local/bin/mysql*
 3. sudo rm -rf /usr/local/Cellar/mysql
 4. 재부팅
 
-## MySQL 명령어
+# MySQL 명령어
 
 1. MySQL 서버 시작 : mysql.server start
 2. MySQL DB 로그인 : mysql -uroot -p

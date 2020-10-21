@@ -8,13 +8,13 @@ tags: java
 
 ![javalogo](/assets/img/logo/java-logo.png)
 
-## Overview 
+# Overview 
 
 [제네릭 컬렉션](/study/2019/08/29/java_21_collection/)의 LinkedList&lt;E&gt;와 Collections클래스에 대해서 알아본다.
 
 ***
 
-## LinkedList&lt;E&gt;
+# LinkedList&lt;E&gt;
 
 **LinkedList&lt;E&gt;**는 컬렉션 인터페이스인 List 인터페이스를 구현한 클래스로서 경로명이 `java.util.LinkedList`이다.
 
@@ -28,7 +28,7 @@ LinkedList는 맨 앞과 맨 뒤를 가리키는 **head, tail** 레퍼런스를 
 
 ***
 
-## Collections 클래스 활용
+# Collections 클래스 활용
 
 `java.util` 패키지에 포함된 Collection 클래스는 컬렉션을 다루기 위한 다음과 같은 유용한 유틸리티 메소드를 지원한다.
 
@@ -83,7 +83,7 @@ public class CollectionsEx {
 }
 ```
 
-#### 검색 결과
+## 검색 결과
 
 ```
 매트릭스->스타워즈->아바타->터미네이터->트랜스포머
@@ -91,7 +91,7 @@ public class CollectionsEx {
 아바타는 3번째 요소입니다.
 ```
 
-### 주의
+## 주의
 
 Collections 클래스는 `java.lang.Comparable`을 상속받는 *element*에 대해서만 작동한다.
 

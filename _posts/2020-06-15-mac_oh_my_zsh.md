@@ -8,13 +8,13 @@ tags: mactip
 
 ![zsh-logo](/assets/img/logo/zsh-logo.png){:height="200"}
 
-## Overview
+# Overview
 
 MacOS Catalina의 기본 Terminal인 ZSH에 Theme과 Plugin을 사용하기 위해 Oh My Zsh를 설치하는 방법을 알아본다.
 
 ***
 
-## 사용된 환경
+# 사용된 환경
 
 > OS : macOS Catalina 10.15.5(19F101)  
 > zsh : zsh 5.7.1 (x86_64-apple-darwin19.0)  
@@ -22,9 +22,9 @@ MacOS Catalina의 기본 Terminal인 ZSH에 Theme과 Plugin을 사용하기 위�
 
 ***
 
-## 설치
+# 설치
 
-### iTerm2 설치
+## iTerm2 설치
 
 ![iterm-img](/assets/img/tip/mactip/zsh/iterm.png){: width="200"}
 
@@ -46,7 +46,7 @@ iTerm2에서 `Preferences - Profile - Colors`의 좌하단에 *Color Presets...*
 
 import 받은 Scheme은 다시 *Color Presets...*를 눌러 적용한다.
 
-### Oh My Zsh 설치
+## Oh My Zsh 설치
 ZSH를 더 쉽게 사용할 수 있게 도와주는 플러그인인 *Oh My Zsh*를 설치한다.
 
 ```zsh
@@ -55,7 +55,7 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 위의 명령어를 터미널에서 실행하여 *Oh My Zsh*를 설치한다.
 
-### *Agnoster* Theme 설정
+## *Agnoster* Theme 설정
 
 ![agnoster](/assets/img/tip/mactip/zsh/agnoster.png)
 
@@ -81,7 +81,7 @@ prompt_context() {
 
 > 만약 폰트가 깨진다면 `D2Coding` 폰트를 iTerm2에 적용한다.
 
-### New Line 적용
+## New Line 적용
 
 명령어를 칠 때 화면에서 벗어나는 경우를 고치기 위해 *New Line* 옵션을 적용해준다.
 
@@ -117,7 +117,7 @@ prompt_newline() {
 }
 {% endraw %}
 
-### *Syntax Highlight* 적용
+## *Syntax Highlight* 적용
 
 사용할 수 있는 명령어는 초록색으로 Highlighting 해주고, 잘못된 명령어는 빨간색으로 표시된다.
 

@@ -8,13 +8,13 @@ tags: java
 
 ![javalogo](/assets/img/logo/java-logo.png)
 
-## Overview 
+# Overview 
 
 [제네릭 컬렉션](/study/2019/08/29/java_21_collection/)의 HashMap&lt;K, V&gt;에 대해서 알아본다.
 
 ***
 
-## HashMap&lt;K, V&gt;
+# HashMap&lt;K, V&gt;
 
 **HashMap&lt;K, V&gt;** 컬렉션은 경로명이 `java.util.HashMap`이며, **'키(key)'**와 **'값(value)'**의 쌍으로 구성되는 요소를 다룬다.
 
@@ -56,7 +56,7 @@ HashMap 컬렉션의 주요 메소드는 다음과 같다.
 | V remove(Object key) | 지정된 키(key)와 이에 매핑된 값을 HashMap에서 삭제 |
 | int size() | HashMap에 포함된 요소의 개수 리턴 |
 
-### HashMap 생성
+## HashMap 생성
 
 해시맵은 HashMap&lt;K, V&gt;에서 타입 매개 변수 K와 V에 구체적인 타입을 지정하여 생성한다.
 
@@ -70,7 +70,7 @@ HashMap<String, String> h = new HashMap<String, String>();
 
 생성자에 해시맵의 초기 크기를 지정할 수도 있지만, HashMap 역시 자동으로 크기를 조절하므로 크기에 신경 쓰지 않아도 된다.
 
-### HashMap에 요소 삽입
+## HashMap에 요소 삽입
 
 요소를 삽입할 때는 `put()` 메소드에 '키'와 '값'을 인자로 전달한다.
 
@@ -93,7 +93,7 @@ String kor2 = h.get("apple");   // kor2 = "사과"
 String kor3 = h.get("babo");    // kor3 = null
 ```
 
-### '키'로 요소 삭제
+## '키'로 요소 삭제
 
 '키'를 이용하여 요소('값' 포함)를 삭제할 때 다음과 같이 `remove()` 메소드를 이용한다.
 
@@ -101,7 +101,7 @@ String kor3 = h.get("babo");    // kor3 = null
 h.remove("apple");  // put("apple, "사과")로 삽입한 요소를 삭제함
 ```
 
-### 요소 개수 알아내기
+## 요소 개수 알아내기
 
 요소의 개수는 다음과 같이 `size()` 메소드를 호출하면 된다.
 
@@ -109,7 +109,7 @@ h.remove("apple");  // put("apple, "사과")로 삽입한 요소를 삭제함
 int n = h.size();   // 현재 h 내에 있는 요소의 개수 리턴
 ```
 
-### HashMap을 이용하여 영어 단어와 한글 단어를 쌍으로 저장하고 검색하는 사례
+## HashMap을 이용하여 영어 단어와 한글 단어를 쌍으로 저장하고 검색하는 사례
 
 영어 단어와 한글 단어를 쌍으로 HashMap에 저장하고 영어 단어로 한글 단어를 검색하는 프로그램
 
@@ -145,7 +145,7 @@ public class HashMapDicEx {
 }
 ```
 
-#### 실행 결과
+## 실행 결과
 
 ```
 (love, 사랑)
@@ -159,7 +159,7 @@ public class HashMapDicEx {
 아기
 ```
 
-### HashMap을 이용하여 자바 과목의 점수를 기록, 관리하는 코드
+## HashMap을 이용하여 자바 과목의 점수를 기록, 관리하는 코드
 
 HashMap을 이용하여 학생의 이름과 자바 점수를 기록, 관리 해보자.
 
@@ -191,7 +191,7 @@ public class HashMapScoreEx {
 }
 ```
 
-#### 실행 결과
+## 실행 결과
 ```
 HashMap의 요소 개수 : 5
 정원석 : 70
@@ -201,7 +201,7 @@ HashMap의 요소 개수 : 5
 황기태 : 34 // 출력된 결과는 삽입된 순서와 다르다!!
 ```
 
-### HashMap을 이용한 학생 정보 저장
+## HashMap을 이용한 학생 정보 저장
 
 `id`와 전화번호로 구성되는 `Student` 클래스를 만들고, 이름을 '키'로 하고 `Student` 객체를 '값'으로 하는 해시맵을 작성
 
@@ -240,7 +240,7 @@ public class HashMapStudentEx {
 }
 ```
 
-#### 실행 결과
+## 실행 결과
 
 ```
 HashMap의 요소 개수 : 3

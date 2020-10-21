@@ -8,13 +8,13 @@ tags: mactip
 
 ![hadoop](/assets/img/logo/hadoop-logo.png "hadoop")
 
-## Overview
+# Overview
 
 macOS에서 Hadoop(하둡)을 설치하기 위한 절차를 설명하는 문서
 
 ***
 
-## 사용된 환경
+# 사용된 환경
 
 > OS : macOS Mojave 10.14.6(18G103)  
 > Hadoop : 3.2.1  
@@ -22,7 +22,7 @@ macOS에서 Hadoop(하둡)을 설치하기 위한 절차를 설명하는 문서
 
 ***
 
-## 설치
+# 설치
 
 macOS에서는 ***brew***를 이용하여 쉽게 설치할 수 있다.
 
@@ -42,7 +42,7 @@ brew install hadoop
 
 ***
 
-## 하둡 설정
+# 하둡 설정
 
 하둡 설정을 위해 관련된 파일을 수정해줘야 한다.
 
@@ -107,7 +107,7 @@ brew install hadoop
 
 ***
 
-## 하둡 실행
+# 하둡 실행
 
 하둡을 실행하기 전에 하둡 파일 시스템(HDFS)으로 포맷을 해야한다.
 
@@ -143,7 +143,7 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
 ![hadoopfix01](/assets/img/tip/mactip/hadoop/hadoop-fig01.png "hadoopfix01")
 
-### 실행 및 종료 명령어
+## 실행 및 종료 명령어
 
 하둡을 실행하고 종료하는 명령어는 다음과 같다.
 
@@ -158,7 +158,7 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
 ![hadoopfix02](/assets/img/tip/mactip/hadoop/hadoop-fig02.png "hadoopfix02")
 
-### 하둡 확인
+## 하둡 확인
 
 *localhost*로 하둡을 띄운것이기 때문에 *localhost*로 접속해서 하둡의 상태를 체크할 수 있다.
 
@@ -171,6 +171,6 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
 ***
 
-## 참고 문서
+# 참고 문서
 
 - [맥(mac)에서 하둡(hadoop) 설치하기](https://tariat.tistory.com/492)

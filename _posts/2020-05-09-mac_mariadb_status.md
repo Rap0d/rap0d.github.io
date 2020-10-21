@@ -8,13 +8,13 @@ tags: mactip
 
 ![mariadb-logo](/assets/img/logo/mariadb-logo.png)
 
-## Overview
+# Overview
 
 macOS에서 mariadb가 꺼지지 않는 현상을 해결하는 과정을 담은 포스트
 
 ***
 
-## 사용된 환경
+# 사용된 환경
 
 > OS : macOS Catalina 10.15.4(19E287)
 > zsh : zsh 5.7.1 (x86_64-apple-darwin19.0)  
@@ -22,7 +22,7 @@ macOS에서 mariadb가 꺼지지 않는 현상을 해결하는 과정을 담은 
 
 ***
 
-## ISSUE
+# ISSUE
 
 mariadb를 macOS환경에서 [brew로 설치](/tip/2020/05/09/mac_mariadb/)했다고 가정한다.
 
@@ -40,7 +40,7 @@ mysql.server stop
 
 ***
 
-## 해결
+# 해결
 
 1. 우선 Terminal에서 mariadb 프로세스를 완전히 끈다.
 
@@ -65,7 +65,7 @@ brew services list
 
 ***
 
-## brew에서 mariadb 제어하기
+# brew에서 mariadb 제어하기
 
 하지만 자주 mariadb를 켜고 끄는 상황이라면 brew에서 mariadb를 사용하면 편하다.
 

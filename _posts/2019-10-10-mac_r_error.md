@@ -8,13 +8,13 @@ tags: mactip
 
 ![r](/assets/img/logo/r-logo.png)
 
-## Overview
+# Overview
 
 macOS환경의 R에서 rJava가 정상적으로 로드되지 않는 문제를 해결하는 문서
 
 ***
 
-## 사용된 환경
+# 사용된 환경
 
 > OS : macOS Catalina 10.15(19A583)  
 > R : 3.6.1  
@@ -24,7 +24,7 @@ macOS환경의 R에서 rJava가 정상적으로 로드되지 않는 문제를 �
 
 ***
 
-## 이슈
+# 이슈
 
 R에서 rJava를 설치하고 로드 하는 과정에서 다음과 같은 에러가 발생
 
@@ -40,7 +40,7 @@ Error: package or namespace load failed for ‘rJava’:
 
 ***
 
-## 해결
+# 해결
 
 우선 [MAC OS :: tm 및 KoNLP 로딩오류 문제](https://rstudio-pubs-static.s3.amazonaws.com/390520_0e53f55571474119b82a059e9dc1403d.html)의 문서를 따라 해결 한다.
 
@@ -65,7 +65,7 @@ Error: package or namespace load failed for ‘rJava’:
 
 ***
 
-## 참고 문서
+# 참고 문서
 
 - [R에서 rJava 에러날 때](https://puture.tistory.com/393)
 - [MAC OS :: tm 및 KoNLP 로딩오류 문제](https://rstudio-pubs-static.s3.amazonaws.com/390520_0e53f55571474119b82a059e9dc1403d.html)

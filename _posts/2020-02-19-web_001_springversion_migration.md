@@ -8,7 +8,7 @@ tags: web
 
 ![Spring](/assets/img/logo/spring-logo.png)
 
-## Overview
+# Overview
 
 STS에서 Spring MVC Project를 생성하면 기본 Spring Framework 버전은 3.1.1이다.
 
@@ -16,9 +16,9 @@ STS에서 Spring MVC Project를 생성하면 기본 Spring Framework 버전은 3
 
 ***
 
-## Environment
+# Environment
 
-### 기본 환경
+## 기본 환경
 
 > Spring Framework : 3.1.1  
 > java version : 1.6  
@@ -27,7 +27,7 @@ STS에서 Spring MVC Project를 생성하면 기본 Spring Framework 버전은 3
 > Maven compiler source 1.6  
 > Maven compiler target 1.6  
 
-### 변경 될 환경
+## 변경 될 환경
 
 > Spring Framework : 4.3.26  
 > java version : 1.8  
@@ -40,7 +40,7 @@ STS에서 Spring MVC Project를 생성하면 기본 Spring Framework 버전은 3
 
 ***
 
-## 설정 변경
+# 설정 변경
 
 `pom.xml`에서 다음 과정을 통해 버전을 수정한다.
 
@@ -116,6 +116,6 @@ STS에서 Spring MVC Project를 생성하면 기본 Spring Framework 버전은 3
 
 ***
 
-## 참고 자료
+# 참고 자료
 
 - [https://offbyone.tistory.com/16](https://offbyone.tistory.com/16)

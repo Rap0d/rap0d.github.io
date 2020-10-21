@@ -8,13 +8,13 @@ tags: mactip
 
 ![r](/assets/img/logo/r-logo.png)
 
-## Overview
+# Overview
 
 macOS환경의 R에서 plots을 사용할 때 한글 폰트가 깨지는 문제를 해결하는 문서
 
 ***
 
-## 사용된 환경
+# 사용된 환경
 
 > OS : macOS Catalina 10.15(19A583)  
 > R : 3.6.1  
@@ -23,7 +23,7 @@ macOS환경의 R에서 plots을 사용할 때 한글 폰트가 깨지는 문제�
 
 ***
 
-## 이슈
+# 이슈
 
 R Studio에서 plots을 사용하려 할 때, 한글 폰트가 네모칸으로 깨지는 문제
 
@@ -31,7 +31,7 @@ R Studio에서 plots을 사용하려 할 때, 한글 폰트가 네모칸으로 �
 
 ***
 
-## 해결
+# 해결
 
 plot의 옵션을 주는 `par`함수의 옵션인 `family`를 사용하여 한글 폰트를 지정해준다.
 

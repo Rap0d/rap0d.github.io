@@ -8,13 +8,13 @@ tags: rprogramming
 
 ![r](/assets/img/logo/r-logo.png)
 
-## Overview
+# Overview
 
 **요인 분석**이란 다수의 변수들을 대상으로 변수들 간의 관계를 분석하여 공통 차원으로 축약하는 통계 기법이며, 데이터를 축소하는 변수의 정제 과정이다.
 
 ***
 
-## 요인 분석 예시
+# 요인 분석 예시
 
 5명의 고객에 대한 'fast-food' 점포의 평가 내용을 살펴보자.
 
@@ -28,7 +28,7 @@ tags: rprogramming
 
 ***
 
-## 요인 분석의 전제 조건
+# 요인 분석의 전제 조건
 
 > 하위 요인으로 구성되는 데이터 셋이 준비되어 있어야 한다.  
 > 분석에 사용되는 척도는 **등간 척도**나 **비율 척도*8이어야 한다.  
@@ -37,7 +37,7 @@ tags: rprogramming
 
 ***
 
-## 요인 분석의 목적
+# 요인 분석의 목적
 
 | 항목 | 설명 |
 |:--------:|:--------|
@@ -48,7 +48,7 @@ tags: rprogramming
 
 ***
 
-## 요인 분석의 종류
+# 요인 분석의 종류
 
 | 항목 | 설명 |
 |:--------:|:--------|
@@ -59,7 +59,7 @@ tags: rprogramming
 
 ***
 
-## 주요 용어
+# 주요 용어
 
 | 항목 | 설명 |
 |:--------:|:--------|
@@ -75,18 +75,18 @@ tags: rprogramming
 
 ***
 
-## 요인 수를 결정하는 방법
+# 요인 수를 결정하는 방법
 
 - 주성분 분석 방법
 - 상관 계수 행렬을 이용한 초기 고유 값을 이용하는 방법
 
-### 고유값(eigen value)의 사용
+## 고유값(eigen value)의 사용
 
 > 선형 연립 방정식  
 > 특이값 분해  
 > 주성분 분석
 
-### prcomp 함수
+## prcomp 함수
 
 주성분 분석이란 **변동량(분산)**에 영향을 주는 주요 성분을 분석하는 방법
 
@@ -97,7 +97,7 @@ tags: rprogramming
 - 사용 형식 : `pc <- prcomp(data)`
 - data : 주성분 분석을 수행할 데이터 프레임
 
-### factanal 함수
+## factanal 함수
 
 **요인 분석(factor analysis) 함수**의 줄인말로, 요인 분석에서 해석이 어려운 어느 한 요인을 높게 나타나도록 하기 위하여 요인 축을 회전하는 방법
 일반적으로, *varimax* 회전법을 많이 사용
@@ -113,7 +113,7 @@ tags: rprogramming
 | scores | 요인 점수를 계산하는 방법<br>`c('none', 'regression', 'Bartlett')`<br>예) regression(회귀 분석으로 요인 점수를 계산하는 방식) |
 | na.action | 결측치에 대한 처리 |
 
-### factanal 출력 결과 예시
+## factanal 출력 결과 예시
 
 ```R
 result <- factanal(subject, factors=3, rotation='varimax', scores='regression') result

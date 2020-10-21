@@ -8,7 +8,7 @@ tags: java
 
 ![javalogo](/assets/img/logo/java-logo.png)
 
-## Overview
+# Overview
 
 앞 포스팅에서 [형변환](/study/2019/08/18/java_9_java_casting/)과 [업캐스팅](/study/2019/08/19/java_10_java_upcasting/)에 대해 다루었다.
 
@@ -16,7 +16,7 @@ tags: java
 
 ***
 
-### DownCasting
+# DownCasting
 
 이전 업캐스팅 내용을 복습하자면 자바에서는 관련있는 데이터끼리 형변환이 가능했었다.
 
@@ -101,5 +101,5 @@ parent 변수 상태는 Parent 클래스형 상태지만 다운캐스팅을 해�
 
 ***
 
-### 참고 문서
+# 참고 문서
 - [DownCasting](https://mommoo.tistory.com/51)

@@ -8,7 +8,7 @@ tags: java
 
 ![javalogo](/assets/img/logo/java-logo.png)
 
-## Overview
+# Overview
 
 [이전 포스팅](/study/2019/08/18/java_9_java_casting/)에서 **Casting**(형변환)에 대해 다루었다.
 
@@ -21,7 +21,7 @@ tags: java
 
 ***
 
-### UpCasting
+# UpCasting
 
 기본적으로 캐스팅은 서로 관련 없는 데이터끼리는 변환되지 않는다.
 
@@ -102,5 +102,5 @@ Parent에 Child 데이터를 넣으므로 화살표 방향이 위로 향하게 �
 
 ***
 
-### 참고 문서
+# 참고 문서
 - [UpCasting](https://mommoo.tistory.com/41)

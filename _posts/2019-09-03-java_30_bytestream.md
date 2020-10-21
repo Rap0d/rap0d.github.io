@@ -8,13 +8,13 @@ tags: java
 
 ![javalogo](/assets/img/logo/java-logo.png)
 
-## Overview 
+# Overview 
 
 자바에서의 **바이트 스트림**과 **파일 입출력**에 대해서 알아본다.
 
 ***
 
-## 바이트 스트림 클래스
+# 바이트 스트림 클래스
 
 **바이트 스트림**은 8비트의 바이트 단위로 바이너리 데이터가 흐르는 스트림이다.
 
@@ -22,15 +22,15 @@ tags: java
 
 다음은 대표적인 바이트 입출력 스트림 클래스이다.
 
-### InputStream/OutputStream
+## InputStream/OutputStream
 
 추상 클래스이며, 바이트 입출력 처리를 위한 공통 기능을 가진 슈퍼 클래스이다.
 
-### FileInputStream/FileOutputStream
+## FileInputStream/FileOutputStream
 
 파일 입출력을 위한 클래스로서, 파일로부터 바이너리 데이터를 읽거나 파일에 바이너리 데이터를 저장할 수 있다.
 
-### DataInputStream/DataOutputStream
+## DataInputStream/DataOutputStream
 
 이 스트림을 이용하면 *boolean, char, byte, short, int, long, float, double* 타입의 값을 바이너리 형태로 입출력한다.
 
@@ -38,7 +38,7 @@ tags: java
 
 ***
 
-## FileInputStream을 이용한 파일 읽기
+# FileInputStream을 이용한 파일 읽기
 
 바이트 스트림 입력을 위해서 *InputStream* 클래스를 사용할 수 없다.
 
@@ -63,7 +63,7 @@ tags: java
 
 *FileInputStream* 클래스를 사용하여 파일을 읽는 간단한 예를 들어보자.
 
-### FileInputStream 바이트 스트림 생성
+## FileInputStream 바이트 스트림 생성
 
 *FileInputStream* 클래스는 파일에 연결한 바이트 스트림을 생성한다.
 
@@ -77,7 +77,7 @@ FileInputStream fin = new FileInputStream("C:\test.txt");
 
 그리고 나면 위 메소드 표에 보이는 `fin` 객체의 메소드를 호출하여 파일을 읽을 수 있다.
 
-### 파일 읽기
+## 파일 읽기
 
 이제 `fin` 스트림을 이용하여 파일을 읽어보자.
 
@@ -97,7 +97,7 @@ while ((c = fin.read()) != -1) {
 
 ***파일의 끝(EOF)*** 을 만나면 `fin.read()` 메소드는 -1을 리턴한다.
 
-### 스트림 닫기
+## 스트림 닫기
 
 더 이상 스트림이 필요없을 때 생성된 스트림을 닫아야 한다.
 
@@ -109,7 +109,7 @@ fin.close();    // 스트림을 닫는다. 더 이상 스트림으로부터 읽�
 
 스트림을 닫으면 연결된 파일도 함께 닫힌다.
 
-### 파일을 읽어 화면에 출력하는 사례
+## 파일을 읽어 화면에 출력하는 사례
 
 *FileInputStream*을 이용하여 사용자 컴퓨터의 파일을 읽고 화면에 출력하는 코드
 
@@ -136,7 +136,7 @@ public class FileInputStreamEx {
 }
 ```
 
-#### 실행 결과
+## 실행 결과
 
 ```
 File FileInputStream Test
@@ -148,7 +148,7 @@ SUCCESSED
 
 ***
 
-## FileOutputStream 클래스를 이용한 파일 쓰기
+# FileOutputStream 클래스를 이용한 파일 쓰기
 
 이제 출력 스트림을 생성하고 사용하는 방법을 설명해보자.
 
@@ -204,7 +204,7 @@ fout.close();
 
 ***
 
-## read() 메소드
+# read() 메소드
 
 개발자들은 아래 코드와 같이 파일이나 입력 스트림을 읽는 `read()` 메소드를 보면서 두 가지 의문을 가질 수 있다.
 

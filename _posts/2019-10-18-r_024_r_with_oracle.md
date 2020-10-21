@@ -8,17 +8,17 @@ tags: rprogramming
 
 ![r](/assets/img/logo/r-logo.png)
 
-## Overview
+# Overview
 
 R과 오라클 Database를 연동하여 데이터를 불러오는 방법을 알아본다.
 
 *** 
 
-## 오라클 데이터 베이스의 데이터를 R으로 가져오기
+# 오라클 데이터 베이스의 데이터를 R으로 가져오기
 
 오라클 데이터 베이스의 데이터를 R으로 가져오기 위해 `DBI`와 `RJDBC` 패키지를 사용하여 데이터를 가져올 수 있다.
 
-### 예제
+## 예제
 
 ```R
 # install.packages(c("DBI", "RJDBC"))
@@ -28,8 +28,8 @@ library(DBI)
 library(RJDBC)
 
 # R에서 DB 접근하기 위한 절차
-## 드라이버 객체 구하기
-## 접속 객체 구하기
+# 드라이버 객체 구하기
+# 접속 객체 구하기
 
 driver <- 'oracle.jdbc.driver.OracleDriver'
 jarpath <- '/Users/path_xxx/Documents/_2_WorkSpace/_0_util/ojdbc6.jar'
@@ -51,7 +51,7 @@ class( conn )
 # attr(,"package")
 # [1] "RJDBC"
 
-##############################
+###############
 
 # test query
 query = 'select power(2, 10) from dual'
@@ -63,10 +63,10 @@ result
 
 class( result ) # data.frame
 
-#####################################
+###################
 
 # dbGetQuery(접속객체, 쿼리)
-## return : data frame
+# return : data frame
 
 query <- 'select * from test_table'
 resultSet <- dbGetQuery(conn, query)

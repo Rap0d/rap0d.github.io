@@ -8,19 +8,19 @@ tags: etctip
 
 ![angular](/assets/img/logo/angular-logo.png "Angular")
 
-## Overview
+# Overview
 
 Angular2를 사용할 때 Eclipse IDE에서 환경변수가 잡히지 않는 경우가 간혹 있다.
 
 ***
 
-### 증상
+# 증상
 
 `~/.bash_profile`이 Eclipse 터미널에서 열리지 않는 현상
 
 ***
 
-### 해결방안
+# 해결방안
 
 Eclipse의 내부 터미널에 Augular2가 접근하지 못할때는 다음과 같이 해결한다.
 
@@ -32,7 +32,7 @@ Eclipse의 내부 터미널에 Augular2가 접근하지 못할때는 다음과 �
 
 ***
 
-#### 원문
+# 원문
 
 ```
 For those of you looking for an answer years later (Neon, Oxygen):

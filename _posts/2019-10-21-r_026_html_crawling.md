@@ -8,13 +8,13 @@ tags: rprogramming
 
 ![r](/assets/img/logo/r-logo.png)
 
-## Overview
+# Overview
 
 R에서 `rvest` 패키지를 이용한 HTML 크롤링을 하는 방법을 알아본다.
 
 ***
 
-## 예제 1
+# 예제 1
 
 ```R
 # install.packages("rvest")
@@ -27,13 +27,13 @@ library(stringr)
 url <- 'http://movie.daum.net/moviedb/grade?movieId=112942&type=netizen&page=1'
 
 # read_html 함수를 통해 html을 불러온다.
-## encoding UTF-8은 대소문자 구분하니 주의한다.
+# encoding UTF-8은 대소문자 구분하니 주의한다.
 html01 <- read_html(url, encoding = 'UTF-8')
 html01
 
 # id : '#', class : '.'
-## html_nodes : node는 tag를 의미, nodes이기 때문에 모두 가져오는 함수
-## review_info 클래스를 모두 가져오기
+# html_nodes : node는 tag를 의미, nodes이기 때문에 모두 가져오는 함수
+# review_info 클래스를 모두 가져오기
 div_lists <- html_nodes(html01, '.review_info')
 
 # 원소의 개수 구하기
@@ -60,7 +60,7 @@ comments
 
 ***
 
-## 예제 2
+# 예제 2
 
 ```R
 library(rvest)
@@ -74,7 +74,7 @@ last_page <- 10
 df <- data.frame()
 
 # all page load
-## data frame에 넣기
+# data frame에 넣기
 for (page in 1:last_page) {
   url <- paste(url_base, page, sep = '')
   # cat(url, '\n')
@@ -108,7 +108,7 @@ write.csv(df, 'daum2.csv', row.names = F, quote = F)
 
 ***
 
-## 예제 3
+# 예제 3
 
 ```R
 # 네이버 웹툰 페이지 파싱
@@ -165,7 +165,7 @@ write.csv(df, 'naver_webtoons.csv', row.names = F, quote = T)
 
 ***
 
-## 예제 4
+# 예제 4
 
 ```R
 library(rvest)

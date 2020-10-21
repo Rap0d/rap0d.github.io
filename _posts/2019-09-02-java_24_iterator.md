@@ -8,13 +8,13 @@ tags: java
 
 ![javalogo](/assets/img/logo/java-logo.png)
 
-## Overview 
+# Overview 
 
 [제네릭 컬렉션](/study/2019/08/29/java_21_collection/)의 Iterator&lt;E&gt;에 대해서 알아본다.
 
 ***
 
-## 컬렉션의 순차 검색을 위한 Iterator
+# 컬렉션의 순차 검색을 위한 Iterator
 
 Vector, ArrayList, LinkedList, Set과 같은 리스트 모양의 컬렉션에서 요소를 순차적으로 검색할 때는 `java.util` 패키지의 **Iterator&lt;E&gt;** 인터페이스를 사용하면 편리하다.
 
@@ -55,7 +55,7 @@ while (it.hasNext()) {  // it로 모든 요소를 방문할 때까지
 }
 ```
 
-### Iterator를 이용하여 Vector 속의 모든 요소를 출력하고 합 구하기
+## Iterator를 이용하여 Vector 속의 모든 요소를 출력하고 합 구하기
 
 Vector&lt;Integer&gt;로부터 Iterator를 얻어내고 이를 이용하여 벡터의 모든 정수를 출력하고 합을 구한다.
 
@@ -88,7 +88,7 @@ public class IteratorEx {
 }
 ```
 
-#### 실행 결과
+## 실행 결과
 
 ```
 5

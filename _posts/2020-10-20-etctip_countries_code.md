@@ -8,13 +8,13 @@ tags: etctip
 
 ![iso-logo](/assets/img/logo/iso-logo.jpg){:height="200"}
 
-## Overview
+# Overview
 
 국가의 한글 표기, 영문 표기, 국제전화 나라 번호와 국가 코드를 작성한 문서
 
 국가 영문 표기 및 국가 코드는 ISO-3166에 정의되어 있으며, 국제전화 나라 번호는 ITU-T 권고 E.164로 결정된다.
 
-## Table
+# Table
 
 \* 일부 제외된 섬, 제도가 있음  
 \* 국제전화 번호는 `-`와 `+` 표기를 하지 않았음  
@@ -240,6 +240,6 @@ tags: etctip
 |헝가리|Hungary|36|HU|HUN|
 |홍콩|Hong Kong|852|HK|HKG|
 
-## 출처
+# 출처
 > 국가 영문 표기 및 국가 코드: [ISO-3166](https://www.iso.org/iso-3166-country-codes.html)  
 > 국제전화 나라 번호: [Wikipedia](https://ko.wikipedia.org/wiki/국제전화_나라_번호)

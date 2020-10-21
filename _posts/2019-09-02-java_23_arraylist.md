@@ -8,13 +8,13 @@ tags: java
 
 ![javalogo](/assets/img/logo/java-logo.png)
 
-## Overview 
+# Overview 
 
 [제네릭 컬렉션](/study/2019/08/29/java_21_collection/)의 ArrayList&lt;E&gt;에 대해서 알아본다.
 
 ***
 
-## ArrayList&lt;E&gt;
+# ArrayList&lt;E&gt;
 
 **ArrayList&lt;E&gt;**(이하 ArrayList)는 가변 크기의 배열을 구현한 컬렉션 클래스로서 경로명은 `java.util.ArrayList`이며, Vector 클래스와 거의 동일하다.
 
@@ -44,7 +44,7 @@ ArrayList는 내부에 배열을 가지고 있으며 이 배열을 가변적 크
 | int size() | ArrayList가 포함하는 요소의 개수 리턴 |
 | Object[] toArray() | ArrayList의 모든 요소를 포함하는 배열 리턴 |
 
-### ArrayList의 생성
+## ArrayList의 생성
 
 문자열만 다루는 ArrayList를 생성해보자.
 
@@ -54,7 +54,7 @@ ArrayList<String> a = new ArrayList<String>();
 
 `a`는 문자열만 삽입하고 검색할 수 있는 ArrayList 객체이다. ArrayList는 스스로 용량을 조절하기 때문에 용량에 대해 신경 쓸 필요가 없다.
 
-### ArrayList에 요소 삽입
+## ArrayList에 요소 삽입
 
 현재 `a`에 삽입할 수 있는 요소는 String 타입의 문자열만 가능하다.
 
@@ -92,7 +92,7 @@ a.add(2, "Sahni");
 
 그러지 않으면 "Sahni"를 인덱스 2에 삽입하고 기존의 인덱스 2와 그 뒤에 있는 요소들을 모두 한 자리씩 뒤로 이동시킨다.
 
-### ArrayList 내의 요소 알아내기
+## ArrayList 내의 요소 알아내기
 
 `get()`, `elementAt()` 등의 메소드를 이용하면 ArrayList 내의 요소를 알아낼 수 있다.
 
@@ -104,7 +104,7 @@ String str = a.get(1);  // Hi를 리턴한다.
 
 여기서, `a`가 String만 다루기 때문에 `get()` 메소드의 리턴 타입은 자동으로 *String*이다.
 
-### ArrayList의 크기 알아내기
+## ArrayList의 크기 알아내기
 
 ArrayList의 크기란 현재 ArrayList에 들어 있는 요소의 개수를 말한다.
 
@@ -115,7 +115,7 @@ int len = a.size(); // ArrayList에 존재하는 요소의 개수
 ```
 
 
-### ArrayList에서 요소 삭제
+## ArrayList에서 요소 삭제
 
 `remove()` 메소드를 이용하면 ArrayList 내에 임의의 인덱스에 있는 요소를 삭제할 수 있다.
 
@@ -142,7 +142,7 @@ ArrayList에 있는 모든 요소를 삭제하려면 다음과 같이 `clear()` 
 a.clear();
 ```
 
-### 키보드로부터 문자열 입력받아 ArrayList에 넣기
+## 키보드로부터 문자열 입력받아 ArrayList에 넣기
 
 키보드로 문자열을 입력받아 ArrayList에 삽입하고 가장 긴 이름을 출력하는 코드
 
@@ -177,7 +177,7 @@ public class ArrayListEx {
 }
 ```
 
-#### 실행 결과
+## 실행 결과
 
 ```
 이름을 입력하세요>>Mike

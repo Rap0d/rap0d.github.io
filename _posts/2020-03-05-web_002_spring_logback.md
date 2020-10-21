@@ -8,13 +8,13 @@ tags: web
 
 ![Spring](/assets/img/logo/spring-logo.png)
 
-## Overview
+# Overview
 
 `Logging`은 오류 확인 및 처리를 위한 용도로 사용된다.
 
 리소스를 많이 사용하여 성능에 영향을 줄 수 있는 `System.out.println()`대신에 `Logging`을 사용하면 에러 및 장애가 발생했을 때 확인할 수 있는 최소한의 정보(날씨, 시간, 로그 타입 등)를 제공받을 수 있으므로 `System.out.println()` 대신 `Logging`을 사용하는 습관을 가지는게 좋다.
 
-## 사용 방법
+# 사용 방법
 
 - `pom.xml`의 dependency 수정
   - 프로젝트 생성 시 추가되는 Exclude Commons Logging in favor of SLF4j, Logging과 관련된 라이브러리 삭제
@@ -112,7 +112,7 @@ tags: web
 
 ***
 
-## 사용
+# 사용
 
 ```java
 import org.slf4j.Logger;
@@ -124,6 +124,6 @@ protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 ***
 
-## 참고 자료
+# 참고 자료
 
 - [https://tychejin.tistory.com/21?category=765216](https://tychejin.tistory.com/21?category=765216)

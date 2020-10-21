@@ -8,7 +8,7 @@ tags: rprogramming
 
 ![r](/assets/img/logo/r-logo.png)
 
-## Overview
+# Overview
 
 **다중 공선성**(Multicollinearity) 문제는 독립 변수간의 강한 상관 관계로 인해 [회귀 분석](https://rap0d.github.io/study/2019/11/06/r_035_regression01/)의 결과를 신뢰할 수 없는 현상을 의미한다.
 
@@ -18,7 +18,7 @@ tags: rprogramming
 
 ***
 
-## 다중 공선성 문제 해결
+# 다중 공선성 문제 해결
 
 ```R
 model <- lm(formula=Sepal.Length ~ Sepal.Width + Petal.Length + Petal.Width , data=training) model
